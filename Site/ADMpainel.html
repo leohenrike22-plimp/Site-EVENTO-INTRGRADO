@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INOFAS & ENAGROTECH 2025 - Sistema de Inscrição</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2e7d32;
+            --secondary: #7cb342;
+            --accent: #ff6f00;
+            --dark: #1b5e20;
+            --light: #f1f8e9;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            text-align: center;
+            background: linear-gradient(rgba(46, 125, 50, 0.8), rgba(124, 179, 66, 0.8)), url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3') no-repeat center center/cover;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            animation: fadeInUp 1s;
+        }
+        
+        .event-date {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 20px 0;
+            color: var(--accent);
+            animation: fadeIn 1.5s;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            animation: fadeIn 1.5s;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn:hover {
+            background: white;
+            color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background: var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Admin Panel */
+        .admin-panel {
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 30px 0;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .registrations-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .registrations-table th, 
+        .registrations-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .registrations-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .registrations-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* Modal de Inscrição */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #777;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--accent);
+        }
+        
+        .modal-title {
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .required {
+            color: #e74c3c;
+        }
+        
+        /* Confirmação de Inscrição */
+        .confirmation {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .confirmation i {
+            font-size: 4rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .confirmation h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section p {
+            margin-bottom: 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid #555;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 20px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .admin-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes modalFadeIn {
+            from { 
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span>INOFAS & ENAGROTECH</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#objectives">Objetivos</a></li>
+                    <li><a href="#registration">Inscrições</a></li>
+                    <li><a href="#admin">Administração</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Do Campo ao Digital: Inovação que Transforma</h1>
+            <p>I Encontro Nacional de Inovações Tecnológicas para a Agricultura Familiar e Agroindústria Sustentáveis & I Encontro Nacional de Ciência e Tecnologia no Campo</p>
+            <div class="event-date">14 a 17 de outubro de 2025</div>
+            <div class="event-date">IF Goiano - Campus Morrinhos</div>
+            <button class="btn" id="hero-inscribe-btn">Inscreva-se</button>
+            <a href="#about" class="btn">Saiba Mais</a>
+        </div>
+    </section>
+
+    <!-- Seção de Administração -->
+    <section id="admin" class="container">
+        <div class="admin-panel">
+            <div class="admin-header">
+                <h2>Painel de Administração</h2>
+                <div>
+                    <button class="btn btn-secondary" id="export-data">Exportar Dados</button>
+                    <button class="btn" id="clear-data">Limpar Dados</button>
+                </div>
+            </div>
+            
+            <div id="registrations-container">
+                <h3>Inscrições Realizadas: <span id="registrations-count">0</span></h3>
+                <table class="registrations-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Categoria</th>
+                            <th>Valor</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody id="registrations-list">
+                        <!-- As inscrições serão inseridas aqui via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="no-registrations" style="display: none; text-align: center; padding: 20px;">
+                <i class="fas fa-clipboard-list" style="font-size: 3rem; color: #ccc; margin-bottom: 15px;"></i>
+                <p>Nenhuma inscrição realizada ainda.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Inscrição -->
+    <div class="modal" id="registration-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <h2 class="modal-title">Formulário de Inscrição</h2>
+            <div id="modal-form">
+                <form id="registration-form">
+                    <div class="form-group">
+                        <label for="category">Categoria de Inscrição <span class="required">*</span></label>
+                        <input type="text" id="category" readonly>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nome Completo <span class="required">*</span></label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail <span class="required">*</span></label>
+                            <input type="email" id="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Telefone <span class="required">*</span></label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="document">CPF <span class="required">*</span></label>
+                            <input type="text" id="document" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="institution">Instituição <span class="required">*</span></label>
+                            <input type="text" id="institution" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="course">Curso <span class="required">*</span></label>
+                            <input type="text" id="course" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" id="work-title-group" style="display: none;">
+                        <label for="work-title">Título do Trabalho</label>
+                        <input type="text" id="work-title">
+                    </div>
+                    
+                    <div class="form-group" id="work-authors-group" style="display: none;">
+                        <label for="work-authors">Autores do Trabalho</label>
+                        <textarea id="work-authors"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comments">Observações</label>
+                        <textarea id="comments"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Finalizar Inscrição</button>
+                </form>
+            </div>
+            
+            <div id="confirmation" class="confirmation" style="display: none;">
+                <i class="fas fa-check-circle"></i>
+                <h2>Inscrição Realizada com Sucesso!</h2>
+                <p>Obrigado por se inscrever no evento. Em breve enviaremos mais informações para o e-mail cadastrado.</p>
+                <button class="btn" id="new-registration">Nova Inscrição</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dados da inscrição
+        let currentCategory = '';
+        let currentPrice = 0;
+        let includesWork = false;
+        let registrations = [];
+        
+        // Elementos do DOM
+        const modal = document.getElementById('registration-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const registrationForm = document.getElementById('registration-form');
+        const modalForm = document.getElementById('modal-form');
+        const confirmation = document.getElementById('confirmation');
+        const newRegistrationBtn = document.getElementById('new-registration');
+        const categoryField = document.getElementById('category');
+        const workTitleGroup = document.getElementById('work-title-group');
+        const workAuthorsGroup = document.getElementById('work-authors-group');
+        const exportBtn = document.getElementById('export-data');
+        const clearBtn = document.getElementById('clear-data');
+        const registrationsList = document.getElementById('registrations-list');
+        const registrationsCount = document.getElementById('registrations-count');
+        const noRegistrations = document.getElementById('no-registrations');
+        
+        // Inicializar - Carregar dados salvos
+        document.addEventListener('DOMContentLoaded', function() {
+            loadRegistrations();
+            updateRegistrationsDisplay();
+        });
+        
+        // Botão de inscrição do hero
+        document.getElementById('hero-inscribe-btn').addEventListener('click', function() {
+            openModal('', 0, false);
+        });
+        
+        // Botões de exportar e limpar dados
+        exportBtn.addEventListener('click', exportRegistrations);
+        clearBtn.addEventListener('click', clearRegistrations);
+        
+        // Abrir modal de inscrição
+        function openModal(category, price, work) {
+            currentCategory = category;
+            currentPrice = price;
+            includesWork = work;
+            
+            // Preencher informações no formulário
+            if (category) {
+                categoryField.value = category + (price > 0 ? ` (R$ ${price},00)` : ' (Gratuito)');
+            } else {
+                categoryField.value = 'Selecione uma categoria na tabela';
+            }
+            
+            // Mostrar/ocultar campos de trabalho
+            if (includesWork) {
+                workTitleGroup.style.display = 'block';
+                workAuthorsGroup.style.display = 'block';
+            } else {
+                workTitleGroup.style.display = 'none';
+                workAuthorsGroup.style.display = 'none';
+            }
+            
+            // Mostrar formulário e esconder confirmação
+            modalForm.style.display = 'block';
+            confirmation.style.display = 'none';
+            
+            // Mostrar modal
+            modal.style.display = 'flex';
+        }
+        
+        // Fechar modal
+        closeModalBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+        
+        // Fechar modal ao clicar fora dele
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Nova inscrição
+        newRegistrationBtn.addEventListener('click', function() {
+            confirmation.style.display = 'none';
+            modalForm.style.display = 'block';
+        });
+        
+        // Envio do formulário
+        registrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Coletar dados do formulário
+            const formData = {
+                id: Date.now(), // ID único baseado no timestamp
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                document: document.getElementById('document').value,
+                institution: document.getElementById('institution').value,
+                course: document.getElementById('course').value,
+                category: currentCategory,
+                price: currentPrice,
+                work_title: includesWork ? document.getElementById('work-title').value : '',
+                work_authors: includesWork ? document.getElementById('work-authors').value : '',
+                comments: document.getElementById('comments').value,
+                registration_date: new Date().toLocaleString('pt-BR')
+            };
+            
+            // Adicionar aos registros
+            registrations.push(formData);
+            
+            // Salvar no localStorage
+            saveRegistrations();
+            
+            // Atualizar a exibição
+            updateRegistrationsDisplay();
+            
+            // Esconder formulário e mostrar confirmação
+            modalForm.style.display = 'none';
+            confirmation.style.display = 'block';
+            
+            // Limpar formulário
+            registrationForm.reset();
+        });
+        
+        // Salvar inscrições no localStorage
+        function saveRegistrations() {
+            localStorage.setItem('event_registrations', JSON.stringify(registrations));
+        }
+        
+        // Carregar inscrições do localStorage
+        function loadRegistrations() {
+            const saved = localStorage.getItem('event_registrations');
+            if (saved) {
+                registrations = JSON.parse(saved);
+            }
+        }
+        
+        // Atualizar a exibição das inscrições
+        function updateRegistrationsDisplay() {
+            registrationsCount.textContent = registrations.length;
+            
+            if (registrations.length === 0) {
+                document.getElementById('registrations-container').style.display = 'none';
+                noRegistrations.style.display = 'block';
+                return;
+            }
+            
+            document.getElementById('registrations-container').style.display = 'block';
+            noRegistrations.style.display = 'none';
+            
+            // Limpar lista atual
+            registrationsList.innerHTML = '';
+            
+            // Adicionar cada inscrição à tabela
+            registrations.forEach(reg => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${reg.name}</td>
+                    <td>${reg.email}</td>
+                    <td>${reg.category}</td>
+                    <td>R$ ${reg.price},00</td>
+                    <td>${reg.registration_date}</td>
+                `;
+                registrationsList.appendChild(row);
+            });
+        }
+        
+        // Exportar dados para JSON
+        function exportRegistrations() {
+            if (registrations.length === 0) {
+                alert('Não há inscrições para exportar.');
+                return;
+            }
+            
+            const dataStr = JSON.stringify(registrations, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = `inscricoes_${new Date().toISOString().slice(0, 10)}.json`;
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            
+            alert(`Dados exportados com sucesso! ${registrations.length} inscrições salvas no arquivo.`);
+        }
+        
+        // Limpar todos os dados
+        function clearRegistrations() {
+            if (confirm('Tem certeza que deseja limpar todos os dados de inscrição? Esta ação não pode ser desfeita.')) {
+                registrations = [];
+                saveRegistrations();
+                updateRegistrationsDisplay();
+                alert('Todos os dados foram removidos.');
+            }
+        }
+        
+        // Menu mobile toggle
+        document.querySelector('.menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+        
+        // Scroll suave para as seções
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
