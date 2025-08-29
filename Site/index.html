@@ -59,11 +59,6 @@
             align-items: center;
         }
         
-        .logo img {
-            height: 50px;
-            margin-right: 10px;
-        }
-        
         .nav-links {
             display: flex;
             list-style: none;
@@ -269,19 +264,39 @@
         }
         
         /* Modal de Inscrição */
+        .modal-content {
+    max-height: 80vh; /* altura máxima: 80% da tela */
+    overflow-y: auto; /* habilita scroll vertical */
+    scrollbar-width: thin; /* estiliza scrollbar no Firefox */
+    scrollbar-color: var(--secondary) #f1f1f1;
+}
+
+/* Estilo do scroll no Chrome, Edge, Safari */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+    background-color: var(--secondary);
+    border-radius: 4px;
+}
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
         .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 2000;
-            overflow: auto;
-            justify-content: center;
-            align-items: center;
-        }
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* evita corte do modal nas bordas */
+}
+
         
         .modal-content {
             background-color: white;
@@ -353,7 +368,44 @@
             color: #e74c3c;
         }
         
-        /* Confirmação de Inscrição */
+        /* Category Selection */
+        .category-selector {
+            margin-bottom: 30px;
+        }
+        
+        .category-option {
+            border: 2px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-option:hover {
+            border-color: var(--secondary);
+        }
+        
+        .category-option.selected {
+            border-color: var(--primary);
+            background-color: rgba(46, 125, 50, 0.05);
+        }
+        
+        .category-option h4 {
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .category-price {
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .category-price.free {
+            color: var(--accent);
+        }
+        
+        /* Confirmation */
         .confirmation {
             text-align: center;
             padding: 30px;
@@ -602,7 +654,6 @@
                         <th>Categoria</th>
                         <th>Valor</th>
                         <th>Submissão de Trabalho</th>
-                        <th>Ação</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -610,34 +661,32 @@
                         <td>Estudantes de Cursos Técnicos</td>
                         <td class="price free">Gratuito</td>
                         <td>Não inclui</td>
-                        <td><button class="btn" data-category="Estudante Técnico" data-price="0" data-work="false">Inscrever-se</button></td>
                     </tr>
                     <tr>
                         <td>Estudantes de Cursos Técnicos (com trabalho)</td>
                         <td class="price">R$ 30,00</td>
                         <td>1 submissão</td>
-                        <td><button class="btn" data-category="Estudante Técnico com trabalho" data-price="30" data-work="true">Inscrever-se</button></td>
                     </tr>
                     <tr>
                         <td>Estudantes de Graduação</td>
                         <td class="price">R$ 30,00</td>
                         <td>1 submissão</td>
-                        <td><button class="btn" data-category="Estudante Graduação" data-price="30" data-work="true">Inscrever-se</button></td>
                     </tr>
                     <tr>
                         <td>Estudantes de Pós-Graduação</td>
                         <td class="price">R$ 60,00</td>
                         <td>1 submissão</td>
-                        <td><button class="btn" data-category="Estudante Pós-Graduação" data-price="60" data-work="true">Inscrever-se</button></td>
                     </tr>
                     <tr>
                         <td>Docentes e Profissionais</td>
                         <td class="price">R$ 120,00</td>
                         <td>1 submissão</td>
-                        <td><button class="btn" data-category="Docente/Profissional" data-price="120" data-work="true">Inscrever-se</button></td>
                     </tr>
                 </tbody>
             </table>
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" id="show-registration-form">Realizar Inscrição</button>
+            </div>
             <p style="text-align: center; margin-top: 20px; color: #777; font-style: italic;">
                 Informações sobre a destinação dos valores serão divulgadas em breve.
             </p>
@@ -673,18 +722,51 @@
                 <p>&copy; 2025 INOFAS & ENAGROTECH - IF Goiano Campus Morrinhos. Todos os direitos reservados.</p>
             </div>
         </div>
+        
     </footer>
 
     <!-- Modal de Inscrição -->
+     <!--CSS SCROLL -->
+     
     <div class="modal" id="registration-modal">
         <div class="modal-content">
             <span class="close-modal" id="close-modal">&times;</span>
             <h2 class="modal-title">Formulário de Inscrição</h2>
             <div id="modal-form">
                 <form id="registration-form">
-                    <div class="form-group">
-                        <label for="category">Categoria de Inscrição <span class="required">*</span></label>
-                        <input type="text" id="category" readonly>
+                    <!-- Seleção de Categoria -->
+                    <div class="form-group category-selector">
+                        <label>Categoria de Inscrição <span class="required">*</span></label>
+                        
+                        <div class="category-option" data-category="Estudantes de Cursos Técnicos" data-price="0" data-work="false">
+                            <h4>Estudantes de Cursos Técnicos</h4>
+                            <p class="category-price free">Gratuito</p>
+                            <p>Não inclui submissão de trabalho</p>
+                        </div>
+                        
+                        <div class="category-option" data-category="Estudantes de Cursos Técnicos (com trabalho)" data-price="30" data-work="true">
+                            <h4>Estudantes de Cursos Técnicos (com trabalho)</h4>
+                            <p class="category-price">R$ 30,00</p>
+                            <p>Inclui 1 submissão de trabalho</p>
+                        </div>
+                        
+                        <div class="category-option" data-category="Estudantes de Graduação" data-price="30" data-work="true">
+                            <h4>Estudantes de Graduação</h4>
+                            <p class="category-price">R$ 30,00</p>
+                            <p>Inclui 1 submissão de trabalho</p>
+                        </div>
+                        
+                        <div class="category-option" data-category="Estudantes de Pós-Graduação" data-price="60" data-work="true">
+                            <h4>Estudantes de Pós-Graduação</h4>
+                            <p class="category-price">R$ 60,00</p>
+                            <p>Inclui 1 submissão de trabalho</p>
+                        </div>
+                        
+                        <div class="category-option" data-category="Docentes e Profissionais" data-price="120" data-work="true">
+                            <h4>Docentes e Profissionais</h4>
+                            <p class="category-price">R$ 120,00</p>
+                            <p>Inclui 1 submissão de trabalho</p>
+                        </div>
                     </div>
                     
                     <div class="form-row">
@@ -761,46 +843,62 @@
         const modalForm = document.getElementById('modal-form');
         const confirmation = document.getElementById('confirmation');
         const newRegistrationBtn = document.getElementById('new-registration');
-        const categoryField = document.getElementById('category');
         const workTitleGroup = document.getElementById('work-title-group');
         const workAuthorsGroup = document.getElementById('work-authors-group');
+        const showFormBtn = document.getElementById('show-registration-form');
         
         // Botão de inscrição do hero
         document.getElementById('hero-inscribe-btn').addEventListener('click', function() {
-            openModal('', 0, false);
+            openModal();
         });
         
-        // Botões de inscrição da tabela
-        document.querySelectorAll('.pricing-table .btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const category = this.getAttribute('data-category');
-                const price = this.getAttribute('data-price');
-                const work = this.getAttribute('data-work') === 'true';
-                openModal(category, price, work);
+        // Botão para mostrar formulário
+        showFormBtn.addEventListener('click', function() {
+            openModal();
+        });
+        
+        // Seleção de categoria
+        document.querySelectorAll('.category-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remover seleção anterior
+                document.querySelectorAll('.category-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Adicionar seleção atual
+                this.classList.add('selected');
+                
+                // Atualizar dados da categoria
+                currentCategory = this.getAttribute('data-category');
+                currentPrice = parseInt(this.getAttribute('data-price'));
+                includesWork = this.getAttribute('data-work') === 'true';
+                
+                // Mostrar/ocultar campos de trabalho
+                if (includesWork) {
+                    workTitleGroup.style.display = 'block';
+                    workAuthorsGroup.style.display = 'block';
+                } else {
+                    workTitleGroup.style.display = 'none';
+                    workAuthorsGroup.style.display = 'none';
+                }
             });
         });
         
         // Abrir modal de inscrição
-        function openModal(category, price, work) {
-            currentCategory = category;
-            currentPrice = price;
-            includesWork = work;
+        function openModal() {
+            // Limpar seleções anteriores
+            document.querySelectorAll('.category-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
             
-            // Preencher informações no formulário
-            if (category) {
-                categoryField.value = category + (price > 0 ? ` (R$ ${price},00)` : ' (Gratuito)');
-            } else {
-                categoryField.value = 'Selecione uma categoria na tabela';
-            }
+            // Resetar campos de trabalho
+            workTitleGroup.style.display = 'none';
+            workAuthorsGroup.style.display = 'none';
             
-            // Mostrar/ocultar campos de trabalho
-            if (includesWork) {
-                workTitleGroup.style.display = 'block';
-                workAuthorsGroup.style.display = 'block';
-            } else {
-                workTitleGroup.style.display = 'none';
-                workAuthorsGroup.style.display = 'none';
-            }
+            // Resetar dados
+            currentCategory = '';
+            currentPrice = 0;
+            includesWork = false;
             
             // Mostrar formulário e esconder confirmação
             modalForm.style.display = 'block';
@@ -831,6 +929,28 @@
         // Envio do formulário
         registrationForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Validar se uma categoria foi selecionada
+            if (!currentCategory) {
+                alert('Por favor, selecione uma categoria de inscrição.');
+                return;
+            }
+            
+            // Coletar dados do formulário
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                document: document.getElementById('document').value,
+                institution: document.getElementById('institution').value,
+                course: document.getElementById('course').value,
+                category: currentCategory,
+                price: currentPrice,
+                work_title: includesWork ? document.getElementById('work-title').value : '',
+                work_authors: includesWork ? document.getElementById('work-authors').value : '',
+                comments: document.getElementById('comments').value,
+                registration_date: new Date().toLocaleString('pt-BR')
+            };
             
             // Aqui você normalmente enviaria os dados para um servidor
             // Por enquanto, vamos apenas simular o sucesso
