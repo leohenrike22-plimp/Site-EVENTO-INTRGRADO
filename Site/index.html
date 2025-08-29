@@ -224,79 +224,51 @@
         .registration {
             padding: 80px 0;
             background: white;
+            text-align: center; /* Centraliza o conteúdo da seção */
         }
         
-        .pricing-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-radius: 10px;
-            overflow: hidden;
+        .pricing-info {
+            text-align: center;
+            margin-bottom: 30px;
         }
-        
-        .pricing-table th, .pricing-table td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .pricing-table th {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .pricing-table tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .pricing-table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        
-        .price {
-            font-weight: 700;
+
+        .pricing-info h3 {
             color: var(--primary);
-        }
-        
-        .free {
-            color: var(--accent);
+            margin-bottom: 10px;
         }
         
         /* Modal de Inscrição */
         .modal-content {
-    max-height: 80vh; /* altura máxima: 80% da tela */
-    overflow-y: auto; /* habilita scroll vertical */
-    scrollbar-width: thin; /* estiliza scrollbar no Firefox */
-    scrollbar-color: var(--secondary) #f1f1f1;
-}
+            max-height: 80vh; 
+            overflow-y: auto; 
+            scrollbar-width: thin; 
+            scrollbar-color: var(--secondary) #f1f1f1;
+        }
 
-/* Estilo do scroll no Chrome, Edge, Safari */
-.modal-content::-webkit-scrollbar {
-    width: 8px;
-}
-.modal-content::-webkit-scrollbar-thumb {
-    background-color: var(--secondary);
-    border-radius: 4px;
-}
-.modal-content::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
+        .modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal-content::-webkit-scrollbar-thumb {
+            background-color: var(--secondary);
+            border-radius: 4px;
+        }
+        .modal-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
 
         .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 2000;
-    justify-content: center;
-    align-items: center;
-    padding: 20px; /* evita corte do modal nas bordas */
-}
-
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px; 
+        }
         
         .modal-content {
             background-color: white;
@@ -371,6 +343,7 @@
         /* Category Selection */
         .category-selector {
             margin-bottom: 30px;
+            text-align: left; /* Alinha o conteúdo dos cards de categoria */
         }
         
         .category-option {
@@ -550,7 +523,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container">
             <nav>
@@ -570,7 +542,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <h1>Do Campo ao Digital: Inovação que Transforma</h1>
@@ -582,7 +553,6 @@
         </div>
     </section>
 
-    <!-- About Events -->
     <section class="about-events" id="about">
         <div class="container">
             <div class="section-title">
@@ -605,7 +575,6 @@
         </div>
     </section>
 
-    <!-- Objectives -->
     <section class="objectives" id="objectives">
         <div class="container">
             <div class="section-title">
@@ -641,49 +610,15 @@
         </div>
     </section>
 
-    <!-- Registration -->
     <section class="registration" id="registration">
         <div class="container">
             <div class="section-title">
                 <h2>Inscrições</h2>
                 <p>Valores e categorias de inscrição para os eventos</p>
             </div>
-            <table class="pricing-table">
-                <thead>
-                    <tr>
-                        <th>Categoria</th>
-                        <th>Valor</th>
-                        <th>Submissão de Trabalho</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Estudantes de Cursos Técnicos</td>
-                        <td class="price free">Gratuito</td>
-                        <td>Não inclui</td>
-                    </tr>
-                    <tr>
-                        <td>Estudantes de Cursos Técnicos (com trabalho)</td>
-                        <td class="price">R$ 30,00</td>
-                        <td>1 submissão</td>
-                    </tr>
-                    <tr>
-                        <td>Estudantes de Graduação</td>
-                        <td class="price">R$ 30,00</td>
-                        <td>1 submissão</td>
-                    </tr>
-                    <tr>
-                        <td>Estudantes de Pós-Graduação</td>
-                        <td class="price">R$ 60,00</td>
-                        <td>1 submissão</td>
-                    </tr>
-                    <tr>
-                        <td>Docentes e Profissionais</td>
-                        <td class="price">R$ 120,00</td>
-                        <td>1 submissão</td>
-                    </tr>
-                </tbody>
-            </table>
+            <p style="text-align: center; margin-top: 20px; color: #777; font-style: italic;">
+                As informações sobre categorias e valores estarão disponíveis no formulário de inscrição.
+            </p>
             <div style="text-align: center; margin-top: 30px;">
                 <button class="btn" id="show-registration-form">Realizar Inscrição</button>
             </div>
@@ -693,7 +628,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer id="contact">
         <div class="container">
             <div class="footer-content">
@@ -725,16 +659,13 @@
         
     </footer>
 
-    <!-- Modal de Inscrição -->
-     <!--CSS SCROLL -->
-     
     <div class="modal" id="registration-modal">
         <div class="modal-content">
             <span class="close-modal" id="close-modal">&times;</span>
             <h2 class="modal-title">Formulário de Inscrição</h2>
+            
             <div id="modal-form">
                 <form id="registration-form">
-                    <!-- Seleção de Categoria -->
                     <div class="form-group category-selector">
                         <label>Categoria de Inscrição <span class="required">*</span></label>
                         
@@ -768,55 +699,62 @@
                             <p>Inclui 1 submissão de trabalho</p>
                         </div>
                     </div>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Nome Completo <span class="required">*</span></label>
-                            <input type="text" id="name" required>
+                            <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">E-mail <span class="required">*</span></label>
-                            <input type="email" id="email" required>
+                            <input type="email" id="email" name="email" required>
                         </div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
                             <label for="phone">Telefone <span class="required">*</span></label>
-                            <input type="tel" id="phone" required>
+                            <input type="tel" id="phone" name="phone" required>
                         </div>
                         <div class="form-group">
                             <label for="document">CPF <span class="required">*</span></label>
-                            <input type="text" id="document" required>
+                            <input type="text" id="document" name="document" required>
                         </div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
                             <label for="institution">Instituição <span class="required">*</span></label>
-                            <input type="text" id="institution" required>
+                            <input type="text" id="institution" name="institution" required>
                         </div>
                         <div class="form-group">
                             <label for="course">Curso <span class="required">*</span></label>
-                            <input type="text" id="course" required>
+                            <input type="text" id="course" name="course" required>
                         </div>
                     </div>
                     
                     <div class="form-group" id="work-title-group" style="display: none;">
                         <label for="work-title">Título do Trabalho</label>
-                        <input type="text" id="work-title">
+                        <input type="text" id="work-title" name="work-title">
                     </div>
                     
                     <div class="form-group" id="work-authors-group" style="display: none;">
                         <label for="work-authors">Autores do Trabalho</label>
-                        <textarea id="work-authors"></textarea>
+                        <textarea id="work-authors" name="work-authors"></textarea>
                     </div>
-                    
+
                     <div class="form-group">
-                        <label for="comments">Observações</label>
-                        <textarea id="comments"></textarea>
+                        <label for="forma-pagamento">Forma de Pagamento <span class="required">*</span></label>
+                        <select id="forma-pagamento" name="forma-pagamento" required>
+                            <option value="">Selecione...</option>
+                            <option value="pix">Pix</option>
+                            <option value="cartao">Cartão de Crédito</option>
+                            <option value="boleto">Boleto</option>
+                        </select>
                     </div>
-                    
+
+                    <div id="campos-pagamento"></div>
+
                     <button type="submit" class="btn">Finalizar Inscrição</button>
                 </form>
             </div>
@@ -845,19 +783,34 @@
         const newRegistrationBtn = document.getElementById('new-registration');
         const workTitleGroup = document.getElementById('work-title-group');
         const workAuthorsGroup = document.getElementById('work-authors-group');
+        const heroInscribeBtn = document.getElementById('hero-inscribe-btn');
         const showFormBtn = document.getElementById('show-registration-form');
-        
-        // Botão de inscrição do hero
-        document.getElementById('hero-inscribe-btn').addEventListener('click', function() {
-            openModal();
-        });
-        
-        // Botão para mostrar formulário
-        showFormBtn.addEventListener('click', function() {
-            openModal();
-        });
-        
-        // Seleção de categoria
+
+        // Lógica de interação com o modal de inscrição
+        function openModal() {
+            // Resetar a seleção de categoria
+            document.querySelectorAll('.category-option').forEach(opt => opt.classList.remove('selected'));
+            
+            // Ocultar campos de trabalho por padrão
+            workTitleGroup.style.display = 'none';
+            workAuthorsGroup.style.display = 'none';
+
+            // Resetar o formulário
+            registrationForm.reset();
+
+            // Mostrar a parte do formulário e esconder a confirmação
+            modalForm.style.display = 'block';
+            confirmation.style.display = 'none';
+            
+            // Exibir o modal
+            modal.style.display = 'flex';
+        }
+
+        // Ação para o botão "Inscreva-se" do hero e o botão "Realizar Inscrição" da seção de preços
+        heroInscribeBtn.addEventListener('click', openModal);
+        showFormBtn.addEventListener('click', openModal);
+
+        // Seleção de categoria dentro do modal
         document.querySelectorAll('.category-option').forEach(option => {
             option.addEventListener('click', function() {
                 // Remover seleção anterior
@@ -884,30 +837,6 @@
             });
         });
         
-        // Abrir modal de inscrição
-        function openModal() {
-            // Limpar seleções anteriores
-            document.querySelectorAll('.category-option').forEach(opt => {
-                opt.classList.remove('selected');
-            });
-            
-            // Resetar campos de trabalho
-            workTitleGroup.style.display = 'none';
-            workAuthorsGroup.style.display = 'none';
-            
-            // Resetar dados
-            currentCategory = '';
-            currentPrice = 0;
-            includesWork = false;
-            
-            // Mostrar formulário e esconder confirmação
-            modalForm.style.display = 'block';
-            confirmation.style.display = 'none';
-            
-            // Mostrar modal
-            modal.style.display = 'flex';
-        }
-        
         // Fechar modal
         closeModalBtn.addEventListener('click', function() {
             modal.style.display = 'none';
@@ -926,41 +855,102 @@
             modalForm.style.display = 'block';
         });
         
-        // Envio do formulário
-        registrationForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Adiciona o event listener para a forma de pagamento
+        document.getElementById("forma-pagamento").addEventListener("change", function () {
+            const container = document.getElementById("campos-pagamento");
+            container.innerHTML = "";
             
+            if (this.value === "pix") {
+                container.innerHTML = `
+                    <div class="form-group">
+                        <label for="valor">Valor</label>
+                        <input type="number" id="valor" name="valor" value="${currentPrice}" readonly>
+                    </div>
+                `;
+            }
+
+            if (this.value === "cartao") {
+                container.innerHTML = `
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="numero-cartao">Número do Cartão <span class="required">*</span></label>
+                            <input type="text" id="numero-cartao" name="numero-cartao" maxlength="16" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nome-cartao">Nome no Cartão <span class="required">*</span></label>
+                            <input type="text" id="nome-cartao" name="nome-cartao" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="validade">Validade (MM/AA) <span class="required">*</span></label>
+                            <input type="text" id="validade" name="validade" placeholder="MM/AA" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV <span class="required">*</span></label>
+                            <input type="text" id="cvv" name="cvv" maxlength="4" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="valor">Valor</label>
+                        <input type="number" id="valor" name="valor" value="${currentPrice}" readonly>
+                    </div>
+                `;
+            }
+
+            if (this.value === "boleto") {
+                container.innerHTML = `
+                    <div class="form-group">
+                        <label for="cpf">CPF/CNPJ <span class="required">*</span></label>
+                        <input type="text" id="cpf" name="cpf" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="valor">Valor</label>
+                        <input type="number" id="valor" name="valor" value="${currentPrice}" readonly>
+                    </div>
+                `;
+            }
+        });
+
+
+        // Evento de envio do formulário, agora assíncrono para lidar com a API
+        registrationForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
             // Validar se uma categoria foi selecionada
             if (!currentCategory) {
                 alert('Por favor, selecione uma categoria de inscrição.');
                 return;
             }
-            
+
             // Coletar dados do formulário
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                document: document.getElementById('document').value,
-                institution: document.getElementById('institution').value,
-                course: document.getElementById('course').value,
-                category: currentCategory,
-                price: currentPrice,
-                work_title: includesWork ? document.getElementById('work-title').value : '',
-                work_authors: includesWork ? document.getElementById('work-authors').value : '',
-                comments: document.getElementById('comments').value,
-                registration_date: new Date().toLocaleString('pt-BR')
-            };
+            const formData = new FormData(this);
+            const json = Object.fromEntries(formData.entries());
+
+            // Adicionar a categoria e o valor aos dados
+            json.category = currentCategory;
+            json.price = currentPrice;
             
-            // Aqui você normalmente enviaria os dados para um servidor
-            // Por enquanto, vamos apenas simular o sucesso
+            // Enviar dados para a API de pagamento
+            const resposta = await fetch("api/pagamento.php", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(json)
+            });
+
+            const resultado = await resposta.json();
+
+            // Exibir o resultado da API
+            console.log(resultado);
             
-            // Esconder formulário e mostrar confirmação
-            modalForm.style.display = 'none';
-            confirmation.style.display = 'block';
-            
-            // Limpar formulário
-            registrationForm.reset();
+            // Se a API retornar sucesso, mostra a confirmação.
+            if (resultado.status === 'success') {
+                modalForm.style.display = 'none';
+                confirmation.style.display = 'block';
+                registrationForm.reset();
+            } else {
+                alert("Ocorreu um erro no pagamento: " + resultado.error);
+            }
         });
         
         // Menu mobile toggle
