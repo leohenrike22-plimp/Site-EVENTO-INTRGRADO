@@ -1,0 +1,30 @@
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de desenvolvimento
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Arquivos de IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Arquivos de controle de versão
+.git/
+.gitignore
+
+# Arquivos de documentação
+README.md
+*.md
+
+# Arquivos de configuração local
+.env
+.env.local
+
+# Arquivos de backup
+*.bak
+*.backup

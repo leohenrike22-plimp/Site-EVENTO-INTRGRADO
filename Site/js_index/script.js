@@ -3,52 +3,71 @@
 console.log("Modal element:", document.getElementById('registration-modal'));
 console.log("Close button:", document.getElementById('close-modal'));
 console.log("Registration form:", document.getElementById('registration-form'));// ===============================
-// Variáveis de estado da inscrição
+// VARIÁVEIS DE ESTADO DA INSCRIÇÃO
 // ===============================
 let currentCategory = '';
 let currentPrice = 0;
 let includesWork = false;
+let formData = {};
 
 // ===============================
-// Seleção de elementos do DOM
+// SELEÇÃO DE ELEMENTOS DO DOM
 // ===============================
-const modal = document.getElementById('registration-modal'); // Modal de inscrição
-const closeModalBtn = document.getElementById('close-modal'); // Botão de fechar modal
-const registrationForm = document.getElementById('registration-form'); // Formulário
-const modalForm = document.getElementById('modal-form'); // Conteúdo do formulário dentro do modal
-const confirmation = document.getElementById('confirmation'); // Mensagem de confirmação
-const newRegistrationBtn = document.getElementById('new-registration'); // Botão para nova inscrição
-const workTitleGroup = document.getElementById('work-title-group'); // Campo título do trabalho
-const heroInscribeBtn = document.getElementById('hero-inscribe-btn'); // Botão "Inscreva-se" do hero
-const showFormBtn = document.getElementById('show-registration-form'); // Botão "Realizar Inscrição" da seção
+const modal = document.getElementById('registration-modal');
+const closeModalBtn = document.getElementById('close-modal');
+const registrationForm = document.getElementById('registration-form');
+const modalForm = document.getElementById('modal-form');
+const confirmation = document.getElementById('confirmation');
+const newRegistrationBtn = document.getElementById('new-registration');
+const workSection = document.getElementById('work-section');
+const heroInscribeBtn = document.getElementById('hero-inscribe-btn');
+const showFormBtn = document.getElementById('show-registration-form');
+const btnPreview = document.getElementById('btn-preview');
+const btnSubmit = document.getElementById('btn-submit');
 
 // ===============================
-// Função para abrir o modal
+// FUNÇÃO PARA ABRIR O MODAL
 // ===============================
 function openModal() {
     // Remove seleção anterior de categoria
     document.querySelectorAll('.category-option').forEach(opt => opt.classList.remove('selected'));
-
     
     // Reseta o formulário
     registrationForm.reset();
+    
+    // Limpa erros e estados
+    clearFormErrors();
+    resetFormState();
 
     // Mostra o formulário e esconde a confirmação
     modalForm.style.display = 'block';
     confirmation.style.display = 'none';
 
-    // Exibe o modal
+    // Exibe o modal com animação
     modal.style.display = 'flex';
+    setTimeout(() => {
+        modal.classList.add('show');
+    }, 10);
 }
 
 // ===============================
-// Ações para abrir modal pelos botões
+// FUNÇÃO PARA FECHAR O MODAL
+// ===============================
+function closeModal() {
+    modal.classList.remove('show');
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300);
+}
+
+// ===============================
+// AÇÕES PARA ABRIR MODAL PELOS BOTÕES
 // ===============================
 heroInscribeBtn.addEventListener('click', openModal);
 showFormBtn.addEventListener('click', openModal);
 
 // ===============================
-// Seleção de categoria dentro do modal
+// SELEÇÃO DE CATEGORIA DENTRO DO MODAL
 // ===============================
 document.querySelectorAll('.category-option').forEach(option => {
     option.addEventListener('click', function () {
@@ -65,141 +84,492 @@ document.querySelectorAll('.category-option').forEach(option => {
 
         // Mostrar/ocultar campo de trabalho
         if (includesWork) {
-            workTitleGroup.style.display = 'block';
+            workSection.style.display = 'block';
+            // Torna os campos de trabalho obrigatórios
+            document.getElementById('work-title').required = true;
+            document.getElementById('work-abstract').required = true;
         } else {
-            workTitleGroup.style.display = 'none';
+            workSection.style.display = 'none';
+            // Remove obrigatoriedade dos campos de trabalho
+            document.getElementById('work-title').required = false;
+            document.getElementById('work-abstract').required = false;
         }
+
+        // Atualiza resumo de pagamento
+        updatePaymentSummary();
+        
+        // Mostra seção de pagamento
+        document.querySelector('.payment-section').style.display = 'block';
     });
 });
 
 // ===============================
-// Fechar modal
+// FECHAR MODAL
 // ===============================
-closeModalBtn.addEventListener('click', () => modal.style.display = 'none');
+closeModalBtn.addEventListener('click', closeModal);
 
 // Fechar modal ao clicar fora dele
 window.addEventListener('click', (event) => {
     if (event.target === modal) {
-        modal.style.display = 'none';
+        closeModal();
     }
 });
 
 // ===============================
-// Botão "Nova Inscrição"
+// BOTÃO "NOVA INSCRIÇÃO"
 // ===============================
 newRegistrationBtn.addEventListener('click', () => {
     confirmation.style.display = 'none';
     modalForm.style.display = 'block';
+    openModal();
 });
 
 // ===============================
-// Seleção da forma de pagamento
+// SELEÇÃO DA FORMA DE PAGAMENTO
 // ===============================
 document.getElementById("forma-pagamento").addEventListener("change", function () {
-    const container = document.getElementById("campos-pagamento");
-    container.innerHTML = "";
-
-    // PIX
-    if (this.value === "pix") {
-        container.innerHTML = `
-            <div class="form-group">
-                <label for="valor">Valor</label>
-                <input type="number" id="valor" name="valor" value="${currentPrice}" readonly>
-            </div>
-        `;
-    }
-
-    // Cartão
-    if (this.value === "cartao") {
-        container.innerHTML = `
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="numero-cartao">Número do Cartão <span class="required">*</span></label>
-                    <input type="text" id="numero-cartao" name="numero-cartao" maxlength="16" required>
-                </div>
-                <div class="form-group">
-                    <label for="nome-cartao">Nome no Cartão <span class="required">*</span></label>
-                    <input type="text" id="nome-cartao" name="nome-cartao" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="validade">Validade (MM/AA) <span class="required">*</span></label>
-                    <input type="text" id="validade" name="validade" placeholder="MM/AA" required>
-                </div>
-                <div class="form-group">
-                    <label for="cvv">CVV <span class="required">*</span></label>
-                    <input type="text" id="cvv" name="cvv" maxlength="4" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="valor">Valor</label>
-                <input type="number" id="valor" name="valor" value="${currentPrice}" readonly>
-            </div>
-        `;
-    }
-
-    // Boleto
-    if (this.value === "boleto") {
-        container.innerHTML = `
-            <div class="form-group">
-                <label for="cpf">CPF/CNPJ <span class="required">*</span></label>
-                <input type="text" id="cpf" name="cpf" required>
-            </div>
-            <div class="form-group">
-                <label for="valor">Valor</label>
-                <input type="number" id="valor" name="valor" value="${currentPrice}" readonly>
-            </div>
-        `;
+    const selectedValue = this.value;
+    
+    // Esconde todos os campos extras
+    document.querySelectorAll('.extra-fields').forEach(field => {
+        field.style.display = 'none';
+    });
+    
+    // Mostra campos específicos baseado na seleção
+    if (selectedValue === 'cartao') {
+        document.getElementById('extra-cartao').classList.add('show');
+    } else if (selectedValue === 'pix') {
+        document.getElementById('extra-pix').classList.add('show');
+    } else if (selectedValue === 'boleto') {
+        document.getElementById('extra-boleto').classList.add('show');
     }
 });
 
 // ===============================
-// Envio do formulário (integração API)
+// CONTADOR DE CARACTERES PARA RESUMO
 // ===============================
-registrationForm.addEventListener("submit", async function (e) {
+const workAbstract = document.getElementById('work-abstract');
+const charCount = document.getElementById('char-count');
+
+if (workAbstract && charCount) {
+    workAbstract.addEventListener('input', function() {
+        const length = this.value.length;
+        charCount.textContent = length;
+        
+        // Atualiza classes de cor baseado no limite
+        charCount.className = 'form-char-count';
+        if (length > 250) {
+            charCount.classList.add('warning');
+        }
+        if (length > 300) {
+            charCount.classList.add('danger');
+        }
+    });
+}
+
+// ===============================
+// VALIDAÇÃO DE FORMULÁRIO
+// ===============================
+function validateForm() {
+    let isValid = true;
+    clearFormErrors();
+    
+    // Validação de categoria
+    if (!currentCategory) {
+        showFieldError('category-selector', 'Selecione uma categoria de inscrição');
+        isValid = false;
+    }
+    
+    // Validação de campos obrigatórios
+    const requiredFields = ['name', 'email', 'phone', 'document', 'institution', 'course', 'forma-pagamento'];
+    requiredFields.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        if (field && field.required && !field.value.trim()) {
+            showFieldError(fieldId, 'Este campo é obrigatório');
+            isValid = false;
+        }
+    });
+    
+    // Validação de e-mail
+    const email = document.getElementById('email');
+    if (email && email.value && !isValidEmail(email.value)) {
+        showFieldError('email', 'Digite um e-mail válido');
+        isValid = false;
+    }
+    
+    // Validação de CPF
+    const document = document.getElementById('document');
+    if (document && document.value && !isValidCPF(document.value)) {
+        showFieldError('document', 'Digite um CPF válido');
+        isValid = false;
+    }
+    
+    // Validação de telefone
+    const phone = document.getElementById('phone');
+    if (phone && phone.value && !isValidPhone(phone.value)) {
+        showFieldError('phone', 'Digite um telefone válido');
+        isValid = false;
+    }
+    
+    // Validação de campos de trabalho se necessário
+    if (includesWork) {
+        const workTitle = document.getElementById('work-title');
+        const workAbstract = document.getElementById('work-abstract');
+        
+        if (!workTitle.value.trim()) {
+            showFieldError('work-title', 'Título do trabalho é obrigatório');
+            isValid = false;
+        }
+        
+        if (!workAbstract.value.trim()) {
+            showFieldError('work-abstract', 'Resumo do trabalho é obrigatório');
+            isValid = false;
+        }
+        
+        if (workAbstract.value.length > 300) {
+            showFieldError('work-abstract', 'Resumo deve ter no máximo 300 caracteres');
+            isValid = false;
+        }
+    }
+    
+    return isValid;
+}
+
+// ===============================
+// FUNÇÕES DE VALIDAÇÃO
+// ===============================
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function isValidCPF(cpf) {
+    const cpfRegex = /^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$/;
+    return cpfRegex.test(cpf);
+}
+
+function isValidPhone(phone) {
+    const phoneRegex = /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/;
+    return phoneRegex.test(phone);
+}
+
+// ===============================
+// GERENCIAMENTO DE ERROS
+// ===============================
+function showFieldError(fieldId, message) {
+    const field = document.getElementById(fieldId);
+    if (field) {
+        const formGroup = field.closest('.form-group');
+        if (formGroup) {
+            formGroup.classList.add('error');
+            const errorElement = formGroup.querySelector('.form-error');
+            if (errorElement) {
+                errorElement.textContent = message;
+            }
+        }
+    }
+}
+
+function clearFormErrors() {
+    document.querySelectorAll('.form-group').forEach(group => {
+        group.classList.remove('error', 'success');
+        const errorElement = group.querySelector('.form-error');
+        if (errorElement) {
+            errorElement.textContent = '';
+        }
+    });
+}
+
+// ===============================
+// ATUALIZAR RESUMO DE PAGAMENTO
+// ===============================
+function updatePaymentSummary() {
+    const paymentSummary = document.getElementById('payment-summary');
+    const selectedCategory = document.getElementById('selected-category');
+    const selectedPrice = document.getElementById('selected-price');
+    
+    if (paymentSummary && selectedCategory && selectedPrice) {
+        selectedCategory.textContent = currentCategory;
+        selectedPrice.textContent = currentPrice === 0 ? 'Gratuito' : `R$ ${currentPrice.toFixed(2).replace('.', ',')}`;
+        paymentSummary.style.display = 'block';
+    }
+}
+
+// ===============================
+// COLETAR DADOS DO FORMULÁRIO
+// ===============================
+function collectFormData() {
+    formData = {
+        category: currentCategory,
+        price: currentPrice,
+        includesWork: includesWork,
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        document: document.getElementById('document').value,
+        institution: document.getElementById('institution').value,
+        course: document.getElementById('course').value,
+        paymentMethod: document.getElementById('forma-pagamento').value,
+        workTitle: includesWork ? document.getElementById('work-title').value : '',
+        workAbstract: includesWork ? document.getElementById('work-abstract').value : ''
+    };
+    
+    // Adiciona campos extras de pagamento se necessário
+    if (formData.paymentMethod === 'cartao') {
+        formData.cardNumber = document.getElementById('numero-cartao').value;
+        formData.cardExpiry = document.getElementById('validade-cartao').value;
+        formData.cardCVV = document.getElementById('cvv-cartao').value;
+        formData.cardName = document.getElementById('nome-cartao').value;
+    }
+}
+
+// ===============================
+// GERAR RESUMO DA INSCRIÇÃO
+// ===============================
+function generateSummary() {
+    const summarySection = document.getElementById('summary-section');
+    const summaryContent = document.getElementById('summary-content');
+    
+    if (summarySection && summaryContent) {
+        let summaryHTML = '';
+        
+        // Informações básicas
+        summaryHTML += `
+            <div class="summary-item">
+                <span class="summary-item-label">Categoria:</span>
+                <span class="summary-item-value">${formData.category}</span>
+                </div>
+            <div class="summary-item">
+                <span class="summary-item-label">Valor:</span>
+                <span class="summary-item-value">${formData.price === 0 ? 'Gratuito' : `R$ ${formData.price.toFixed(2).replace('.', ',')}`}</span>
+                </div>
+            <div class="summary-item">
+                <span class="summary-item-label">Nome:</span>
+                <span class="summary-item-value">${formData.name}</span>
+            </div>
+            <div class="summary-item">
+                <span class="summary-item-label">E-mail:</span>
+                <span class="summary-item-value">${formData.email}</span>
+                </div>
+            <div class="summary-item">
+                <span class="summary-item-label">Telefone:</span>
+                <span class="summary-item-value">${formData.phone}</span>
+                </div>
+            <div class="summary-item">
+                <span class="summary-item-label">CPF:</span>
+                <span class="summary-item-value">${formData.document}</span>
+            </div>
+            <div class="summary-item">
+                <span class="summary-item-label">Instituição:</span>
+                <span class="summary-item-value">${formData.institution}</span>
+            </div>
+            <div class="summary-item">
+                <span class="summary-item-label">Curso:</span>
+                <span class="summary-item-value">${formData.course}</span>
+            </div>
+            <div class="summary-item">
+                <span class="summary-item-label">Forma de Pagamento:</span>
+                <span class="summary-item-value">${getPaymentMethodLabel(formData.paymentMethod)}</span>
+            </div>
+        `;
+        
+        // Informações de trabalho se aplicável
+        if (formData.includesWork) {
+            summaryHTML += `
+                <div class="summary-item">
+                    <span class="summary-item-label">Título do Trabalho:</span>
+                    <span class="summary-item-value work-title">${formData.workTitle}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-item-label">Resumo:</span>
+                    <span class="summary-item-value work-abstract">${formData.workAbstract}</span>
+                </div>
+            `;
+        }
+        
+        summaryContent.innerHTML = summaryHTML;
+        summarySection.style.display = 'block';
+    }
+}
+
+// ===============================
+// FUNÇÃO AUXILIAR PARA LABEL DE PAGAMENTO
+// ===============================
+function getPaymentMethodLabel(method) {
+    const labels = {
+        'pix': 'PIX',
+        'cartao': 'Cartão de Crédito/Débito',
+        'boleto': 'Boleto Bancário'
+    };
+    return labels[method] || method;
+}
+
+// ===============================
+// RESETAR ESTADO DO FORMULÁRIO
+// ===============================
+function resetFormState() {
+    currentCategory = '';
+    currentPrice = 0;
+    includesWork = false;
+    formData = {};
+    
+    // Esconde seções condicionais
+    workSection.style.display = 'none';
+    document.getElementById('summary-section').style.display = 'none';
+    document.getElementById('payment-summary').style.display = 'none';
+    
+    // Remove campos obrigatórios de trabalho
+    document.getElementById('work-title').required = false;
+    document.getElementById('work-abstract').required = false;
+    
+    // Esconde campos extras de pagamento
+    document.querySelectorAll('.extra-fields').forEach(field => {
+        field.style.display = 'none';
+    });
+}
+
+// ===============================
+// BOTÃO DE VISUALIZAÇÃO
+// ===============================
+btnPreview.addEventListener('click', function() {
+    if (validateForm()) {
+        collectFormData();
+        generateSummary();
+        
+        // Scroll para o resumo
+        document.getElementById('summary-section').scrollIntoView({ 
+            behavior: 'smooth' 
+        });
+    }
+});
+
+// ===============================
+// SUBMISSÃO DO FORMULÁRIO
+// ===============================
+registrationForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // Verifica se categoria foi selecionada
-    if (!currentCategory) {
-        alert('Por favor, selecione uma categoria de inscrição.');
-        return;
-    }
-
-    // Coleta os dados do formulário
-    const formData = new FormData(this);
-    const json = Object.fromEntries(formData.entries());
-
-    // Adiciona categoria e preço
-    json.category = currentCategory;
-    json.price = currentPrice;
-
-    try {
-        // Envia para a API
-        const resposta = await fetch("api/pagamento.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(json)
-        });
-
-        const resultado = await resposta.json();
-        console.log(resultado);
-
-        // Mostra confirmação se sucesso
-        if (resultado.status === 'success') {
-            modalForm.style.display = 'none';
-            confirmation.style.display = 'block';
-            registrationForm.reset();
-        } else {
-            alert("Ocorreu um erro no pagamento: " + resultado.error);
-        }
-    } catch (error) {
-        alert("Erro na comunicação com a API: " + error);
+    if (validateForm()) {
+        collectFormData();
+        
+        // Adiciona estado de carregamento
+        btnSubmit.classList.add('loading');
+        btnSubmit.textContent = 'Processando...';
+        
+        // Simula envio (substitua pela sua lógica real)
+        setTimeout(() => {
+            // Remove estado de carregamento
+            btnSubmit.classList.remove('loading');
+            btnSubmit.textContent = 'Finalizar Inscrição';
+            
+            // Mostra confirmação
+            showConfirmation();
+        }, 2000);
     }
 });
 
 // ===============================
-// Menu mobile toggle
+// MOSTRAR CONFIRMAÇÃO
+// ===============================
+function showConfirmation() {
+            modalForm.style.display = 'none';
+            confirmation.style.display = 'block';
+    
+    // Preenche detalhes da confirmação
+    const confirmationDetails = document.getElementById('confirmation-details');
+    if (confirmationDetails) {
+        confirmationDetails.innerHTML = `
+            <h4>Detalhes da Inscrição</h4>
+            <div class="detail-item">
+                <span class="detail-label">Categoria:</span>
+                <span class="detail-value">${formData.category}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Valor:</span>
+                <span class="detail-value">${formData.price === 0 ? 'Gratuito' : `R$ ${formData.price.toFixed(2).replace('.', ',')}`}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Forma de Pagamento:</span>
+                <span class="detail-value">${getPaymentMethodLabel(formData.paymentMethod)}</span>
+            </div>
+        `;
+    }
+}
+
+// ===============================
+// MÁSCARAS PARA CAMPOS
+// ===============================
+// Máscara para CPF
+const documentField = document.getElementById('document');
+if (documentField) {
+    documentField.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length <= 11) {
+            value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            e.target.value = value;
+        }
+    });
+}
+
+// Máscara para telefone
+const phoneField = document.getElementById('phone');
+if (phoneField) {
+    phoneField.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length <= 11) {
+            if (value.length <= 10) {
+                value = value.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+        } else {
+                value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+            }
+            e.target.value = value;
+        }
+    });
+}
+
+// Máscara para cartão
+const cardNumberField = document.getElementById('numero-cartao');
+if (cardNumberField) {
+    cardNumberField.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length <= 16) {
+            value = value.replace(/(\d{4})(\d{4})(\d{4})(\d{4})/, '$1 $2 $3 $4');
+            e.target.value = value;
+        }
+    });
+}
+
+// Máscara para validade
+const expiryField = document.getElementById('validade-cartao');
+if (expiryField) {
+    expiryField.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length <= 4) {
+            value = value.replace(/(\d{2})(\d{2})/, '$1/$2');
+            e.target.value = value;
+        }
+    });
+}
+
+// ===============================
+// INICIALIZAÇÃO
+// ===============================
+document.addEventListener('DOMContentLoaded', function() {
+    // Esconde seções condicionais inicialmente
+    workSection.style.display = 'none';
+    document.getElementById('summary-section').style.display = 'none';
+    document.getElementById('payment-summary').style.display = 'none';
+    
+    // Esconde campos extras de pagamento
+    document.querySelectorAll('.extra-fields').forEach(field => {
+        field.style.display = 'none';
+    });
+    
+    console.log('Modal de inscrição inicializado com sucesso!');
+});
+
+// ===============================
+// MENU MOBILE TOGGLE
 // ===============================
 document.querySelector('.menu-btn').addEventListener('click', function () {
     document.querySelector('.nav-links').classList.toggle('active');
@@ -213,7 +583,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 
 // ===============================
-// Scroll suave
+// SCROLL SUAVE
 // ===============================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
