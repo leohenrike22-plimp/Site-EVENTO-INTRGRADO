@@ -39,15 +39,24 @@
 
     <!-- COMENTÁRIO: Esta é a seção do banner que substitui a hero section original -->
     <section class="banner">
-        <div class="banner-image"></div>
-        <div class="banner-overlay"></div>
+        <div class="banner-image">
+            <img src="images/4.png" alt="Banner do evento">
+        </div>
         <div class="banner-content">
-            <div class="banner-buttons">
-                <button class="banner-btn btn-primary" id="hero-inscribe-btn">Inscreva-se</button>
-                <a href="#about" class="banner-btn btn-secondary">Saiba Mais</a>
-            </div>
+            <!-- Conteúdo textual opcional -->
         </div>
     </section>
+
+    <!-- Faixa branca separadora -->
+    <div class="banner-separator"></div>
+
+    <!-- Faixa verde com botões -->
+    <div class="banner-buttons-bar">
+        <div class="banner-buttons-container">
+            <button class="banner-btn btn-primary" id="hero-inscribe-btn">Inscreva-se</button>
+            <a href="#about" class="banner-btn btn-secondary">Saiba Mais</a>
+        </div>
+    </div>
 
     <section class="about-events" id="about">
         <div class="container">
@@ -116,7 +125,7 @@
                 As informações sobre categorias e valores estarão disponíveis no formulário de inscrição.
             </p>
             <div style="text-align: center; margin-top: 30px;">
-                <button class="btn" id="show-registration-form">Realizar Inscrição</button>
+                <button class="banner-btn btn-primary" id="show-registration-form">Realizar Inscrição</button>
             </div>
             <p style="text-align: center; margin-top: 20px; color: #777; font-style: italic;">
                 Informações sobre a destinação dos valores serão divulgadas em breve.
