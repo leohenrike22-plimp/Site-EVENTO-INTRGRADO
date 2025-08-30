@@ -127,23 +127,26 @@ newRegistrationBtn.addEventListener('click', () => {
 // ===============================
 // SELEÇÃO DA FORMA DE PAGAMENTO
 // ===============================
-document.getElementById("forma-pagamento").addEventListener("change", function () {
-    const selectedValue = this.value;
-    
-    // Esconde todos os campos extras
-    document.querySelectorAll('.extra-fields').forEach(field => {
-        field.style.display = 'none';
+const paymentMethodSelect = document.getElementById("forma-pagamento");
+if (paymentMethodSelect) {
+    paymentMethodSelect.addEventListener("change", function () {
+        const selectedValue = this.value;
+
+        // Esconde todos os campos extras
+        document.querySelectorAll('.extra-fields').forEach(field => {
+            field.style.display = 'none';
+        });
+
+        // Mostra campos específicos baseado na seleção
+        if (selectedValue === 'cartao') {
+            document.getElementById('extra-cartao').classList.add('show');
+        } else if (selectedValue === 'pix') {
+            document.getElementById('extra-pix').classList.add('show');
+        } else if (selectedValue === 'boleto') {
+            document.getElementById('extra-boleto').classList.add('show');
+        }
     });
-    
-    // Mostra campos específicos baseado na seleção
-    if (selectedValue === 'cartao') {
-        document.getElementById('extra-cartao').classList.add('show');
-    } else if (selectedValue === 'pix') {
-        document.getElementById('extra-pix').classList.add('show');
-    } else if (selectedValue === 'boleto') {
-        document.getElementById('extra-boleto').classList.add('show');
-    }
-});
+}
 
 // ===============================
 // CONTADOR DE CARACTERES PARA RESUMO
@@ -173,13 +176,13 @@ if (workAbstract && charCount) {
 function validateForm() {
     let isValid = true;
     clearFormErrors();
-    
+
     // Validação de categoria
     if (!currentCategory) {
         showFieldError('category-selector', 'Selecione uma categoria de inscrição');
         isValid = false;
     }
-    
+
     // Validação de campos obrigatórios
     const requiredFields = ['name', 'email', 'phone', 'document', 'institution', 'course', 'forma-pagamento'];
     requiredFields.forEach(fieldId => {
@@ -189,49 +192,49 @@ function validateForm() {
             isValid = false;
         }
     });
-    
+
     // Validação de e-mail
-    const email = document.getElementById('email');
-    if (email && email.value && !isValidEmail(email.value)) {
+    const emailField = document.getElementById('email');
+    if (emailField && emailField.value && !isValidEmail(emailField.value)) {
         showFieldError('email', 'Digite um e-mail válido');
         isValid = false;
     }
-    
+
     // Validação de CPF
-    const document = document.getElementById('document');
-    if (document && document.value && !isValidCPF(document.value)) {
+    const documentField = document.getElementById('document');
+    if (documentField && documentField.value && !isValidCPF(documentField.value)) {
         showFieldError('document', 'Digite um CPF válido');
         isValid = false;
     }
-    
+
     // Validação de telefone
-    const phone = document.getElementById('phone');
-    if (phone && phone.value && !isValidPhone(phone.value)) {
+    const phoneField = document.getElementById('phone');
+    if (phoneField && phoneField.value && !isValidPhone(phoneField.value)) {
         showFieldError('phone', 'Digite um telefone válido');
         isValid = false;
     }
-    
+
     // Validação de campos de trabalho se necessário
     if (includesWork) {
         const workTitle = document.getElementById('work-title');
         const workAbstract = document.getElementById('work-abstract');
-        
-        if (!workTitle.value.trim()) {
+
+        if (workTitle && !workTitle.value.trim()) {
             showFieldError('work-title', 'Título do trabalho é obrigatório');
             isValid = false;
         }
-        
-        if (!workAbstract.value.trim()) {
+
+        if (workAbstract && !workAbstract.value.trim()) {
             showFieldError('work-abstract', 'Resumo do trabalho é obrigatório');
             isValid = false;
         }
-        
-        if (workAbstract.value.length > 300) {
+
+        if (workAbstract && workAbstract.value.length > 300) {
             showFieldError('work-abstract', 'Resumo deve ter no máximo 300 caracteres');
             isValid = false;
         }
     }
-    
+
     return isValid;
 }
 
@@ -354,7 +357,7 @@ function generateSummary() {
             <div class="summary-item">
                 <span class="summary-item-label">Telefone:</span>
                 <span class="summary-item-value">${formData.phone}</span>
-                </div>
+            </div>
             <div class="summary-item">
                 <span class="summary-item-label">CPF:</span>
                 <span class="summary-item-value">${formData.document}</span>
@@ -431,17 +434,17 @@ function resetFormState() {
 // ===============================
 // BOTÃO DE VISUALIZAÇÃO
 // ===============================
-btnPreview.addEventListener('click', function() {
-    if (validateForm()) {
-        collectFormData();
-        generateSummary();
+// btnPreview.addEventListener('click', function() {
+//     if (validateForm()) {
+//         collectFormData();
+//         generateSummary();
         
-        // Scroll para o resumo
-        document.getElementById('summary-section').scrollIntoView({ 
-            behavior: 'smooth' 
-        });
-    }
-});
+//         // Scroll para o resumo
+//         document.getElementById('summary-section').scrollIntoView({ 
+//             behavior: 'smooth' 
+//         });
+//     }
+// });
 
 // Função simulada de chamada à API de pagamento
 async function processarPagamento(formData) {
