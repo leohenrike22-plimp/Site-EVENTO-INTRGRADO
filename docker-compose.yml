@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+  # Serviço web com Apache e PHP
+  web:
+    image: bitnami/php-fpm:8.2
+    container_name: site-evento-web
+    volumes:
+      - ./Site:/app
+    depends_on:
+      - mysql
+    environment:
+      - PHP_MEMORY_LIMIT=256M
+      - PHP_UPLOAD_MAX_FILESIZE=100M
+      - PHP_POST_MAX_SIZE=100M
+    networks:
+      - site-network
+    restart: unless-stopped
+
+  # Servidor web nginx para servir os arquivos estáticos
+  nginx:
+    image: nginx:alpine
+    container_name: site-evento-nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./Site:/usr/share/nginx/html
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - web
+    networks:
+      - site-network
+    restart: unless-stopped
+
+  # Banco de dados MySQL
+  mysql:
+    image: mysql:8.0
+    container_name: site-evento-mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: site_evento
+      MYSQL_USER: site_user
+      MYSQL_PASSWORD: site123
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - site-network
+    restart: unless-stopped
+
+  # phpMyAdmin para gerenciar o banco (opcional)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: site-evento-phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root123
+    depends_on:
+      - mysql
+    networks:
+      - site-network
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
+
+networks:
+  site-network:
+    driver: bridge
