@@ -459,6 +459,7 @@
                     </tbody>
                 </table>
             </div>
+            <div id="registrations-cards-container" style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 32px;"></div>
             <div id="no-registrations" style="display: none; text-align: center; padding: 20px;">
                 <i class="fas fa-clipboard-list" style="font-size: 3rem; color: #ccc; margin-bottom: 15px;"></i>
                 <p>Nenhuma inscrição realizada ainda.</p>
@@ -466,87 +467,6 @@
         </div>
     </section>
 
-    <script>
-        // Painel de análise de inscrições
-        let registrations = [];
-
-        // Elementos do DOM
-        const registrationsList = document.getElementById('registrations-list');
-        const registrationsCount = document.getElementById('registrations-count');
-        const noRegistrations = document.getElementById('no-registrations');
-        const registrationsContainer = document.getElementById('registrations-container');
-        const exportBtn = document.getElementById('export-data');
-        const clearBtn = document.getElementById('clear-data');
-
-        // Carregar inscrições do localStorage
-        function loadRegistrations() {
-            const saved = localStorage.getItem('event_registrations');
-            if (saved) {
-                registrations = JSON.parse(saved);
-            }
-        }
-
-        // Atualizar a exibição das inscrições
-        function updateRegistrationsDisplay() {
-            registrationsCount.textContent = registrations.length;
-
-            if (registrations.length === 0) {
-                registrationsContainer.style.display = 'none';
-                noRegistrations.style.display = 'block';
-                return;
-            }
-
-            registrationsContainer.style.display = 'block';
-            noRegistrations.style.display = 'none';
-
-            registrationsList.innerHTML = '';
-            registrations.forEach(reg => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${reg.name}</td>
-                    <td>${reg.email}</td>
-                    <td>${reg.category}</td>
-                    <td>R$ ${reg.price},00</td>
-                    <td>${reg.registration_date}</td>
-                `;
-                registrationsList.appendChild(row);
-            });
-        }
-
-        // Exportar dados para JSON
-        function exportRegistrations() {
-            if (registrations.length === 0) {
-                alert('Não há inscrições para exportar.');
-                return;
-            }
-            const dataStr = JSON.stringify(registrations, null, 2);
-            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
-            const exportFileDefaultName = `inscricoes_${new Date().toISOString().slice(0, 10)}.json`;
-            const linkElement = document.createElement('a');
-            linkElement.setAttribute('href', dataUri);
-            linkElement.setAttribute('download', exportFileDefaultName);
-            linkElement.click();
-            alert(`Dados exportados com sucesso! ${registrations.length} inscrições salvas no arquivo.`);
-        }
-
-        // Limpar todos os dados
-        function clearRegistrations() {
-            if (confirm('Tem certeza que deseja limpar todos os dados de inscrição? Esta ação não pode ser desfeita.')) {
-                registrations = [];
-                localStorage.setItem('event_registrations', JSON.stringify(registrations));
-                updateRegistrationsDisplay();
-                alert('Todos os dados foram removidos.');
-            }
-        }
-
-        // Inicializar painel
-        document.addEventListener('DOMContentLoaded', function() {
-            loadRegistrations();
-            updateRegistrationsDisplay();
-        });
-
-        exportBtn.addEventListener('click', exportRegistrations);
-        clearBtn.addEventListener('click', clearRegistrations);
-    </script>
+    <script src="js_index/admin-panel.js"></script>
 </body>
 </html>

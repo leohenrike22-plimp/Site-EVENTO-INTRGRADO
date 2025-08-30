@@ -443,28 +443,74 @@ btnPreview.addEventListener('click', function() {
     }
 });
 
+// Função simulada de chamada à API de pagamento
+async function processarPagamento(formData) {
+    // Se for gratuito, não precisa de pagamento
+    if (formData.price === 0) {
+        return { status: 'aprovado' };
+    }
+
+    // Exemplo de chamada real:
+    // const response = await fetch('URL_DA_API_PAGAMENTO', { method: 'POST', body: JSON.stringify(formData) });
+    // const result = await response.json();
+    // return result;
+
+    // Simulação de resposta da API (substitua pela real)
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve({ status: 'aprovado' }); // ou 'rejeitado'
+        }, 1500);
+    });
+}
+
 // ===============================
 // SUBMISSÃO DO FORMULÁRIO
 // ===============================
-registrationForm.addEventListener('submit', function(e) {
+registrationForm.addEventListener('submit', async function(e) {
     e.preventDefault();
 
     if (validateForm()) {
         collectFormData();
-        
+
         // Adiciona estado de carregamento
         btnSubmit.classList.add('loading');
         btnSubmit.textContent = 'Processando...';
-        
-        // Simula envio (substitua pela sua lógica real)
-        setTimeout(() => {
+
+        // Processa pagamento se necessário
+        const resultadoPagamento = await processarPagamento(formData);
+
+        if (resultadoPagamento.status === 'aprovado') {
+            // Salva inscrição no localStorage (sem dados de pagamento)
+            saveRegistrationToStorage(formData);
+
+            // Gera relatório da inscrição
+            const registrationReport = {
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                document: formData.document,
+                institution: formData.institution,
+                course: formData.course,
+                category: formData.category,
+                price: formData.price,
+                includesWork: formData.includesWork,
+                workTitle: formData.includesWork ? formData.workTitle : '',
+                workAbstract: formData.includesWork ? formData.workAbstract : '',
+                registration_date: new Date().toLocaleString('pt-BR')
+            };
+            generateRegistrationReport(registrationReport);
+
             // Remove estado de carregamento
             btnSubmit.classList.remove('loading');
             btnSubmit.textContent = 'Finalizar Inscrição';
-            
+
             // Mostra confirmação
             showConfirmation();
-        }, 2000);
+        } else {
+            btnSubmit.classList.remove('loading');
+            btnSubmit.textContent = 'Finalizar Inscrição';
+            alert('Pagamento não aprovado. Por favor, tente novamente.');
+        }
     }
 });
 
@@ -597,3 +643,85 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Salvar inscrição no localStorage (sem informações de pagamento)
+function saveRegistrationToStorage(formData) {
+    // Cria objeto apenas com dados relevantes
+    const registration = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        document: formData.document,
+        institution: formData.institution,
+        course: formData.course,
+        category: formData.category,
+        price: formData.price,
+        includesWork: formData.includesWork,
+        workTitle: formData.includesWork ? formData.workTitle : '',
+        workAbstract: formData.includesWork ? formData.workAbstract : '',
+        registration_date: new Date().toLocaleString('pt-BR')
+    };
+
+    // Recupera inscrições já salvas
+    let registrations = [];
+    const saved = localStorage.getItem('event_registrations');
+    if (saved) {
+        registrations = JSON.parse(saved);
+    }
+    registrations.push(registration);
+    localStorage.setItem('event_registrations', JSON.stringify(registrations));
+}
+
+// ===============================
+// GERAR RELATÓRIO DA INSCRIÇÃO (PDF)
+// ===============================
+function generateRegistrationReport(registration) {
+    // Cria o conteúdo do relatório em HTML
+    const reportWindow = window.open('', '_blank');
+    const reportHtml = `
+        <html>
+        <head>
+            <title>Relatório de Inscrição - ${registration.name}</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 40px; color: #222; }
+                h2 { color: #2e7d32; }
+                .section { margin-bottom: 24px; }
+                .label { font-weight: bold; color: #444; }
+                .value { margin-left: 8px; }
+                .work-section { margin-top: 16px; }
+                .footer { margin-top: 40px; font-size: 0.95em; color: #888; }
+            </style>
+        </head>
+        <body>
+            <h2>Relatório de Inscrição</h2>
+            <div class="section">
+                <span class="label">Nome:</span><span class="value">${registration.name}</span><br>
+                <span class="label">E-mail:</span><span class="value">${registration.email}</span><br>
+                <span class="label">Telefone:</span><span class="value">${registration.phone}</span><br>
+                <span class="label">CPF:</span><span class="value">${registration.document}</span><br>
+                <span class="label">Instituição:</span><span class="value">${registration.institution}</span><br>
+                <span class="label">Curso:</span><span class="value">${registration.course}</span><br>
+                <span class="label">Categoria:</span><span class="value">${registration.category}</span><br>
+                <span class="label">Valor:</span><span class="value">${registration.price === 0 ? 'Gratuito' : `R$ ${registration.price},00`}</span><br>
+                <span class="label">Data da Inscrição:</span><span class="value">${registration.registration_date}</span>
+            </div>
+            ${registration.includesWork ? `
+            <div class="section work-section">
+                <span class="label">Título do Trabalho:</span><span class="value">${registration.workTitle}</span><br>
+                <span class="label">Resumo:</span><span class="value">${registration.workAbstract}</span>
+            </div>
+            ` : ''}
+            <div class="footer">
+                Relatório gerado automaticamente pelo sistema de inscrições INOFAS & ENAGROTECH 2025.
+            </div>
+        </body>
+        </html>
+    `;
+    reportWindow.document.write(reportHtml);
+    reportWindow.document.close();
+    reportWindow.focus();
+    // Aguarda o carregamento e aciona a impressão (PDF)
+    reportWindow.onload = function() {
+        reportWindow.print();
+    };
+}
