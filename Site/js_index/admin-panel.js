@@ -6,8 +6,10 @@ const exportBtn = document.getElementById('export-data');
 const clearBtn = document.getElementById('clear-data');
 const cardsContainer = document.getElementById('registrations-cards-container');
 
+let cardsCount = 0;
 let registrations = [];
 
+// Carrega inscrições do localStorage
 function loadRegistrations() {
     const saved = localStorage.getItem('event_registrations');
     if (saved) {
@@ -15,13 +17,29 @@ function loadRegistrations() {
     }
 }
 
+// Renderiza os cards de inscrição e contador
 function renderRegistrationCards() {
     cardsContainer.innerHTML = '';
+    cardsCount = registrations.length;
+
+    let cardsCounterElement = document.getElementById('cards-counter');
+    if (!cardsCounterElement) {
+        cardsCounterElement = document.createElement('div');
+        cardsCounterElement.id = 'cards-counter';
+        cardsCounterElement.style.fontWeight = 'bold';
+        cardsCounterElement.style.marginBottom = '18px';
+        cardsContainer.parentNode.insertBefore(cardsCounterElement, cardsContainer);
+    }
+    cardsCounterElement.textContent = `Total de inscrições (cards): ${cardsCount}`;
+
     if (registrations.length === 0) {
         cardsContainer.style.display = 'none';
+        cardsCounterElement.style.display = 'none';
         return;
     }
     cardsContainer.style.display = 'flex';
+    cardsCounterElement.style.display = 'block';
+
     registrations.forEach((reg, idx) => {
         const card = document.createElement('div');
         card.style.background = '#f5f5f5';
@@ -50,7 +68,7 @@ function renderRegistrationCards() {
         cardsContainer.appendChild(card);
     });
 
-    // Adiciona evento para download do PDF
+    // Evento para download do PDF/HTML para cada inscrição
     document.querySelectorAll('.btn-download-pdf').forEach(btn => {
         btn.addEventListener('click', function() {
             const idx = this.getAttribute('data-index');
@@ -59,6 +77,7 @@ function renderRegistrationCards() {
     });
 }
 
+// Atualiza a exibição das inscrições e cards
 function updateRegistrationsDisplay() {
     registrationsCount.textContent = registrations.length;
 
@@ -66,6 +85,8 @@ function updateRegistrationsDisplay() {
         registrationsContainer.style.display = 'none';
         noRegistrations.style.display = 'block';
         cardsContainer.style.display = 'none';
+        let cardsCounterElement = document.getElementById('cards-counter');
+        if (cardsCounterElement) cardsCounterElement.style.display = 'none';
         return;
     }
 
@@ -88,6 +109,7 @@ function updateRegistrationsDisplay() {
     renderRegistrationCards();
 }
 
+// Exporta todas as inscrições em JSON
 function exportRegistrations() {
     if (registrations.length === 0) {
         alert('Não há inscrições para exportar.');
@@ -103,6 +125,7 @@ function exportRegistrations() {
     alert(`Dados exportados com sucesso! ${registrations.length} inscrições salvas no arquivo.`);
 }
 
+// Limpa todas as inscrições
 function clearRegistrations() {
     if (confirm('Tem certeza que deseja limpar todos os dados de inscrição? Esta ação não pode ser desfeita.')) {
         registrations = [];
@@ -112,6 +135,7 @@ function clearRegistrations() {
     }
 }
 
+// Inicialização do painel
 document.addEventListener('DOMContentLoaded', function() {
     loadRegistrations();
     updateRegistrationsDisplay();
@@ -120,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
 exportBtn.addEventListener('click', exportRegistrations);
 clearBtn.addEventListener('click', clearRegistrations);
 
-// Função para gerar e baixar o PDF da inscrição
+// Gera arquivo HTML para download com os dados da inscrição
 function downloadRegistrationPDF(registration) {
     const htmlContent = `
         <html>
@@ -162,7 +186,6 @@ function downloadRegistrationPDF(registration) {
         </html>
     `;
 
-    // Cria um blob do HTML e faz o download como .html (pode ser impresso em PDF)
     const blob = new Blob([htmlContent], { type: 'text/html' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');

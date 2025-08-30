@@ -659,7 +659,7 @@ function saveRegistrationToStorage(formData) {
         includesWork: formData.includesWork,
         workTitle: formData.includesWork ? formData.workTitle : '',
         workAbstract: formData.includesWork ? formData.workAbstract : '',
-        registration_date: new Date().toLocaleString('pt-BR')
+        registration_date: new Date().toLocaleString('pt-BR') // <-- Garante que a data seja salva!
     };
 
     // Recupera inscrições já salvas
