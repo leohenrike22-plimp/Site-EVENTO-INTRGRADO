@@ -1,6 +1,8 @@
 //--JS DO CODIGO VVV-->
 
-// ===============================
+console.log("Modal element:", document.getElementById('registration-modal'));
+console.log("Close button:", document.getElementById('close-modal'));
+console.log("Registration form:", document.getElementById('registration-form'));// ===============================
 // Variáveis de estado da inscrição
 // ===============================
 let currentCategory = '';
@@ -27,9 +29,7 @@ function openModal() {
     // Remove seleção anterior de categoria
     document.querySelectorAll('.category-option').forEach(opt => opt.classList.remove('selected'));
 
-    // Oculta campos de trabalho
-    workTitleGroup.style.display = 'none';
-
+    
     // Reseta o formulário
     registrationForm.reset();
 
