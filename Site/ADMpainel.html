@@ -418,6 +418,7 @@
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="container">
             <nav>
@@ -438,6 +439,7 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <h1>Do Campo ao Digital: Inovação que Transforma</h1>
@@ -449,13 +451,13 @@
         </div>
     </section>
 
+    <!-- Seção de Administração -->
     <section id="admin" class="container">
         <div class="admin-panel">
             <div class="admin-header">
                 <h2>Painel de Administração</h2>
                 <div>
-                    <button class="btn btn-secondary" id="export-csv">Gerar Relatório CSV</button>
-                    <button class="btn btn-secondary" id="export-data">Exportar Dados JSON</button>
+                    <button class="btn btn-secondary" id="export-data">Exportar Dados</button>
                     <button class="btn" id="clear-data">Limpar Dados</button>
                 </div>
             </div>
@@ -473,7 +475,8 @@
                         </tr>
                     </thead>
                     <tbody id="registrations-list">
-                        </tbody>
+                        <!-- As inscrições serão inseridas aqui via JavaScript -->
+                    </tbody>
                 </table>
             </div>
             
@@ -484,6 +487,7 @@
         </div>
     </section>
 
+    <!-- Modal de Inscrição -->
     <div class="modal" id="registration-modal">
         <div class="modal-content">
             <span class="close-modal" id="close-modal">&times;</span>
@@ -573,8 +577,7 @@
         const categoryField = document.getElementById('category');
         const workTitleGroup = document.getElementById('work-title-group');
         const workAuthorsGroup = document.getElementById('work-authors-group');
-        const exportDataBtn = document.getElementById('export-data'); // Mudança de nome da variável
-        const exportCsvBtn = document.getElementById('export-csv'); // Novo botão
+        const exportBtn = document.getElementById('export-data');
         const clearBtn = document.getElementById('clear-data');
         const registrationsList = document.getElementById('registrations-list');
         const registrationsCount = document.getElementById('registrations-count');
@@ -592,8 +595,7 @@
         });
         
         // Botões de exportar e limpar dados
-        exportDataBtn.addEventListener('click', exportRegistrations);
-        exportCsvBtn.addEventListener('click', exportToCsv); // Evento para o novo botão
+        exportBtn.addEventListener('click', exportRegistrations);
         clearBtn.addEventListener('click', clearRegistrations);
         
         // Abrir modal de inscrição
@@ -743,51 +745,6 @@
             linkElement.click();
             
             alert(`Dados exportados com sucesso! ${registrations.length} inscrições salvas no arquivo.`);
-        }
-
-        // Nova função para exportar dados para CSV
-        function exportToCsv() {
-            if (registrations.length === 0) {
-                alert('Não há inscrições para exportar.');
-                return;
-            }
-
-            // Definir o cabeçalho do CSV
-            let csv = 'Nome,E-mail,Telefone,CPF,Instituicao,Curso,Categoria,Valor,Titulo do Trabalho,Autores do Trabalho,Observacoes,Data da Inscricao\n';
-
-            // Adicionar cada inscrição ao CSV
-            registrations.forEach(reg => {
-                const row = [
-                    `"${reg.name}"`, // Aspas duplas para nomes com vírgulas
-                    `"${reg.email}"`,
-                    `"${reg.phone}"`,
-                    `"${reg.document}"`,
-                    `"${reg.institution}"`,
-                    `"${reg.course}"`,
-                    `"${reg.category}"`,
-                    `"${reg.price},00"`,
-                    `"${reg.work_title || ''}"`,
-                    `"${reg.work_authors || ''}"`,
-                    `"${reg.comments || ''}"`,
-                    `"${reg.registration_date}"`
-                ];
-                csv += row.join(',') + '\n';
-            });
-
-            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-            const link = document.createElement('a');
-            
-            if (link.download !== undefined) {
-                const url = URL.createObjectURL(blob);
-                link.setAttribute('href', url);
-                link.setAttribute('download', `relatorio_inscricoes_${new Date().toISOString().slice(0, 10)}.csv`);
-                link.style.visibility = 'hidden';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
-            
-            alert(`Relatório CSV gerado com sucesso! ${registrations.length} inscrições salvas.`);
         }
         
         // Limpar todos os dados
