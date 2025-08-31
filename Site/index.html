@@ -7,196 +7,83 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css_index/style.css">
 </head>
-
 <body>
     <header>
         <div class="container">
+            <div class="logo">INOFAS & ENAGROTECH</div>
             <nav>
-                <div class="logo">
-                    <span>INOFAS & ENAGROTECH</span>
-                </div>
                 <ul class="nav-links">
+                    <li><a href="index.html" class="active">Início</a></li>
                     <li><a href="about.html">Sobre</a></li>
                     <li><a href="objectives.html">Objetivos</a></li>
                     <li><a href="registration.html">Inscrições</a></li>
                     <li><a href="contact.html">Contato</a></li>
-                    <li>
-                        <a href="#" id="admin-link">Administração</a>
-                    </li>
+                    <li><a href="#" id="admin-link">Administração</a></li>
                 </ul>
-                <div class="menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <button class="menu-btn" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
             </nav>
         </div>
     </header>
 
-    <section class="banner">
-        <div class="banner-image">
-            <img src="images/4.png" alt="Banner do evento">
+    <!-- BANNER -->
+    <section class="banner" aria-hidden="false">
+        <div class="banner-image" role="img" aria-label="Banner do evento">
+            <img src="images/4.png" alt="Banner INOFAS & ENAGROTECH">
         </div>
         <div class="banner-content">
-            <!-- Conteúdo textual opcional -->
+            <h1>INOFAS & ENAGROTECH 2025</h1>
+            <p>Do Campo ao Digital — Inovação, pesquisa e tecnologia para o setor agropecuário</p>
+            <div class="banner-buttons-container">
+                <button id="hero-inscribe-btn" class="banner-btn btn-primary hero-inscribe-btn">Inscreva-se Agora</button>
+                <a href="#about" class="banner-btn btn-secondary hero-know-more-btn">Saiba Mais</a>
+            </div>
         </div>
     </section>
 
-    <div class="banner-separator"></div>
+    <main class="site-main">
+        <div class="container">
+            <section class="cards-grid">
+                <article class="card">
+                    <h3>INOFAS</h3>
+                    <p>Encontro de Inovações Tecnológicas para Agricultura Familiar e Agroindústria Sustentáveis.</p>
+                    <a href="about.html" class="btn btn-secondary">Saiba Mais</a>
+                </article>
+                <article class="card">
+                    <h3>ENAGROTECH</h3>
+                    <p>Ciência e Tecnologia no Campo: Integração Agrícola, Pecuária e Inovações Digitais.</p>
+                    <a href="about.html" class="btn btn-secondary">Programação</a>
+                </article>
+                <article class="card">
+                    <h3>Inscrições</h3>
+                    <p>Informações sobre categorias e valores — realize sua inscrição no formulário.</p>
+                    <button id="show-registration-form" class="btn btn-primary">Realizar Inscrição</button>
+                </article>
+            </section>
 
-    <div class="banner-buttons-bar">
-        <div class="banner-buttons-container">
-            <button class="banner-btn btn-primary" id="hero-inscribe-btn">Inscreva-se</button>
-            <a href="#about" class="banner-btn btn-secondary">Saiba Mais</a>
+            <!-- conteúdo adicional existente (objetives/contacts etc.) pode ser mantido aqui -->
         </div>
-    </div>
-<main>
-        <section class="about-events" id="about">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Sobre os Eventos</h2>
-                    <p>Eventos integrados promovidos pelo IF Goiano - Campus Morrinhos</p>
-                </div>
-                <div class="about-cards-container">
-                    <div class="about-card inofas">
-                        <h3>INOFAS</h3>
-                        <p>
-                            O I Encontro Nacional de Inovações Tecnológicas para a Agricultura Familiar e Agroindústria Sustentáveis tem como propósito incentivar a inovação, a geração de conhecimentos e o fortalecimento de parcerias estratégicas voltadas para o desenvolvimento de soluções aplicáveis à agricultura familiar e à agroindústria sustentável no Brasil.
-                        </p>
-                        <p>
-                            O desafio central do INOFAS 2025 será: como a inovação tecnológica pode transformar a realidade do pequeno agricultor brasileiro, gerando soluções que promovam sustentabilidade, segurança alimentar, fortalecimento das economias locais e avanço da ciência e tecnologia no país?
-                        </p>
-                    </div>
-                    <div class="about-card enagrotech">
-                        <h3>ENAGROTECH</h3>
-                        <p>
-                            O ENAGROTECH – I Encontro Nacional de Ciência e Tecnologia no Campo: Integração Agrícola, Pecuária e Inovações Digitais é um espaço multidisciplinar que promove a integração entre ensino, pesquisa, inovação e extensão.
-                        </p>
-                        <p>
-                            O evento reúne áreas estratégicas como Agronomia, Zootecnia, Ciências da Computação, Tecnologia em Alimentos e Tecnologia em Sistemas para Internet, além dos Programas de Pós-Graduação em Olericultura (PPGOL) e em Biotecnologia e Biodiversidade (PPGBB).
-                        </p>
-                        <p>
-                            A proposta é difundir soluções digitais e práticas sustentáveis capazes de atender aos desafios atuais do setor agropecuário.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <section class="objectives" id="objectives">
-        <div class="container">
-            <div class="section-title">
-                <h2>Objetivos dos Eventos Integrados</h2>
-                <p>Principais metas e propósitos dos eventos INOFAS e ENAGROTECH</p>
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h4>Localização</h4>
+                <p>IF Goiano - Campus Morrinhos</p>
             </div>
-            <div class="objectives-grid">
-                <div class="objective-item">
-                    <div class="objective-icon"><i class="fas fa-link"></i></div>
-                    <div>Promover um espaço multidisciplinar de integração entre ensino, pesquisa, inovação e extensão, envolvendo as Ciências Agrárias, Exatas e Tecnológicas</div>
-                </div>
-                <div class="objective-item">
-                    <div class="objective-icon"><i class="fas fa-flask"></i></div>
-                    <div>Estimular a produção científica e tecnológica, fortalecendo programas de pós-graduação e incentivando a publicação de resultados</div>
-                </div>
-                <div class="objective-item">
-                    <div class="objective-icon"><i class="fas fa-laptop-code"></i></div>
-                    <div>Fomentar o uso de tecnologias digitais, inteligência artificial e bioinovações aplicadas ao setor agropecuário e à agricultura familiar</div>
-                </div>
-                <div class="objective-item">
-                    <div class="objective-icon"><i class="fas fa-globe-americas"></i></div>
-                    <div>Impulsionar o intercâmbio científico e institucional, aproximando pesquisadores, estudantes e profissionais do setor produtivo</div>
-                </div>
-                <div class="objective-item">
-                    <div class="objective-icon"><i class="fas fa-seedling"></i></div>
-                    <div>Contribuir para os Objetivos de Desenvolvimento Sustentável (ODS) da ONU, especialmente ODS 2, ODS 9 e ODS 13</div>
-                </div>
-                <div class="objective-item">
-                    <div class="objective-icon"><i class="fas fa-chart-line"></i></div>
-                    <div>Consolidar Goiás como polo de inovação tecnológica sustentável, fortalecendo a agricultura familiar e incentivando economias locais</div>
-                </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>inofas.enagrotech@ifgoiano.edu.br</p>
             </div>
-        </div>
-    </section>
-
-    <section class="registration" id="registration">
-        <div class="container">
-            <div class="section-title">
-                <h2>Inscrições</h2>
-                <p>Valores e categorias de inscrição para os eventos</p>
-            </div>
-            <p style="text-align: center; margin-top: 20px; color: #777; font-style: italic;">
-                As informações sobre categorias e valores estarão disponíveis no formulário de inscrição.
-            </p>
-            <div style="text-align: center; margin-top: 30px;">
-                <button class="banner-btn btn-primary" id="show-registration-form">Realizar Inscrição</button>
-            </div>
-            <p style="text-align: center; margin-top: 20px; color: #777; font-style: italic;">
-                Informações sobre a destinação dos valores serão divulgadas em breve.
-            </p>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Localização</h3>
-                    <p>IF Goiano - Campus Morrinhos</p>
-                    <p>Rodovia GO-320, Km 29, Zona Rural</p>
-                    <p>Morrinhos - GO, 75650-000</p>
+            <div class="footer-section social">
+                <h4>Redes</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
-                <div class="footer-section">
-                    <h3>Contato</h3>
-                    <p>Email: inofas.enagrotech@ifgoiano.edu.br</p>
-                    <p>Telefone: (64) 3413-0300</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Redes Sociais</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 INOFAS & ENAGROTECH - IF Goiano Campus Morrinhos. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <div class="modal" id="registration-modal">
-        <div class="modal-content">
-            <span class="close-modal" id="close-modal" aria-label="Fechar modal">&times;</span>
-            <h2 class="modal-title">Formulário de Inscrição</h2>
-            <div id="modal-form">
-                <form id="registration-form" novalidate>
-                    <!-- Seleção de Categoria -->
-                    <div class="form-group category-selector">
-                    </div>
-                </form>
-            </div>
-            <div id="confirmation" class="confirmation" style="display: none;">
-                <i class="fas fa-check-circle"></i>
-                <h2>Inscrição Realizada com Sucesso!</h2>
-                <p>Obrigado por se inscrever no evento. Em breve enviaremos mais informações para o e-mail cadastrado.</p>
-                <div class="confirmation-details" id="confirmation-details">
-                </div>
-                <button class="btn btn-primary" id="new-registration">Nova Inscrição</button>
-            </div>
-        </div>
-    </div>
-
     <script src="js_index/script.js"></script>
-    <script>
-        document.querySelector('.menu-btn').addEventListener('click', function () {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.remove('active');
-            });
-        });
-    </script>
 </body>
 </html>
