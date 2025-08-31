@@ -1,6 +1,3 @@
-/* ========================================
-   VARIÁVEIS CSS (CSS Custom Properties)
-   ======================================== */
 :root {
     --primary: #2e7d32;
     --primary-light: #4caf50;
@@ -58,9 +55,6 @@
     --banner-content-max-width: 1200px;
 }
 
-/* ========================================
-   RESET E BASE
-   ======================================== */
 *,
 *::before,
 *::after {
@@ -84,9 +78,6 @@ body {
     padding: 0;
 }
 
-/* ========================================
-   TIPOGRAFIA
-   ======================================== */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.2;
@@ -115,9 +106,6 @@ a:hover {
     color: var(--primary-dark);
 }
 
-/* ========================================
-   UTILITÁRIOS
-   ======================================== */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -142,9 +130,6 @@ a:hover {
 .mt-4 { margin-top: var(--spacing-xl); }
 .mt-5 { margin-top: var(--spacing-2xl); }
 
-/* ========================================
-   BANNER
-   ======================================== */
 .banner {
     width: 100%;
     position: relative;
@@ -155,9 +140,6 @@ a:hover {
     overflow: hidden;
     background: var(--light-gray);
     padding: 0;
-    /* Remova altura fixa para permitir ajuste pela imagem */
-    min-height: unset;
-    max-height: unset;
     height: auto;
 }
 
@@ -168,8 +150,6 @@ a:hover {
     position: relative;
     z-index: 1;
     pointer-events: none;
-    background: none;
-    background-image: none;
 }
 
 .banner-image img {
@@ -178,10 +158,6 @@ a:hover {
     height: auto;
     max-width: 100%;
     margin: 0 auto;
-}
-
-.banner-overlay {
-    display: none;
 }
 
 .banner-content {
@@ -198,15 +174,6 @@ a:hover {
     align-items: center;
     justify-content: center;
     pointer-events: none;
-    /* Ajuste para texto sobre imagem, se necessário */
-    /* background: rgba(0,0,0,0.3); */
-}
-
-.banner-separator {
-    width: 100%;
-    height: 18px;
-    background: var(--white);
-    display: block;
 }
 
 .banner-buttons-bar {
@@ -217,14 +184,6 @@ a:hover {
     align-items: center;
     padding: var(--spacing-lg) 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-}
-
-.banner-buttons-container {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    width: 100%;
-    max-width: 600px;
 }
 
 .banner-btn {
@@ -262,9 +221,6 @@ a:hover {
     border-color: var(--primary);
 }
 
-/* ========================================
-   HEADER E NAVEGAÇÃO
-   ======================================== */
 header {
     background: var(--white);
     box-shadow: var(--shadow);
@@ -314,9 +270,6 @@ nav {
     color: var(--primary);
 }
 
-/* ========================================
-   SEÇÕES
-   ======================================== */
 section {
     padding: var(--spacing-lg) 0;
 }
@@ -326,903 +279,57 @@ section {
     margin-bottom: var(--spacing-2xl);
 }
 
-.section-title h2 {
-    color: var(--primary);
-    margin-bottom: var(--spacing-md);
-}
-
-.section-title p {
-    color: var(--gray);
-    font-size: var(--font-size-lg);
-}
-
-/* ========================================
-   SOBRE OS EVENTOS
-   ======================================== */
-.about-events {
-    background-color: var(--light-gray);
-}
-
-.events-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: var(--spacing-2xl);
-    margin-top: var(--spacing-2xl);
-}
-
-.event-card {
-    background-color: var(--white);
-    padding: var(--spacing-2xl);
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition-normal);
-}
-
-.event-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-}
-
-.event-card h3 {
-    color: var(--primary);
-    margin-bottom: var(--spacing-lg);
-    font-size: var(--font-size-2xl);
-}
-
-.event-card p {
-    color: var(--dark-gray);
-    margin-bottom: var(--spacing-md);
-}
-
-/* ========================================
-   OBJETIVOS
-   ======================================== */
-.objectives-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-xl);
-    margin-top: var(--spacing-2xl);
-}
-
-.objective-item {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--spacing-lg);
-    padding: var(--spacing-lg);
-    background-color: var(--light-gray);
-    border-radius: var(--border-radius-md);
-    transition: all var(--transition-normal);
-}
-
-.objective-item:hover {
-    background-color: var(--white);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
-}
-
-.objective-icon {
-    background-color: var(--primary);
-    color: var(--white);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--font-size-xl);
-    flex-shrink: 0;
-}
-
-/* ========================================
-   INSCRIÇÕES
-   ======================================== */
-.registration {
-    background-color: var(--light-gray);
-    text-align: center;
-}
-
-.registration p {
-    color: var(--gray);
-    font-style: italic;
-    margin: var(--spacing-lg) 0;
-}
-
-/* ========================================
-   MODAL DE INSCRIÇÃO
-   ======================================== */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    z-index: var(--z-modal);
-    justify-content: center;
-    align-items: center;
-    padding: var(--spacing-lg);
-    backdrop-filter: blur(5px);
-}
-
-.modal.show {
-    display: flex;
-    animation: modalFadeIn var(--transition-normal);
-}
-
-.modal-content {
-    background: var(--white);
-    margin: auto;
-    padding: var(--spacing-lg);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    width: 90%;
-    max-width: 700px;
-    max-height: 85vh;
-    overflow-y: auto;
-    position: relative;
-    transform: scale(0.9);
-    opacity: 0;
-    transition: all var(--transition-normal);
-}
-
-.modal.show .modal-content {
-    transform: scale(1);
-    opacity: 1;
-}
-
-/* Scrollbar personalizada para o modal */
-.modal-content::-webkit-scrollbar {
-    width: 8px;
-}
-
-.modal-content::-webkit-scrollbar-track {
-    background: var(--light-gray);
-    border-radius: var(--border-radius-sm);
-}
-
-.modal-content::-webkit-scrollbar-thumb {
-    background-color: var(--primary);
-    border-radius: var(--border-radius-sm);
-}
-
-.modal-content::-webkit-scrollbar-thumb:hover {
-    background-color: var(--primary-dark);
-}
-
-/* Título do modal */
-.modal-title {
-    color: var(--primary);
-    margin-bottom: var(--spacing-xl);
-    text-align: center;
-    font-size: var(--font-size-2xl);
-    font-weight: 600;
-}
-
-/* Botão de fechar */
-.close-modal {
-    position: absolute;
-    top: var(--spacing-md);
-    right: var(--spacing-md);
-    font-size: 2rem;
-    cursor: pointer;
-    color: var(--gray);
-    background: var(--light-gray);
-    border-radius: 50%;
-    width: 40px; height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background var(--transition), color var(--transition);
-}
-
-.close-modal:hover {
-    color: var(--error);
-    background: var(--white);
-}
-
-/* ========================================
-   FORMULÁRIO
-   ======================================== */
-.form-group {
-    margin-bottom: var(--spacing-lg);
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: var(--spacing-sm);
-    font-weight: 500;
-    color: var(--dark);
-    font-size: var(--font-size-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: var(--spacing-md);
-    border: 2px solid var(--light-gray);
-    border-radius: var(--border-radius-md);
-    font-size: var(--font-size-base);
-    transition: all var(--transition-normal);
-    background: var(--white);
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
-}
-
-.form-group input:hover,
-.form-group select:hover,
-.form-group textarea:hover {
-    border-color: var(--gray);
-}
-
-.form-group textarea {
-    min-height: 100px;
-    resize: vertical;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-lg);
-}
-
-.required {
-    color: var(--error);
-    font-weight: 600;
-}
-
-/* ========================================
-   SELEÇÃO DE CATEGORIA
-   ======================================== */
-.category-selector {
-    margin-bottom: var(--spacing-2xl);
-}
-
-.category-selector label {
-    margin-bottom: var(--spacing-lg);
-    font-size: var(--font-size-base);
-    text-transform: none;
-    letter-spacing: normal;
-}
-
-.category-option {
-    border: 2px solid var(--light-gray);
-    border-radius: var(--border-radius-lg);
-    padding: var(--spacing-lg);
-    margin-bottom: var(--spacing-md);
-    cursor: pointer;
-    transition: all var(--transition-normal);
-    background: var(--white);
-    position: relative;
-    overflow: hidden;
-}
-
-.category-option::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background-color: var(--light-gray);
-    transition: all var(--transition-normal);
-}
-
-.category-option:hover {
-    border-color: var(--primary-light);
-    transform: translateX(5px);
-    box-shadow: var(--shadow-md);
-}
-
-.category-option:hover::before {
-    background-color: var(--primary-light);
-}
-
-.category-option.selected {
-    border-color: var(--primary);
-    background-color: rgba(46, 125, 50, 0.05);
-    transform: translateX(5px);
-    box-shadow: var(--shadow-lg);
-}
-
-.category-option.selected::before {
-    background-color: var(--primary);
-}
-
-.category-option h4 {
-    margin-bottom: var(--spacing-sm);
-    color: var(--dark);
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-}
-
-.category-option p {
-    margin-bottom: var(--spacing-sm);
-    color: var(--dark-gray);
-    font-size: var(--font-size-sm);
-}
-
-.category-price {
-    font-weight: 700;
-    color: var(--primary);
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-sm);
-}
-
-.category-price.free {
-    color: var(--success);
-}
-
-/* ========================================
-   SEÇÕES DO FORMULÁRIO
-   ======================================== */
-.form-section {
-    margin-bottom: var(--spacing-2xl);
-    padding: var(--spacing-xl);
-    background-color: var(--light-gray);
-    border-radius: var(--border-radius-lg);
-    border-left: 4px solid var(--primary);
-}
-
-.form-section-title {
-    color: var(--primary);
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-lg);
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-}
-
-.form-section-title::before {
-    content: '';
-    width: 20px;
-    height: 20px;
-    background-color: var(--primary);
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
-/* ========================================
-   CAMPOS DE ERRO
-   ======================================== */
-.form-error {
-    color: var(--error);
-    font-size: var(--font-size-sm);
-    margin-top: var(--spacing-xs);
-    min-height: 20px;
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-}
-
-.form-error::before {
-    content: '⚠';
-    font-size: var(--font-size-sm);
-}
-
-.form-group.error input,
-.form-group.error select,
-.form-group.error textarea {
-    border-color: var(--error);
-    box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1);
-}
-
-.form-group.success input,
-.form-group.success select,
-.form-group.success textarea {
-    border-color: var(--success);
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
-}
-
-/* ========================================
-   CONTADOR DE CARACTERES
-   ======================================== */
-.form-char-count {
-    text-align: right;
-    font-size: var(--font-size-sm);
-    color: var(--gray);
-    margin-top: var(--spacing-xs);
-}
-
-.form-char-count.warning {
-    color: var(--warning);
-}
-
-.form-char-count.danger {
-    color: var(--error);
-}
-
-/* ========================================
-   CAMPOS DE PAGAMENTO
-   ======================================== */
-.payment-section {
-    background-color: var(--white);
-    border: 2px solid var(--light-gray);
-}
-
-.payment-summary {
-    background-color: var(--light-gray);
-    padding: var(--spacing-lg);
-    border-radius: var(--border-radius-md);
-    margin-bottom: var(--spacing-lg);
-}
-
-.payment-summary-item {
+.footer-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-sm) 0;
-    border-bottom: 1px solid var(--gray);
-}
-
-.payment-summary-item:last-child {
-    border-bottom: none;
-}
-
-.payment-summary-item span {
-    color: var(--dark-gray);
-    font-weight: 500;
-}
-
-.payment-summary-item strong {
-    color: var(--primary);
-    font-size: var(--font-size-lg);
-}
-
-.extra-fields {
-    display: none;
-    animation: slideDown var(--transition-normal);
-    background-color: var(--light-gray);
-    padding: var(--spacing-lg);
-    border-radius: var(--border-radius-md);
-    margin-top: var(--spacing-md);
-}
-
-.extra-fields.show {
-    display: block;
-}
-
-.pix-info,
-.boleto-info {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    padding: var(--spacing-lg);
-    background-color: var(--white);
-    border-radius: var(--border-radius-md);
-    border: 2px dashed var(--primary);
-}
-
-.pix-info i,
-.boleto-info i {
-    font-size: var(--font-size-2xl);
-    color: var(--primary);
-}
-
-.pix-info p,
-.boleto-info p {
-    margin: 0;
-    color: var(--dark-gray);
-    font-style: italic;
-}
-
-/* ========================================
-   RESUMO DA INSCRIÇÃO
-   ======================================== */
-.summary-section {
-    background-color: var(--white);
-    border: 2px solid var(--primary);
-}
-
-.summary-content {
-    background-color: var(--light-gray);
-    padding: var(--spacing-lg);
-    border-radius: var(--border-radius-md);
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-.summary-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: var(--spacing-md) 0;
-    border-bottom: 1px solid var(--gray);
-}
-
-.summary-item:last-child {
-    border-bottom: none;
-}
-
-.summary-item-label {
-    font-weight: 600;
-    color: var(--dark);
-    min-width: 150px;
-}
-
-.summary-item-value {
-    color: var(--dark-gray);
-    text-align: right;
-    flex: 1;
-}
-
-.summary-item-value.work-title {
-    font-weight: 600;
-    color: var(--primary);
-}
-
-.summary-item-value.work-abstract {
-    font-style: italic;
-    font-size: var(--font-size-sm);
-    line-height: 1.4;
-}
-
-/* ========================================
-   BOTÕES DE AÇÃO
-   ======================================== */
-.form-actions {
-    display: flex;
-    gap: var(--spacing-lg);
-    justify-content: center;
-    margin-top: var(--spacing-2xl);
-    padding-top: var(--spacing-xl);
-    border-top: 2px solid var(--light-gray);
-}
-
-.form-actions .btn {
-    min-width: 150px;
-}
-
-/* ========================================
-   CONFIRMAÇÃO
-   ======================================== */
-.confirmation {
-    text-align: center;
-    padding: var(--spacing-2xl);
-}
-
-.confirmation i {
-    font-size: 4rem;
-    color: var(--success);
-    margin-bottom: var(--spacing-xl);
-    animation: bounceIn var(--transition-slow);
-}
-
-.confirmation h2 {
-    color: var(--primary);
-    margin-bottom: var(--spacing-lg);
-    font-size: var(--font-size-2xl);
-}
-
-.confirmation p {
-    color: var(--dark-gray);
-    margin-bottom: var(--spacing-xl);
-    font-size: var(--font-size-lg);
-}
-
-.confirmation-details {
-    background-color: var(--light-gray);
-    padding: var(--spacing-lg);
-    border-radius: var(--border-radius-md);
-    margin: var(--spacing-lg) 0;
-    text-align: left;
-}
-
-.confirmation-details h4 {
-    color: var(--primary);
-    margin-bottom: var(--spacing-md);
-    font-size: var(--font-size-lg);
-}
-
-.confirmation-details .detail-item {
-    display: flex;
-    justify-content: space-between;
-    padding: var(--spacing-sm) 0;
-    border-bottom: 1px solid var(--gray);
-}
-
-.confirmation-details .detail-item:last-child {
-    border-bottom: none;
-}
-
-.confirmation-details .detail-label {
-    font-weight: 600;
-    color: var(--dark);
-}
-
-.confirmation-details .detail-value {
-    color: var(--dark-gray);
-}
-
-/* ========================================
-   ESTADOS DE CARREGAMENTO
-   ======================================== */
-.loading {
-    position: relative;
-    pointer-events: none;
-}
-
-.loading::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--border-radius-md);
-}
-
-.loading::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--primary);
-    border-top: 2px solid transparent;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    z-index: 1;
-}
-
-@keyframes spin {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* ========================================
-   FOOTER
-   ======================================== */
-footer {
-    background: var(--dark);
-    color: var(--white);
-    text-align: center;
     padding: var(--spacing-lg) 0;
 }
 
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-2xl);
-    margin-bottom: var(--spacing-2xl);
-}
-
 .footer-section h3 {
-    margin-bottom: var(--spacing-lg);
-    font-size: var(--font-size-lg);
-    color: var(--white);
+    margin-bottom: var(--spacing-md);
 }
 
 .footer-section p {
     margin-bottom: var(--spacing-sm);
-    color: var(--gray);
 }
 
 .social-links {
     display: flex;
-    justify-content: center;
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
+    gap: var(--spacing-md);
 }
 
 .social-links a {
-    color: var(--white);
-    font-size: var(--font-size-xl);
-    transition: all var(--transition-normal);
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: var(--dark-gray);
+    color: var(--dark);
+    transition: color var(--transition-normal);
 }
 
 .social-links a:hover {
-    color: var(--white);
-    background-color: var(--primary);
-    transform: translateY(-3px);
+    color: var(--primary);
 }
 
 .copyright {
-    padding-top: var(--spacing-lg);
-    border-top: 1px solid var(--dark-gray);
-    color: var(--gray);
+    text-align: center;
+    margin-top: var(--spacing-lg);
 }
 
-/* ========================================
-   ANIMAÇÕES
-   ======================================== */
-@keyframes modalFadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes bounceIn {
-    0% {
-        transform: scale(0.3);
-        opacity: 0;
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    70% {
-        transform: scale(0.9);
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ========================================
-   RESPONSIVIDADE
-   ======================================== */
 @media (max-width: 1024px) {
-    .container {
-        padding: 0 var(--spacing-md);
+    .menu-btn {
+        display: block;
     }
-    
-    .events-container {
-        grid-template-columns: 1fr;
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: var(--spacing-md);
     }
-    
-    .objectives-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    .nav-links.active {
+        display: flex;
     }
 }
 
 @media (max-width: 768px) {
-    .menu-btn {
-        display: block;
-    }
-    
-    .nav-links {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background: var(--primary);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: all var(--transition-normal);
-        z-index: var(--z-fixed);
-    }
-    
-    .nav-links.active {
-        left: 0;
-    }
-    
-    .nav-links li {
-        margin: var(--spacing-lg) 0;
-    }
-    
-    .nav-links a {
-        color: var(--white);
-        font-size: var(--font-size-lg);
-    }
-    
-    .banner-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .banner-btn {
-        width: 80%;
-        text-align: center;
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-    
-    .modal-content {
-        padding: var(--spacing-lg);
-        margin: var(--spacing-md);
-    }
-    
-    .close-modal {
-        top: var(--spacing-md);
-        right: var(--spacing-md);
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
+    /* Add responsive styles here */
 }
 
 @media (max-width: 480px) {
-    .banner-content {
-        padding: var(--spacing-md);
-    }
-    
-    .banner h1 {
-        font-size: var(--font-size-2xl);
-    }
-    
-    .banner p {
-        font-size: var(--font-size-base);
-    }
-    
-    .event-card {
-        padding: var(--spacing-lg);
-    }
-    
-    .modal-content {
-        padding: var(--spacing-md);
-        margin: var(--spacing-sm);
-    }
-    
-    .category-option {
-        padding: var(--spacing-md);
-    }
-}
-
-#btn-submit,
-.footer-btn-inscricao {
-    background: var(--white);
-    color: var(--primary);
-    border: 2px solid var(--white);
-    border-radius: var(--border-radius-md);
-    font-weight: 500;
-    font-size: var(--font-size-base);
-    padding: var(--spacing-sm) var(--spacing-lg);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    cursor: pointer;
-    transition: background var(--transition-normal), color var(--transition-normal), border-color var(--transition-normal);
-}
-
-#btn-submit:hover,
-.footer-btn-inscricao:hover {
-    background: var(--secondary);
-    color: var(--white);
-    border-color: var(--secondary);
+    /* Add responsive styles here */
 }
