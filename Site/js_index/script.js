@@ -329,6 +329,247 @@
     // For brevity reuse the previously defined functions in the file if present.
     // If functions are not present (older file), ensure they are defined earlier in this file.
 
+    // Função para preencher e validar o formulário de inscrição completo
+    function setupRegistrationForm() {
+        const modal = document.getElementById('registration-modal');
+        const openBtns = [document.getElementById('show-registration-form'), document.getElementById('hero-inscribe-btn')];
+        const closeBtn = document.getElementById('close-modal');
+        const form = document.getElementById('registration-form');
+        const confirmation = document.getElementById('confirmation');
+        const confirmationDetails = document.getElementById('confirmation-details');
+        const newRegistrationBtn = document.getElementById('new-registration');
+        const categoryOptions = document.querySelectorAll('.category-option');
+        const categoryRadios = document.querySelectorAll('.category-option input[type="radio"]');
+        const workSection = document.getElementById('work-section');
+        const paymentSummary = document.getElementById('payment-summary');
+        const selectedCategory = document.getElementById('selected-category');
+        const selectedPrice = document.getElementById('selected-price');
+        const paymentSelect = document.getElementById('forma-pagamento');
+        const extraCartao = document.getElementById('extra-cartao');
+        const extraPix = document.getElementById('extra-pix');
+        const extraBoleto = document.getElementById('extra-boleto');
+        const charCount = document.getElementById('char-count');
+        const workAbstract = document.getElementById('work-abstract');
+
+        let selectedCat = null;
+
+        // Abrir modal
+        openBtns.forEach(btn => {
+            if (btn) btn.onclick = () => {
+                if (modal) {
+                    modal.style.display = 'flex';
+                    setTimeout(() => modal.classList.add('modal-visible'), 10);
+                    resetForm();
+                }
+            };
+        });
+
+        // Fechar modal
+        if (closeBtn && modal) {
+            closeBtn.onclick = () => {
+                modal.classList.remove('modal-visible');
+                setTimeout(() => modal.style.display = 'none', 300);
+            };
+        }
+        if (modal) {
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) {
+                    modal.classList.remove('modal-visible');
+                    setTimeout(() => modal.style.display = 'none', 300);
+                }
+            });
+        }
+
+        // Seleção de categoria
+        categoryOptions.forEach((opt, idx) => {
+            opt.onclick = function (e) {
+                // Permite clicar em qualquer parte do bloco
+                categoryRadios.forEach(r => r.checked = false);
+                const radio = opt.querySelector('input[type="radio"]');
+                if (radio) radio.checked = true;
+                categoryOptions.forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedCat = {
+                    category: opt.getAttribute('data-category'),
+                    price: opt.getAttribute('data-price'),
+                    work: opt.getAttribute('data-work') === 'true'
+                };
+                // Atualiza resumo de pagamento
+                if (paymentSummary && selectedCategory && selectedPrice) {
+                    paymentSummary.style.display = '';
+                    selectedCategory.textContent = selectedCat.category;
+                    selectedPrice.textContent = selectedCat.price == 0 ? 'Gratuito' : `R$ ${selectedCat.price},00`;
+                }
+                // Mostra ou esconde campos de trabalho
+                if (workSection) {
+                    workSection.style.display = selectedCat.work ? '' : 'none';
+                }
+            };
+        });
+        // Também permite selecionar pelo clique direto no radio
+        categoryRadios.forEach((radio, idx) => {
+            radio.addEventListener('change', function () {
+                categoryOptions.forEach(o => o.classList.remove('selected'));
+                categoryOptions[idx].classList.add('selected');
+                selectedCat = {
+                    category: categoryOptions[idx].getAttribute('data-category'),
+                    price: categoryOptions[idx].getAttribute('data-price'),
+                    work: categoryOptions[idx].getAttribute('data-work') === 'true'
+                };
+                if (paymentSummary && selectedCategory && selectedPrice) {
+                    paymentSummary.style.display = '';
+                    selectedCategory.textContent = selectedCat.category;
+                    selectedPrice.textContent = selectedCat.price == 0 ? 'Gratuito' : `R$ ${selectedCat.price},00`;
+                }
+                if (workSection) {
+                    workSection.style.display = selectedCat.work ? '' : 'none';
+                }
+            });
+        });
+
+        // Atualiza campos extras de pagamento
+        if (paymentSelect) {
+            paymentSelect.onchange = function () {
+                if (extraCartao) extraCartao.style.display = this.value === 'cartao' ? '' : 'none';
+                if (extraPix) extraPix.style.display = this.value === 'pix' ? '' : 'none';
+                if (extraBoleto) extraBoleto.style.display = this.value === 'boleto' ? '' : 'none';
+            };
+        }
+
+        // Contador de caracteres do resumo do trabalho
+        if (workAbstract && charCount) {
+            workAbstract.addEventListener('input', function () {
+                charCount.textContent = this.value.length;
+            });
+        }
+
+        // Resetar formulário
+        function resetForm() {
+            if (form) form.reset();
+            categoryOptions.forEach(o => o.classList.remove('selected'));
+            selectedCat = null;
+            if (workSection) workSection.style.display = 'none';
+            if (paymentSummary) paymentSummary.style.display = 'none';
+            if (extraCartao) extraCartao.style.display = 'none';
+            if (extraPix) extraPix.style.display = 'none';
+            if (extraBoleto) extraBoleto.style.display = 'none';
+            if (confirmation) confirmation.style.display = 'none';
+            if (form) form.style.display = '';
+            if (charCount) charCount.textContent = '0';
+        }
+
+        // Nova inscrição
+        if (newRegistrationBtn) {
+            newRegistrationBtn.onclick = () => {
+                resetForm();
+                if (confirmation) confirmation.style.display = 'none';
+                if (form) form.style.display = '';
+            };
+        }
+
+        // Validação e envio do formulário
+        if (form) {
+            form.onsubmit = function (e) {
+                e.preventDefault();
+                // Validação básica
+                let valid = true;
+                // Campos obrigatórios
+                ['name', 'email', 'phone', 'document', 'institution', 'course'].forEach(id => {
+                    const input = document.getElementById(id);
+                    const error = document.getElementById(id + '-error');
+                    if (input && (!input.value || !input.value.trim())) {
+                        valid = false;
+                        if (error) error.textContent = 'Campo obrigatório';
+                    } else if (error) {
+                        error.textContent = '';
+                    }
+                });
+                // Categoria obrigatória
+                if (!selectedCat) {
+                    alert('Selecione uma categoria de inscrição.');
+                    valid = false;
+                }
+                // Pagamento obrigatório
+                if (paymentSelect && !paymentSelect.value) {
+                    const error = document.getElementById('forma-pagamento-error');
+                    if (error) error.textContent = 'Campo obrigatório';
+                    valid = false;
+                } else {
+                    const error = document.getElementById('forma-pagamento-error');
+                    if (error) error.textContent = '';
+                }
+                // Campos de trabalho se necessário
+                if (selectedCat && selectedCat.work) {
+                    const workTitle = document.getElementById('work-title');
+                    const workTitleError = document.getElementById('work-title-error');
+                    const workAbstract = document.getElementById('work-abstract');
+                    const workAbstractError = document.getElementById('work-abstract-error');
+                    if (workTitle && !workTitle.value.trim()) {
+                        valid = false;
+                        if (workTitleError) workTitleError.textContent = 'Campo obrigatório';
+                    } else if (workTitleError) workTitleError.textContent = '';
+                    if (workAbstract && !workAbstract.value.trim()) {
+                        valid = false;
+                        if (workAbstractError) workAbstractError.textContent = 'Campo obrigatório';
+                    } else if (workAbstractError) workAbstractError.textContent = '';
+                }
+                if (!valid) return;
+
+                // Monta objeto de inscrição
+                const data = {
+                    categoria: selectedCat.category,
+                    valor: selectedCat.price == 0 ? 'Gratuito' : `R$ ${selectedCat.price},00`,
+                    nome: form.name.value,
+                    email: form.email.value,
+                    telefone: form.phone.value,
+                    cpf: form.document.value,
+                    instituicao: form.institution.value,
+                    curso: form.course.value,
+                    pagamento: paymentSelect.value,
+                    dataInscricao: new Date().toLocaleString()
+                };
+                if (selectedCat.work) {
+                    data.tituloTrabalho = form['work-title'].value;
+                    data.resumoTrabalho = form['work-abstract'].value;
+                }
+                if (paymentSelect.value === 'cartao') {
+                    data.cartao = {
+                        numero: form['numero-cartao'].value,
+                        validade: form['validade-cartao'].value,
+                        cvv: form['cvv-cartao'].value,
+                        nome: form['nome-cartao'].value
+                    };
+                }
+                // Salva no localStorage
+                let all = [];
+                try {
+                    all = JSON.parse(localStorage.getItem('inofas_registrations') || '[]');
+                } catch {}
+                all.push(data);
+                localStorage.setItem('inofas_registrations', JSON.stringify(all));
+
+                // Mostra confirmação
+                if (form) form.style.display = 'none';
+                if (confirmation) confirmation.style.display = '';
+                if (confirmationDetails) {
+                    confirmationDetails.innerHTML = `
+                        <p><strong>Categoria:</strong> ${data.categoria}</p>
+                        <p><strong>Nome:</strong> ${data.nome}</p>
+                        <p><strong>E-mail:</strong> ${data.email}</p>
+                        <p><strong>Telefone:</strong> ${data.telefone}</p>
+                        <p><strong>CPF:</strong> ${data.cpf}</p>
+                        <p><strong>Instituição:</strong> ${data.instituicao}</p>
+                        <p><strong>Curso:</strong> ${data.curso}</p>
+                        <p><strong>Forma de Pagamento:</strong> ${data.pagamento}</p>
+                        <p><strong>Valor:</strong> ${data.valor}</p>
+                        ${data.tituloTrabalho ? `<p><strong>Título do Trabalho:</strong> ${data.tituloTrabalho}</p>` : ''}
+                        ${data.resumoTrabalho ? `<p><strong>Resumo:</strong> ${data.resumoTrabalho}</p>` : ''}
+                    `;
+                }
+            };
+        }
+    }
+
     // The init routine integrates admin modal creation and registration logic
     async function init() {
         const page = detectPage();
@@ -404,4 +645,23 @@
     // Expose minimal API for debugging
     window.__EVENT_SCRIPT = window.__EVENT_SCRIPT || {};
     Object.assign(window.__EVENT_SCRIPT, { showModal, hideModal, seedAdminIfMissing });
+
+    // Garanta que o link "Administração" apareça apenas na index — reforço seguro
+    (function enforceAdminLinkVisibility() {
+        function isIndexPage() {
+            const path = (location.pathname || '').toLowerCase();
+            // considera index quando terminar em /, index.html ou raiz do projeto
+            return path === '' || path.endsWith('/') || path.includes('index.html') || /\\site\\?$/.test(path);
+        }
+        function apply() {
+            try {
+                const adminLink = document.getElementById('admin-link');
+                if (!adminLink) return;
+                if (!isIndexPage()) adminLink.classList.add('hide-admin'); else adminLink.classList.remove('hide-admin');
+            } catch (e) {
+                console.error('[EVENTO] enforceAdminLinkVisibility erro:', e);
+            }
+        }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply); else setTimeout(apply, 0);
+    })();
 })();

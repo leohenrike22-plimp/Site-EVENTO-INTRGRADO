@@ -198,3 +198,39 @@ function downloadRegistrationPDF(registration) {
         URL.revokeObjectURL(url);
     }, 100);
 }
+
+// Adicione ou ajuste este trecho para exibir todos os campos na tabela do painel admin
+
+function renderRegistrationsList() {
+    const listEl = document.getElementById('registrations-list');
+    let data = [];
+    try {
+        data = JSON.parse(localStorage.getItem('inofas_registrations') || '[]');
+    } catch {}
+    listEl.innerHTML = '';
+    if (!data.length) {
+        listEl.innerHTML = '<tr><td colspan="8" style="text-align:center;color:#888;">Nenhuma inscrição encontrada.</td></tr>';
+        return;
+    }
+    data.forEach(reg => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${reg.nome || '-'}</td>
+            <td>${reg.email || '-'}</td>
+            <td>${reg.categoria || '-'}</td>
+            <td>${reg.valor || '-'}</td>
+            <td>${reg.dataInscricao || '-'}</td>
+            <td>${reg.instituicao || '-'}</td>
+            <td>${reg.curso || '-'}</td>
+            <td>${reg.pagamento || '-'}</td>
+            <td>${reg.tituloTrabalho || '-'}</td>
+            <td>${reg.resumoTrabalho ? reg.resumoTrabalho.substring(0, 60) + (reg.resumoTrabalho.length > 60 ? '...' : '') : '-'}</td>
+        `;
+        listEl.appendChild(tr);
+    });
+}
+
+// Chame renderRegistrationsList() ao carregar o painel admin
+if (document.getElementById('registrations-list')) {
+    renderRegistrationsList();
+}

@@ -9,9 +9,9 @@
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="container header-inner">
             <div class="logo">INOFAS & ENAGROTECH</div>
-            <nav>
+            <nav class="nav">
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Início</a></li>
                     <li><a href="about.html">Sobre</a></li>
@@ -28,40 +28,46 @@
     <!-- BANNER -->
     <section class="banner" aria-hidden="false">
         <div class="banner-image" role="img" aria-label="Banner do evento">
-            <img src="images/4.png" alt="Banner INOFAS & ENAGROTECH">
+            <img src="images/4.png" alt="Banner INOFAS & ENAGROTECH" class="banner-img">
         </div>
-        <div class="banner-content">
-            <h1>INOFAS & ENAGROTECH 2025</h1>
-            <p>Do Campo ao Digital — Inovação, pesquisa e tecnologia para o setor agropecuário</p>
-            <div class="banner-buttons-container">
-                <button id="hero-inscribe-btn" class="banner-btn btn-primary hero-inscribe-btn">Inscreva-se Agora</button>
-                <a href="#about" class="banner-btn btn-secondary hero-know-more-btn">Saiba Mais</a>
-            </div>
+        <div class="banner-content container">
+            <!-- Conteúdo do banner pode ser adicionado aqui se desejar -->
         </div>
     </section>
 
-    <main class="site-main">
-        <div class="container">
-            <section class="cards-grid">
-                <article class="card">
-                    <h3>INOFAS</h3>
-                    <p>Encontro de Inovações Tecnológicas para Agricultura Familiar e Agroindústria Sustentáveis.</p>
-                    <a href="about.html" class="btn btn-secondary">Saiba Mais</a>
-                </article>
-                <article class="card">
-                    <h3>ENAGROTECH</h3>
-                    <p>Ciência e Tecnologia no Campo: Integração Agrícola, Pecuária e Inovações Digitais.</p>
-                    <a href="about.html" class="btn btn-secondary">Programação</a>
-                </article>
-                <article class="card">
-                    <h3>Inscrições</h3>
-                    <p>Informações sobre categorias e valores — realize sua inscrição no formulário.</p>
-                    <button id="show-registration-form" class="btn btn-primary">Realizar Inscrição</button>
-                </article>
-            </section>
+    <!-- Divisão em branco -->
+    <div class="banner-divider"></div>
 
-            <!-- conteúdo adicional existente (objetives/contacts etc.) pode ser mantido aqui -->
+    <!-- Faixa verde com botões centralizados -->
+    <section class="cta-bar">
+        <div class="cta-bar-inner">
+            <a href="registration.html" class="banner-btn btn-primary hero-inscribe-btn">Inscreva-se Agora</a>
+            <a href="#about" class="banner-btn btn-secondary hero-know-more-btn">Saiba Mais</a>
         </div>
+    </section>
+
+    <main class="site-main container">
+        <section class="cards-grid" aria-labelledby="sections-title">
+            <h2 id="sections-title" class="sr-only">Seções principais</h2>
+            <article class="card">
+                <h3>INOFAS</h3>
+                <p>Encontro de Inovações Tecnológicas para Agricultura Familiar e Agroindústria Sustentáveis. Promove inovação, parcerias e transferência tecnológica.</p>
+                <a href="about.html" class="btn btn-secondary">Saiba Mais</a>
+            </article>
+
+            <article class="card">
+                <h3>ENAGROTECH</h3>
+                <p>Ciência e Tecnologia no Campo: Integração Agrícola, Pecuária e Inovações Digitais. Espaço multidisciplinar para troca de conhecimento.</p>
+                <a href="about.html" class="btn btn-secondary">Programação</a>
+            </article>
+
+            <article class="card">
+                <h3>Inscrições</h3>
+                <p>Valores, categorias e submissão de trabalhos. Clique para abrir o formulário de inscrição sem sair da página.</p>
+                <a href="registration.html" class="btn btn-primary">Realizar Inscrição</a>
+            </article>
+        </section>
+        <!-- mantenha outras seções existentes (ex.: objetivos, contato) aqui, dentro de .container -->
     </main>
 
     <footer>
