@@ -340,9 +340,6 @@
         const newRegistrationBtn = document.getElementById('new-registration');
         const categoryOptions = document.querySelectorAll('.category-option');
         const categoryRadios = document.querySelectorAll('.category-option input[type="radio"]');
-        const paymentSummary = document.getElementById('payment-summary');
-        const selectedCategory = document.getElementById('selected-category');
-        const selectedPrice = document.getElementById('selected-price');
         let selectedCat = null;
 
         // Abrir modal
@@ -375,16 +372,24 @@
         // Seleção de categoria
         categoryOptions.forEach((opt, idx) => {
             opt.addEventListener('click', function () {
+                // Remove seleção de todos
                 categoryOptions.forEach(o => o.classList.remove('selected'));
+                // Marca o atual como selecionado
                 opt.classList.add('selected');
+                // Marca o radio correspondente
                 categoryRadios.forEach(r => r.checked = false);
                 const radio = opt.querySelector('input[type="radio"]');
                 if (radio) radio.checked = true;
+                // Atualiza objeto selecionado
                 selectedCat = {
                     category: opt.getAttribute('data-category'),
                     price: opt.getAttribute('data-price'),
                     work: opt.getAttribute('data-work') === 'true'
                 };
+                // Atualiza UI de pagamento e campos condicionais
+                const paymentSummary = document.getElementById('payment-summary');
+                const selectedCategory = document.getElementById('selected-category');
+                const selectedPrice = document.getElementById('selected-price');
                 if (paymentSummary && selectedCategory && selectedPrice) {
                     paymentSummary.style.display = '';
                     selectedCategory.textContent = selectedCat.category;
@@ -580,78 +585,59 @@
                 evt.preventDefault();
                 const regModal = $id(SELECTORS.registrationModal);
                 if (regModal) {
-                    // assume resetFormState() defined elsewhere in file
-                    try { if (typeof resetFormState === 'function') resetFormState(); } catch(_) {}
+                    resetFormState(regModal);
                     showModal(regModal);
                 }
             });
         });
+        // Close modal on overlay click
         if (registrationModal) {
-            const closeBtn = $id(SELECTORS.registrationClose);
-            if (closeBtn) closeBtn.addEventListener('click', () => hideModal(registrationModal));
-            registrationModal.addEventListener('click', (evt) => { if (evt.target === registrationModal) hideModal(registrationModal); });
+            registrationModal.addEventListener('click', (evt) => {
+                if (evt.target === registrationModal) {
+                    hideModal(registrationModal);
+                }
+            });
         }
 
-        // Global ESC close protection (ensures both modals are closed)
+        // ESC key closes modals if either modal is open
         document.addEventListener('keydown', (evt) => {
             if (evt.key === 'Escape') {
-                const reg = $id(SELECTORS.registrationModal);
-                const adm = $id(SELECTORS.adminModal);
-                if (reg) hideModal(reg);
-                if (adm) hideModal(adm);
+                hideModal($id(SELECTORS.adminModal));
+                hideModal($id(SELECTORS.registrationModal));
             }
         });
 
-        // Admin page specific init
+        // --- Admin list click handling (if applicable) ---
+        const registrationsList = $id(SELECTORS.registrationsList);
+        if (registrationsList) {
+            registrationsList.addEventListener('click', (evt) => {
+                const target = evt.target;
+                const regItem = target.closest('.registration-item');
+                if (!regItem) return;
+                const email = regItem.getAttribute('data-email');
+                if (!email) return;
+                // Exibir detalhes ou permitir edição
+                alert(`Detalhes da inscrição para: ${email}`);
+                // Aqui você pode carregar os detalhes da inscrição e preencher um formulário para edição, se necessário
+            });
+        }
+
+        // --- Preload registrations list if on registrations page ---
         if (page === 'admin') {
-            try {
-                if (typeof renderRegistrationsList === 'function') renderRegistrationsList();
-                const listEl = $id(SELECTORS.registrationsList);
-                if (listEl) listEl.addEventListener('click', handleAdminListClick);
-            } catch (err) {
-                console.error(`${LOG_PREFIX} inicialização admin erro:`, err);
+            const registrations = loadRegistrations();
+            if (Array.isArray(registrations) && registrations.length > 0) {
+                // Apenas para debug: mostre no console as inscrições carregadas
+                console.log(`${LOG_PREFIX} inscrições carregadas:`, registrations);
             }
         }
 
-        // Mobile menu
-        try {
-            const menuBtn = document.querySelector('.menu-btn');
-            const navLinks = document.querySelector('.nav-links');
-            if (menuBtn && navLinks) {
-                menuBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
-                navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('active')));
-            }
-        } catch (err) { /* non-critical */ }
-
-        console.info(`${LOG_PREFIX} inicialização completa`);
+        // --- Registration form setup (if applicable) ---
+        if (page === 'registration') {
+            setupRegistrationForm();
+        }
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => { setTimeout(init, 0); });
-    } else {
-        setTimeout(init, 0);
-    }
+    // Run init on load
+    window.addEventListener('load', init);
 
-    // Expose minimal API for debugging
-    window.__EVENT_SCRIPT = window.__EVENT_SCRIPT || {};
-    Object.assign(window.__EVENT_SCRIPT, { showModal, hideModal, seedAdminIfMissing });
-
-    // Garanta que o link "Administração" apareça apenas na index — reforço seguro
-    (function enforceAdminLinkVisibility() {
-        function isIndexPage() {
-            const path = (location.pathname || '').toLowerCase();
-            // considera index quando terminar em /, index.html ou raiz do projeto
-            return path === '' || path.endsWith('/') || path.includes('index.html') || /\\site\\?$/.test(path);
-        }
-        function apply() {
-            try {
-                const adminLink = document.getElementById('admin-link');
-                if (!adminLink) return;
-                if (!isIndexPage()) adminLink.classList.add('hide-admin'); else adminLink.classList.remove('hide-admin');
-            } catch (e) {
-                console.error('[EVENTO] enforceAdminLinkVisibility erro:', e);
-            }
-        }
-        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply); else setTimeout(apply, 0);
-    })();
 })();
