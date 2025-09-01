@@ -340,17 +340,9 @@
         const newRegistrationBtn = document.getElementById('new-registration');
         const categoryOptions = document.querySelectorAll('.category-option');
         const categoryRadios = document.querySelectorAll('.category-option input[type="radio"]');
-        const workSection = document.getElementById('work-section');
         const paymentSummary = document.getElementById('payment-summary');
         const selectedCategory = document.getElementById('selected-category');
         const selectedPrice = document.getElementById('selected-price');
-        const paymentSelect = document.getElementById('forma-pagamento');
-        const extraCartao = document.getElementById('extra-cartao');
-        const extraPix = document.getElementById('extra-pix');
-        const extraBoleto = document.getElementById('extra-boleto');
-        const charCount = document.getElementById('char-count');
-        const workAbstract = document.getElementById('work-abstract');
-
         let selectedCat = null;
 
         // Abrir modal
@@ -382,31 +374,28 @@
 
         // Seleção de categoria
         categoryOptions.forEach((opt, idx) => {
-            opt.onclick = function (e) {
-                // Permite clicar em qualquer parte do bloco
+            opt.addEventListener('click', function () {
+                categoryOptions.forEach(o => o.classList.remove('selected'));
+                opt.classList.add('selected');
                 categoryRadios.forEach(r => r.checked = false);
                 const radio = opt.querySelector('input[type="radio"]');
                 if (radio) radio.checked = true;
-                categoryOptions.forEach(o => o.classList.remove('selected'));
-                this.classList.add('selected');
                 selectedCat = {
                     category: opt.getAttribute('data-category'),
                     price: opt.getAttribute('data-price'),
                     work: opt.getAttribute('data-work') === 'true'
                 };
-                // Atualiza resumo de pagamento
                 if (paymentSummary && selectedCategory && selectedPrice) {
                     paymentSummary.style.display = '';
                     selectedCategory.textContent = selectedCat.category;
                     selectedPrice.textContent = selectedCat.price == 0 ? 'Gratuito' : `R$ ${selectedCat.price},00`;
                 }
-                // Mostra ou esconde campos de trabalho
+                const workSection = document.getElementById('work-section');
                 if (workSection) {
                     workSection.style.display = selectedCat.work ? '' : 'none';
                 }
-            };
+            });
         });
-        // Também permite selecionar pelo clique direto no radio
         categoryRadios.forEach((radio, idx) => {
             radio.addEventListener('change', function () {
                 categoryOptions.forEach(o => o.classList.remove('selected'));
@@ -421,6 +410,7 @@
                     selectedCategory.textContent = selectedCat.category;
                     selectedPrice.textContent = selectedCat.price == 0 ? 'Gratuito' : `R$ ${selectedCat.price},00`;
                 }
+                const workSection = document.getElementById('work-section');
                 if (workSection) {
                     workSection.style.display = selectedCat.work ? '' : 'none';
                 }
