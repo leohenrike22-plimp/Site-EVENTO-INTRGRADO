@@ -340,6 +340,16 @@
         const newRegistrationBtn = document.getElementById('new-registration');
         const categoryOptions = document.querySelectorAll('.category-option');
         const categoryRadios = document.querySelectorAll('.category-option input[type="radio"]');
+        const paymentSelect = document.getElementById('forma-pagamento');
+        const extraCartao = document.getElementById('extra-cartao');
+        const extraPix = document.getElementById('extra-pix');
+        const extraBoleto = document.getElementById('extra-boleto');
+        const workSection = document.getElementById('work-section');
+        const paymentSummary = document.getElementById('payment-summary');
+        const selectedCategory = document.getElementById('selected-category');
+        const selectedPrice = document.getElementById('selected-price');
+        const charCount = document.getElementById('char-count');
+        const workAbstract = document.getElementById('work-abstract');
         let selectedCat = null;
 
         // Abrir modal
@@ -466,8 +476,9 @@
         if (form) {
             form.onsubmit = function (e) {
                 e.preventDefault();
-                // Validação básica
                 let valid = true;
+                let reasons = [];
+
                 // Campos obrigatórios
                 ['name', 'email', 'phone', 'document', 'institution', 'course'].forEach(id => {
                     const input = document.getElementById(id);
@@ -475,24 +486,29 @@
                     if (input && (!input.value || !input.value.trim())) {
                         valid = false;
                         if (error) error.textContent = 'Campo obrigatório';
+                        reasons.push(`O campo "${input.previousElementSibling ? input.previousElementSibling.innerText : id}" é obrigatório.`);
                     } else if (error) {
                         error.textContent = '';
                     }
                 });
+
                 // Categoria obrigatória
                 if (!selectedCat) {
-                    alert('Selecione uma categoria de inscrição.');
                     valid = false;
+                    reasons.push('Selecione uma categoria de inscrição.');
                 }
+
                 // Pagamento obrigatório
                 if (paymentSelect && !paymentSelect.value) {
                     const error = document.getElementById('forma-pagamento-error');
                     if (error) error.textContent = 'Campo obrigatório';
                     valid = false;
+                    reasons.push('Selecione uma forma de pagamento.');
                 } else {
                     const error = document.getElementById('forma-pagamento-error');
                     if (error) error.textContent = '';
                 }
+
                 // Campos de trabalho se necessário
                 if (selectedCat && selectedCat.work) {
                     const workTitle = document.getElementById('work-title');
@@ -502,13 +518,20 @@
                     if (workTitle && !workTitle.value.trim()) {
                         valid = false;
                         if (workTitleError) workTitleError.textContent = 'Campo obrigatório';
+                        reasons.push('O campo "Título do Trabalho" é obrigatório.');
                     } else if (workTitleError) workTitleError.textContent = '';
                     if (workAbstract && !workAbstract.value.trim()) {
                         valid = false;
                         if (workAbstractError) workAbstractError.textContent = 'Campo obrigatório';
+                        reasons.push('O campo "Resumo do Trabalho" é obrigatório.');
                     } else if (workAbstractError) workAbstractError.textContent = '';
                 }
-                if (!valid) return;
+
+                // Exibe aviso se não for válido
+                if (!valid) {
+                    alert('Inscrição não realizada:\n\n' + reasons.join('\n'));
+                    return;
+                }
 
                 // Monta objeto de inscrição
                 const data = {
