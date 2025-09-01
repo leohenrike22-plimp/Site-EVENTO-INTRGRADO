@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrições - INOFAS & ENAGROTECH 2025</title>
+    <link rel="stylesheet" href="css_index/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span>INOFAS & ENAGROTECH</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li><a href="objectives.html">Objetivos</a></li>
+                    <li><a href="registration.html" class="active">Inscrições</a></li>
+                    <li><a href="contact.html">Contato</a></li>
+                </ul>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section class="banner" style="margin-bottom:0;">
+        <div class="banner-image" style="width:100%;">
+            <img src="images/4.png" alt="Banner do evento" style="width:100%;display:block;">
+        </div>
+        <div class="banner-content" style="background:rgba(0,0,0,0.35);padding:2rem 0;">
+        </div>
+    </section>
+    <main>
+        <section class="registration" id="registration">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Inscrições</h2>
+                    <p>Valores e categorias de inscrição para os eventos</p>
+                </div>
+                <p style="text-align: center; margin-top: 20px; color: #777; font-style: italic;">
+                    As informações sobre categorias e valores estarão disponíveis no formulário de inscrição.
+                </p>
+                <div style="text-align: center; margin-top: 30px;">
+                    <button class="banner-btn btn-primary" id="show-registration-form">Realizar Inscrição</button>
+                </div>
+                <p style="text-align: center; margin-top: 20px; color: #777; font-style: italic;">
+                    Informações sobre a destinação dos valores serão divulgadas em breve.
+                </p>
+            </div>
+        </section>
+        <!-- Modal de Inscrição -->
+        <div class="modal" id="registration-modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close-modal" id="close-modal" aria-label="Fechar modal">&times;</span>
+                <h2 class="modal-title">Formulário de Inscrição</h2>
+                <div id="modal-form">
+                    <form id="registration-form" novalidate>
+                        <!-- Seleção de Categoria -->
+                        <div class="form-group category-selector">
+                            <label>Categoria de Inscrição <span class="required" aria-label="Campo obrigatório">*</span></label>
+                            <div class="category-option" data-category="Estudantes de Cursos Técnicos" data-price="0" data-work="false">
+                                <input type="radio" name="category" value="Estudantes de Cursos Técnicos" style="margin-right:10px;">
+                                <div>
+                                    <h4>Estudantes de Cursos Técnicos</h4>
+                                    <p class="category-price free">Gratuito</p>
+                                    <p>Não inclui submissão de trabalho</p>
+                                </div>
+                                <span class="checkmark"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                            <div class="category-option" data-category="Estudantes de Cursos Técnicos (com trabalho)" data-price="30" data-work="true">
+                                <input type="radio" name="category" value="Estudantes de Cursos Técnicos (com trabalho)" style="margin-right:10px;">
+                                <div>
+                                    <h4>Estudantes de Cursos Técnicos (com trabalho)</h4>
+                                    <p class="category-price">R$ 30,00</p>
+                                    <p>Inclui 1 submissão de trabalho</p>
+                                </div>
+                                <span class="checkmark"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                            <div class="category-option" data-category="Estudantes de Graduação" data-price="30" data-work="true">
+                                <input type="radio" name="category" value="Estudantes de Graduação" style="margin-right:10px;">
+                                <div>
+                                    <h4>Estudantes de Graduação</h4>
+                                    <p class="category-price">R$ 30,00</p>
+                                    <p>Inclui 1 submissão de trabalho</p>
+                                </div>
+                                <span class="checkmark"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                            <div class="category-option" data-category="Estudantes de Pós-Graduação" data-price="60" data-work="true">
+                                <input type="radio" name="category" value="Estudantes de Pós-Graduação" style="margin-right:10px;">
+                                <div>
+                                    <h4>Estudantes de Pós-Graduação</h4>
+                                    <p class="category-price">R$ 60,00</p>
+                                    <p>Inclui 1 submissão de trabalho</p>
+                                </div>
+                                <span class="checkmark"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                            <div class="category-option" data-category="Docentes e Profissionais" data-price="120" data-work="true">
+                                <input type="radio" name="category" value="Docentes e Profissionais" style="margin-right:10px;">
+                                <div>
+                                    <h4>Docentes e Profissionais</h4>
+                                    <p class="category-price">R$ 120,00</p>
+                                    <p>Inclui 1 submissão de trabalho</p>
+                                </div>
+                                <span class="checkmark"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                        </div>
+                        <!-- Informações Pessoais -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">Informações Pessoais</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Nome Completo <span class="required">*</span></label>
+                                    <input type="text" id="name" name="name" required placeholder="Digite seu nome completo">
+                                    <div class="form-error" id="name-error"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">E-mail <span class="required">*</span></label>
+                                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                                    <div class="form-error" id="email-error"></div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Telefone <span class="required">*</span></label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="(00) 00000-0000">
+                                    <div class="form-error" id="phone-error"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="document">CPF <span class="required">*</span></label>
+                                    <input type="text" id="document" name="document" required placeholder="000.000.000-00">
+                                    <div class="form-error" id="document-error"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Informações Acadêmicas -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">Informações Acadêmicas</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="institution">Instituição <span class="required">*</span></label>
+                                    <input type="text" id="institution" name="institution" required placeholder="Nome da sua instituição">
+                                    <div class="form-error" id="institution-error"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="course">Curso <span class="required">*</span></label>
+                                    <input type="text" id="course" name="course" required placeholder="Nome do seu curso">
+                                    <div class="form-error" id="course-error"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Campos de Trabalho (condicionais) -->
+                        <div class="form-section" id="work-section" style="display: none;">
+                            <h3 class="form-section-title">Submissão de Trabalho</h3>
+                            <div class="form-group">
+                                <label for="work-title">Título do Trabalho <span class="required">*</span></label>
+                                <input type="text" id="work-title" name="work-title" placeholder="Digite o título do seu trabalho">
+                                <div class="form-error" id="work-title-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="work-abstract">Resumo do Trabalho <span class="required">*</span></label>
+                                <textarea id="work-abstract" name="work-abstract" rows="4" placeholder="Digite um resumo do seu trabalho (máximo 300 palavras)"></textarea>
+                                <div class="form-char-count">
+                                    <span id="char-count">0</span>/300 caracteres
+                                </div>
+                                <div class="form-error" id="work-abstract-error"></div>
+                            </div>
+                        </div>
+                        <!-- Informações de Pagamento -->
+                        <div class="form-section payment-section">
+                            <h3 class="form-section-title">Informações de Pagamento</h3>
+                            <div class="payment-summary" id="payment-summary" style="display: none;">
+                                <div class="payment-summary-item">
+                                    <span>Categoria selecionada:</span>
+                                    <strong id="selected-category">-</strong>
+                                </div>
+                                <div class="payment-summary-item">
+                                    <span>Valor da inscrição:</span>
+                                    <strong id="selected-price">-</strong>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="forma-pagamento">Forma de Pagamento <span class="required">*</span></label>
+                                <select id="forma-pagamento" name="forma-pagamento" required>
+                                    <option value="" disabled selected>Selecione uma forma de pagamento...</option>
+                                    <option value="pix">PIX</option>
+                                    <option value="cartao">Cartão de Crédito/Débito</option>
+                                    <option value="boleto">Boleto Bancário</option>
+                                </select>
+                                <div class="form-error" id="forma-pagamento-error"></div>
+                            </div>
+                            <!-- Campos extras para cartão -->
+                            <div class="extra-fields" id="extra-cartao" style="display:none;">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="numero-cartao">Número do Cartão</label>
+                                        <input type="text" id="numero-cartao" name="numero-cartao" placeholder="**** **** **** ****" maxlength="19">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="validade-cartao">Validade</label>
+                                        <input type="text" id="validade-cartao" name="validade-cartao" placeholder="MM/AA" maxlength="5">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="cvv-cartao">CVV</label>
+                                        <input type="text" id="cvv-cartao" name="cvv-cartao" placeholder="123" maxlength="4">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nome-cartao">Nome no Cartão</label>
+                                        <input type="text" id="nome-cartao" name="nome-cartao" placeholder="Como está impresso no cartão">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Campos extras para PIX -->
+                            <div class="extra-fields" id="extra-pix" style="display:none;">
+                                <div class="pix-info">
+                                    <i class="fas fa-qrcode"></i>
+                                    <p>Após a inscrição, você receberá o QR Code do PIX por e-mail.</p>
+                                </div>
+                            </div>
+                            <!-- Campos extras para boleto -->
+                            <div class="extra-fields" id="extra-boleto" style="display:none;">
+                                <div class="boleto-info">
+                                    <i class="fas fa-file-invoice"></i>
+                                    <p>Após a inscrição, você receberá o boleto bancário por e-mail.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Resumo da Inscrição -->
+                        <div class="form-section summary-section" id="summary-section" style="display: none;">
+                            <h3 class="form-section-title">Resumo da Inscrição</h3>
+                            <div class="summary-content" id="summary-content">
+                                <!-- Conteúdo será preenchido via JavaScript -->
+                            </div>
+                        </div>
+                        <!-- Botões de Ação -->
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" id="btn-submit">Finalizar Inscrição</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="confirmation" class="confirmation" style="display: none;">
+                    <i class="fas fa-check-circle"></i>
+                    <h2>Inscrição Realizada com Sucesso!</h2>
+                    <p>Obrigado por se inscrever no evento. Em breve enviaremos mais informações para o e-mail cadastrado.</p>
+                    <div class="confirmation-details" id="confirmation-details"></div>
+                    <button class="btn btn-primary" id="new-registration">Nova Inscrição</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Localização</h3>
+                    <p>IF Goiano - Campus Morrinhos</p>
+                    <p>Rodovia GO-320, Km 29, Zona Rural</p>
+                    <p>Morrinhos - GO, 75650-000</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>Email: inofas.enagrotech@ifgoiano.edu.br</p>
+                    <p>Telefone: (64) 3413-0300</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Redes Sociais</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 INOFAS & ENAGROTECH - IF Goiano Campus Morrinhos. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js_index/script.js"></script>
+    <script>
+    document.querySelector('.menu-btn').addEventListener('click', function () {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.remove('active');
+        });
+    });
+    </script>
+</body>
+</html>

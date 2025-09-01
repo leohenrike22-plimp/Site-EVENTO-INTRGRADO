@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetivos - INOFAS & ENAGROTECH 2025</title>
+    <link rel="stylesheet" href="css_index/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <div class="logo">INOFAS & ENAGROTECH</div>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li><a href="objectives.html" class="active">Objetivos</a></li>
+                    <li><a href="registration.html">Inscrições</a></li>
+                    <li><a href="contact.html">Contato</a></li>
+                </ul>
+                <button class="menu-btn" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="banner-image">
+            <img src="images/4.png" alt="Banner do evento" class="banner-img">
+        </div>
+    </section>
+    
+    <main class="site-main container">
+        <section class="cards-grid" aria-labelledby="objectives-title">
+            <h2 id="objectives-title" class="sr-only">Objetivos</h2>
+            <!-- Card 1 -->
+            <article class="card">
+                <h3>Fomentar a Inovação</h3>
+                <p>Promover o desenvolvimento de soluções tecnológicas aplicáveis à agricultura familiar e à agroindústria sustentável.</p>
+            </article>
+            <!-- Card 2 -->
+            <article class="card">
+                <h3>Integração Multidisciplinar</h3>
+                <p>Estimular a troca de conhecimento entre diferentes áreas como Agronomia, Zootecnia, Computação e Tecnologia de Alimentos.</p>
+            </article>
+            <!-- Card 3 -->
+            <article class="card">
+                <h3>Fortalecimento de Parcerias</h3>
+                <p>Consolidar parcerias estratégicas entre instituições de ensino, pesquisa, empresas e produtores rurais.</p>
+            </article>
+            <!-- Card 4 -->
+            <article class="card">
+                <h3>Difusão de Soluções Digitais</h3>
+                <p>Apresentar e discutir práticas digitais inovadoras para o setor agropecuário.</p>
+            </article>
+            <!-- Card 5 -->
+            <article class="card">
+                <h3>Sustentabilidade e Segurança Alimentar</h3>
+                <p>Buscar alternativas que promovam sustentabilidade, segurança alimentar e fortalecimento das economias locais.</p>
+            </article>
+            <!-- Card 6 -->
+            <article class="card">
+                <h3>Avanço da Ciência e Tecnologia</h3>
+                <p>Estimular o avanço científico e tecnológico no campo, com foco em soluções práticas e inovadoras.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h4>Localização</h4>
+                <p>IF Goiano - Campus Morrinhos</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>inofas.enagrotech@ifgoiano.edu.br</p>
+            </div>
+            <div class="footer-section social">
+                <h4>Redes</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+    // Menu responsivo
+    document.querySelector('.menu-btn').addEventListener('click', function () {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.remove('active');
+        });
+    });
+    </script>
+</body>
+</html>

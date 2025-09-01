@@ -217,3 +217,54 @@ Para dúvidas ou sugestões sobre o modal de inscrição, entre em contato:
 ---
 
 **Desenvolvido com ❤️ para INOFAS & ENAGROTECH 2025**
+# README.md
+
+# Projeto INOFAS & ENAGROTECH 2025
+
+Este projeto consiste em um site para os eventos integrados promovidos pelo IF Goiano - Campus Morrinhos. O site contém informações sobre os eventos, objetivos, inscrições e contatos, além de uma área de administração.
+
+## Estrutura do Projeto
+
+O projeto possui a seguinte estrutura de arquivos:
+
+```
+Site-EVENTO-INTRGRADO
+├── Site
+│   ├── about.html          # Página com informações sobre os eventos
+│   ├── contact.html        # Página de contato
+│   ├── index.html          # Página inicial do site
+│   ├── objectives.html      # Página com os objetivos dos eventos
+│   ├── registration.html    # Página de inscrições
+│   ├── ADMpainel.html       # Página de administração
+│   ├── css_index
+│   │   └── style.css       # Arquivo de estilos CSS
+│   ├── js_index
+│   │   └── script.js       # Arquivo de scripts JavaScript
+│   └── images
+│       └── 4.png          # Imagem utilizada no banner da página inicial
+└── README.md               # Documentação do projeto
+```
+
+## Instruções de Uso
+
+1. **Instalação**: Para utilizar o projeto, clone o repositório e abra a pasta `Site` em um servidor local ou diretamente em um navegador.
+
+2. **Navegação**: Utilize a barra de navegação para acessar as diferentes seções do site:
+   - **Sobre**: Informações sobre os eventos.
+   - **Objetivos**: Detalhes sobre os objetivos dos eventos.
+   - **Inscrições**: Informações sobre como se inscrever.
+   - **Contato**: Informações de contato.
+
+3. **Estilização**: Todas as páginas HTML referenciam o arquivo `css_index/style.css` para garantir uma aparência consistente.
+
+4. **Interatividade**: O arquivo `js_index/script.js` contém scripts para funcionalidades interativas, como a abertura de modais.
+
+5. **Administração**: Acesse a página de administração através do link na barra de navegação.
+
+## Testes
+
+Após implementar as alterações, teste todos os links de navegação para garantir que eles redirecionem corretamente para as páginas desejadas e que a estilização seja aplicada de forma consistente.
+
+## Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests para melhorias no projeto.
