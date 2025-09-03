@@ -21,110 +21,16 @@
 - **Navegação por teclado**: Suporte completo para navegação sem mouse
 - **ARIA labels**: Atributos para leitores de tela
 
-## 🏗️ **Estrutura do Modal**
 
-### 📋 **Seções do Formulário**
-1. **Seleção de Categoria**
-   - Cards interativos para cada tipo de inscrição
-   - Preços e benefícios claramente exibidos
-   - Seleção visual com indicadores de estado
 
-2. **Informações Pessoais**
-   - Nome completo, e-mail, telefone e CPF
-   - Validação de formato para cada campo
-   - Máscaras automáticas para formatação
 
-3. **Informações Acadêmicas**
-   - Instituição e curso
-   - Campos obrigatórios para todos os tipos
-
-4. **Submissão de Trabalho** (condicional)
-   - Título e resumo do trabalho
-   - Contador de caracteres com limites
-   - Aparece apenas para categorias que incluem trabalho
-
-5. **Informações de Pagamento**
-   - Resumo da categoria selecionada
-   - Seleção de forma de pagamento
-   - Campos específicos para cada método
-
-6. **Resumo da Inscrição**
-   - Visualização completa dos dados
-   - Confirmação antes da submissão
-
-## 🎨 **Sistema de Cores**
-
-### 🌈 **Paleta Principal**
-- **Primary**: `#2e7d32` (Verde principal)
-- **Secondary**: `#ff9800` (Laranja)
-- **Accent**: `#2196f3` (Azul)
-- **Success**: `#4caf50` (Verde sucesso)
-- **Warning**: `#ff9800` (Laranja aviso)
-- **Error**: `#f44336` (Vermelho erro)
-
-### 📏 **Espaçamentos**
-- **XS**: `0.25rem` (4px)
-- **SM**: `0.5rem` (8px)
-- **MD**: `1rem` (16px)
-- **LG**: `1.5rem` (24px)
-- **XL**: `2rem` (32px)
-- **2XL**: `3rem` (48px)
-
-## 🔍 **Validações Implementadas**
-
-### ✅ **Campos Obrigatórios**
-- Categoria de inscrição
-- Nome completo
-- E-mail válido
-- Telefone válido
-- CPF válido
-- Instituição
-- Curso
-- Forma de pagamento
-
-### 📧 **Validação de E-mail**
-- Formato padrão de e-mail
-- Verificação de domínio básico
-- Feedback visual imediato
-
-### 📱 **Validação de Telefone**
-- Formato brasileiro: (00) 00000-0000
-- Suporte para celular e fixo
-- Máscara automática durante digitação
-
-### 🆔 **Validação de CPF**
-- Formato: 000.000.000-00
-- Máscara automática
-- Validação básica de formato
-
-### 📝 **Validação de Trabalho**
-- Título obrigatório (se aplicável)
-- Resumo obrigatório (se aplicável)
-- Limite de 300 caracteres
-- Contador visual
 
 ## 🚀 **Como Usar**
 
-### 📱 **Abrir Modal**
-```javascript
-// Clicar no botão "Inscreva-se" do banner
-// Clicar no botão "Realizar Inscrição" da seção
+[] seguir para inscreva-se para ser encaminhado para outro site
+
 ```
 
-### 🔄 **Fluxo de Inscrição**
-1. **Selecionar categoria** → Campos de trabalho aparecem se necessário
-2. **Preencher dados pessoais** → Validação em tempo real
-3. **Preencher dados acadêmicos** → Campos obrigatórios
-4. **Adicionar trabalho** (se aplicável) → Título e resumo
-5. **Escolher pagamento** → Campos específicos aparecem
-6. **Visualizar resumo** → Revisar todos os dados
-7. **Finalizar inscrição** → Processamento e confirmação
-
-### 🎯 **Estados do Modal**
-- **Fechado**: Modal oculto
-- **Aberto**: Formulário visível
-- **Carregando**: Processamento em andamento
-- **Confirmado**: Sucesso da inscrição
 
 ## 🛠️ **Tecnologias Utilizadas**
 
@@ -193,12 +99,8 @@
 ## 🚀 **Próximas Melhorias**
 
 ### 🔮 **Funcionalidades Futuras**
-- [ ] Integração com API de pagamento real
-- [ ] Upload de arquivos (PDF do trabalho)
-- [ ] Sistema de cupons de desconto
-- [ ] Histórico de inscrições
-- [ ] Notificações por e-mail/SMS
-- [ ] Dashboard do participante
+- [ ] encaminhamento para link de inscrição no Even3
+
 
 ### 🎨 **Melhorias de Design**
 - [ ] Temas personalizáveis
