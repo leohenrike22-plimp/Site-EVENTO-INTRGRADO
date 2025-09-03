@@ -691,8 +691,31 @@ footer {
 
 @media (max-width: 640px) {
     .cards-grid { grid-template-columns: 1fr; }
-    .banner { min-height: 420px; }
-    .banner-image .banner-img { max-height: none; object-fit: contain; }
+    .banner {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+    .banner-image {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+    .banner-image .banner-img {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        display: block;
+    }
     .banner-content h1 { font-size: 1.4rem; }
     .footer-content { flex-direction: column; gap: 1rem; }
     .modal-content { padding: 1.2rem 0.5rem; }
