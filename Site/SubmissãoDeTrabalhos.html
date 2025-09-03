@@ -6,6 +6,101 @@
     <title>Submissão de Trabalhos - INOFAS & ENAGROTECH 2025</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css_index/style.css">
+    <style>
+        /* Accordion customizado com cores do evento */
+        .accordion {
+            margin-top: 2rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(46,125,50,0.07);
+        }
+        .accordion-item {
+            border-bottom: 1px solid #B0BEC5;
+            background: #fff;
+        }
+        .accordion-header {
+            background: #2E7D32;
+            color: #fff;
+            padding: 1rem 1.5rem;
+            font-size: 1.15rem;
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s;
+            border: none;
+        }
+        .accordion-header:hover,
+        .accordion-header.active {
+            background: #1E3A8A;
+            color: #fff;
+        }
+        .accordion-content {
+            display: none;
+            padding: 1.2rem 1.5rem 1.5rem 1.5rem;
+            background: #f8f9fa;
+            color: #222;
+            animation: fadeIn 0.3s;
+        }
+        .accordion-item.open .accordion-content {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        /* Tabela temática */
+        .areas-table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        .areas-table th {
+            background: #2E7D32;
+            color: #fff;
+            padding: 10px;
+            border: 1px solid #B0BEC5;
+            font-weight: 600;
+        }
+        .areas-table td {
+            padding: 10px;
+            border: 1px solid #B0BEC5;
+        }
+        .areas-table tr:nth-child(even) td {
+            background: #B0BEC5;
+            color: #222;
+        }
+        .areas-table tr:nth-child(odd) td {
+            background: #fff;
+            color: #222;
+        }
+        /* Links e destaques */
+        .accordion-content a {
+            color: #1E3A8A;
+            font-weight: 500;
+            text-decoration: underline;
+        }
+        .accordion-content h2,
+        .accordion-content h3 {
+            color: #1E3A8A;
+            margin-top: 1.2rem;
+        }
+        .accordion-content strong,
+        .accordion-content .atencao {
+            color: #1E3A8A;
+        }
+        /* Responsivo */
+        @media (max-width: 700px) {
+            .accordion-header, .accordion-content {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            .areas-table th, .areas-table td {
+                padding: 7px;
+                font-size: 0.97rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -34,51 +129,160 @@
     <div class="banner-divider"></div>
 
     <main class="site-main container">
-        <section class="cards-grid" aria-labelledby="submissions-title">
-            <h2 id="submissions-title" class="sr-only">Submissão de Trabalhos</h2>
-            <!-- Card exemplo 1 -->
-            <article class="card">
-                <h3>Normas para Submissão</h3>
-                <p>Confira as regras e orientações para submissão de trabalhos científicos no evento.</p>
-                
-            </article>
-            <!-- Card exemplo 2 -->
-            <article class="card">
-                <h3>Áreas Temáticas</h3>
-                <p>Veja as áreas temáticas aceitas para submissão de trabalhos.</p>
-           
-            </article>
-            <!-- Card exemplo 3 -->
-            <article class="card">
-                <h3>Enviar Trabalho</h3>
-                <p>Faça o upload do seu trabalho para avaliação.</p>
-                
-            </article>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-section">
-                <h4>Localização</h4>
-                <p>IF Goiano - Campus Morrinhos</p>
-            </div>
-            <div class="footer-section">
-                <h4>Contato</h4>
-                <p>inofas.enagrotech@ifgoiano.edu.br</p>
-            </div>
-            <div class="footer-section social">
-                <h4>Redes</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+        <div class="tab-content">
+            <h1 style="color:#2E7D32;">SUBMISSÃO DE TRABALHOS</h1>
+            <p>Confira abaixo as informações detalhadas sobre as normas, áreas temáticas e o processo de envio de trabalhos para os eventos INOFAS e ENAGROTECH.</p>
+            
+            <div class="accordion" id="accordion-submissao">
+                <!-- Normas para Submissão -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">Normas para Submissão</h2>
+                    <div class="accordion-content">
+                        <h2>INSTRUÇÕES PARA SUBMISSÃO DE TRABALHOS</h2>
+                        <p>Leia com atenção as instruções a seguir e evite equívocos no momento do envio do trabalho.</p>
+                        <h3>DISPOSIÇÕES GERAIS</h3>
+                        <p>São admitidos dois formatos de manuscritos:</p>
+                        <ul>
+                            <li>(I) Pesquisa Científica</li>
+                            <li>(II) Revisão de Literatura</li>
+                        </ul>
+                        <p>Para manuscritos classificados como <strong>pesquisa científica</strong>, o conteúdo completo deverá ser apresentado em no mínimo sete (7) e no máximo quinze (15) páginas, contemplando as seções de introdução, materiais e métodos, resultados, discussão e referências.</p>
+                        <p>Para <strong>revisões de literatura</strong>, o texto deverá conter entre oito (8) e vinte (20) páginas, incluindo todas as seções pertinentes e as referências bibliográficas. No caso específico de revisões de literatura, pelo menos cinquenta por cento (50%) das referências utilizadas devem ter sido publicadas nos últimos cinco anos, garantindo contemporaneidade e relevância ao estudo.</p>
+                        <p>Cada trabalho poderá ter no máximo sete (7) autores, sendo necessária a apresentação de justificativa, enviada para o e-mail <a href="mailto:contato@agronfy.com.br">contato@agronfy.com.br</a>, nos casos que demandarem a inclusão de autores adicionais.</p>
+                        <p>Os capítulos devem ser originais e inéditos, escritos em português, e formatados de acordo com o modelo disponibilizado pela comissão editorial. Faça o download dos modelos abaixo:</p>
+                        <ul>
+                            <li><a href="https://docs.google.com/document/d/1oufL1VU5sQVWHAHqddXp_03MRBcTrCTN/edit?usp=sharing&ouid=112465158723400699402&rtpof=true&sd=true" target="_blank">Clique aqui para baixar o modelo de Capítulo - Pesquisa Científica</a></li>
+                            <li><a href="https://docs.google.com/document/d/1Fp1gAsAJb7eR2qWFyYU9-YcFAZucZk10/edit?tab=t.0" target="_blank">Clique aqui para baixar o modelo de Capítulo - Revisão de Literatura</a></li>
+                        </ul>
+                        <h3>PRAZO PARA ENVIO</h3>
+                        <p>A data limite para o envio dos trabalhos é o dia <strong>16 de setembro de 2025 às 23h59</strong>. Após esta data, o prazo para envio dos trabalhos será considerado encerrado.</p>
+                        <h3>AVALIAÇÃO</h3>
+                        <p>Os capítulos submetidos passarão por avaliação <strong>duplo-cega</strong> realizada por pareceristas <em>ad hoc</em>, considerando originalidade, relevância científica, clareza e contribuição para o campo de estudo. O resultado poderá ser: <strong>aprovado</strong>, <strong>aprovado com correções</strong> ou <strong>reprovado</strong>.</p>
+                        <h3>PRAZOS IMPORTANTES</h3>
+                        <table class="areas-table">
+                            <tr>
+                                <th>Informações</th>
+                                <th>Período</th>
+                            </tr>
+                            <tr>
+                                <td>Recebimento dos Capítulos</td>
+                                <td>01/09/2025 a 16/09/2025</td>
+                            </tr>
+                            <tr>
+                                <td>Divulgação dos Resultados</td>
+                                <td>26/09/2025</td>
+                            </tr>
+                            <tr>
+                                <td>Envio das Correções e Resultado Final</td>
+                                <td>03/10/2025</td>
+                            </tr>
+                        </table>
+                        <h3>PUBLICAÇÃO</h3>
+                        <p>Os capítulos aprovados e revisados comporão livro digital organizado pela Editora Agronfy, com ISBN e DOI para cada capítulo, disponível para download e citação em bases de dados.</p>
+                        <p>Para mais informações, <a href="https://docs.google.com/document/d/1_MlMBrMLbAahis_UD4sW9m0F6mQ11sVBpJR3n3--v0c/edit?tab=t.0" target="_blank">clique aqui e baixe o EDITAL DE CHAMADA PARA PUBLICAÇÃO DE CAPÍTULOS DE LIVRO</a>.</p>
+                    </div>
+                </div>
+                <!-- Áreas Temáticas -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">Áreas Temáticas</h2>
+                    <div class="accordion-content">
+                        <h2 style="color: #1E3A8A;">Áreas Temáticas</h2>
+                        <p>Os trabalhos submetidos devem estar enquadrados em uma das seguintes áreas temáticas:</p>
+                        <table style="border-collapse: separate; border-spacing: 0; width: 100%; margin-bottom: 1.5rem;">
+                            <tr style="background-color: #2E7D32; color: white;">
+                                <th style="padding: 10px; border: 1px solid #B0BEC5; font-size:1.08rem;">Área Temática</th>
+                                <th style="padding: 10px; border: 1px solid #B0BEC5; font-size:1.08rem;">Tópicos</th>
+                            </tr>
+                            <tr style="background-color: #B0BEC5;">
+                                <td style="padding: 10px; border: 2px solid #1E3A8A; background: #fff; border-radius: 12px 0 0 12px;">
+                                    <span style="display:inline-block; background:#1E3A8A; color:#fff; border-radius:6px; padding:4px 12px; font-weight:600; letter-spacing:0.5px;">AGRONOMIA</span>
+                                </td>
+                                <td style="padding: 10px; border: 2px solid #1E3A8A; background: #fff; border-radius: 0 12px 12px 0;">
+                                    <ul style="margin:0; padding-left:1.2em;">
+                                        <li>Manejo sustentável do solo, da água e práticas de irrigação inteligente;</li>
+                                        <li>Agricultura de precisão, automação e uso de sensores no campo;</li>
+                                        <li>Agroecologia, bioinsumos e estratégias de biocontrole;</li>
+                                        <li>Sistemas de cultivo e integração lavoura-pecuária-floresta (ILPF);</li>
+                                        <li>Melhoramento genético, fitossanidade e adaptação às mudanças climáticas.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr style="background-color: #fff;">
+                                <td style="padding: 10px; border: 2px solid #1E3A8A; background: #B0BEC5; border-radius: 12px 0 0 12px;">
+                                    <span style="display:inline-block; background:#1E3A8A; color:#fff; border-radius:6px; padding:4px 12px; font-weight:600; letter-spacing:0.5px;">CIÊNCIA, TECNOLOGIA E ENGENHARIA DE ALIMENTOS</span>
+                                </td>
+                                <td style="padding: 10px; border: 2px solid #1E3A8A; background: #B0BEC5; border-radius: 0 12px 12px 0;">
+                                    <ul style="margin:0; padding-left:1.2em;">
+                                        <li>Inovação em processamento, conservação, análises de alimentos e tecnologias de embalagem;</li>
+                                        <li>Desenvolvimento de novos produtos alimentícios funcionais, saudáveis e regionais;</li>
+                                        <li>Segurança alimentar e nutricional e rastreabilidade na agroindústria sustentável;</li>
+                                        <li>Segregação de alimentos e vida útil de produtos alimentícios;</li>
+                                        <li>Aproveitamento de resíduos agroindustriais e economia circular no setor de alimentos.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr style="background-color: #B0BEC5;">
+                                <td style="padding: 10px; border: 2px solid #1E3A8A; background: #fff; border-radius: 12px 0 0 12px;">
+                                    <span style="display:inline-block; background:#1E3A8A; color:#fff; border-radius:6px; padding:4px 12px; font-weight:600; letter-spacing:0.5px;">CIÊNCIAS DA COMPUTAÇÃO APLICADA À AGROPECUÁRIA</span>
+                                </td>
+                                <td style="padding: 10px; border: 2px solid #1E3A8A; background: #fff; border-radius: 0 12px 12px 0;">
+                                    <ul style="margin:0; padding-left:1.2em;">
+                                        <li>Agricultura digital, Internet das Coisas (IoT) e sensores inteligentes no campo;</li>
+                                        <li>Inteligência artificial, aprendizado de máquina e redes neurais para previsão de safras, controle de pragas e classificação de produtos agrícolas;</li>
+                                        <li>Desenvolvimento de software e hardware para gestão, automação e otimização da produção agrícola e pecuária;</li>
+                                        <li>Big data, sensoriamento remoto, visão computacional e drones aplicados à tomada de decisão no agro;</li>
+                                        <li>Plataformas digitais, blockchain e sistemas de rastreabilidade e comercialização de produtos agropecuários.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr style="background-color: #fff;">
+                                <td style="padding: 10px; border: 2px solid #1E3A8A; background: #B0BEC5; border-radius: 12px 0 0 12px;">
+                                    <span style="display:inline-block; background:#1E3A8A; color:#fff; border-radius:6px; padding:4px 12px; font-weight:600; letter-spacing:0.5px;">ZOOTECNIA</span>
+                                </td>
+                                <td style="padding: 10px; border: 2px solid #1E3A8A; background: #B0BEC5; border-radius: 0 12px 12px 0;">
+                                    <ul style="margin:0; padding-left:1.2em;">
+                                        <li>Nutrição, manejo e alternativas alimentares para ruminantes e não ruminantes;</li>
+                                        <li>Bem-estar animal, sustentabilidade e mitigação de impactos ambientais na produção pecuária;</li>
+                                        <li>Melhoramento genético e biotecnologias aplicadas à reprodução animal;</li>
+                                        <li>Sistemas familiares e sustentáveis de produção animal;</li>
+                                        <li>Qualidade e inovação em produtos de origem animal.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr style="background-color: #B0BEC5;">
+                                <td style="padding: 10px; border: 2px solid #1E3A8A; background: #fff; border-radius: 12px 0 0 12px;">
+                                    <span style="display:inline-block; background:#1E3A8A; color:#fff; border-radius:6px; padding:4px 12px; font-weight:600; letter-spacing:0.5px;">INTEGRAÇÃO MULTIDISCIPLINAR E INTERDISCIPLINAR</span>
+                                </td>
+                                <td style="padding: 10px; border: 2px solid #1E3A8A; background: #fff; border-radius: 0 12px 12px 0;">
+                                    <ul style="margin:0; padding-left:1.2em;">
+                                        <li>Cadeias produtivas sustentáveis e integração entre agricultura, produção animal, alimentos e tecnologias sociais;</li>
+                                        <li>Políticas públicas, extensão rural e transferência de tecnologia;</li>
+                                        <li>Empreendedorismo, inovação e impacto socioeconômico da tecnologia no campo;</li>
+                                        <li>Segregação alimentar e sustentabilidade ambiental em sistemas integrados.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <p><strong>Observação:</strong> Certifique-se de que o trabalho submetido se enquadre em uma das áreas temáticas listadas.</p>
+                    </div>
+                </div>
+                <!-- Enviar Trabalho -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">Enviar Trabalho</h2>
+                    <div class="accordion-content">
+                        <h2>ENVIAR TRABALHO</h2>
+                        <p>Após a realização da inscrição, aguarde 24 horas antes de enviar seu trabalho. A submissão deverá ser realizada exclusivamente na página da Editora.</p>
+                        <p><a href="https://submissao.agronfoodacademy.com/" target="_blank">Clique aqui para acessar o sistema de envio de trabalhos</a>.</p>
+                        <p><strong class="atencao">ATENÇÃO:</strong> Não será permitida a inclusão de novos coautores após a confirmação do envio da versão final do trabalho.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </footer>
+    </main>
+
     <footer>
         <div class="footer-white-bar">
-            <!-- Substitua os src abaixo pelos caminhos reais das logos -->
             <img src="/Site/images/capes_logo.png" alt="Logo Empresa 1" class="footer-logo" />
             <img src="/Site/images/fapeg_logo.png" alt="Logo Empresa 2" class="footer-logo" />
             <img src="/Site/images/if_logo.png" alt="Logo Empresa 3" class="footer-logo" />
@@ -89,4 +293,37 @@
             <span>Realização: IF Goiano, FAPEG, Olericultura, CAPES, PPGBB</span>
         </div>
     </footer>
-    <script src=
+    <script>
+    // Menu responsivo
+    document.querySelector('.menu-btn').addEventListener('click', function () {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.remove('active');
+        });
+    });
+
+    // Accordion funcionalidade
+    document.querySelectorAll('.accordion-header').forEach(function(header) {
+        header.addEventListener('click', function() {
+            const item = header.parentElement;
+            const content = item.querySelector('.accordion-content');
+            const isOpen = item.classList.contains('open');
+
+            // Fecha todos os outros itens
+            document.querySelectorAll('.accordion-item').forEach(i => {
+                i.classList.remove('open');
+                i.querySelector('.accordion-content').style.display = 'none';
+            });
+
+            // Abre o item clicado se não estiver aberto
+            if (!isOpen) {
+                item.classList.add('open');
+                content.style.display = 'block';
+            }
+        });
+    });
+    </script>
+</body>
+</html>
