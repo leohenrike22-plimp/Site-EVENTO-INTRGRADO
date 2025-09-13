@@ -1025,3 +1025,70 @@ footer {
         padding: 0.8rem 0.4rem 0.7rem 0.7rem;
     }
 }
+  /* --- Comissão e Palestrantes --- */
+    .comissao-section {
+        max-width: 1200px;
+        margin: 0 auto 2.5rem auto;
+        padding: 2rem 1rem 0 1rem;
+    }
+    .comissao-title {
+        text-align: center;
+        color: #1E3A8A;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+    }
+    .comissao-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 2rem 1.5rem;
+        justify-items: center;
+        margin-bottom: 2.5rem;
+    }
+    .comissao-card {
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 4px 18px rgba(46,125,50,0.08);
+        padding: 1.2rem 1rem 1.5rem 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: box-shadow 0.2s, transform 0.2s;
+        min-width: 150px;
+        max-width: 220px;
+    }
+    .comissao-card:hover {
+        box-shadow: 0 8px 32px rgba(30,58,138,0.13);
+        transform: translateY(-4px) scale(1.03);
+    }
+    .comissao-foto {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #2E7D32;
+        margin-bottom: 1rem;
+        background: #B0BEC5;
+    }
+    .comissao-nome {
+        font-size: 1.08rem;
+        font-weight: 600;
+        color: #1E3A8A;
+        margin-bottom: 0.3rem;
+        text-align: center;
+    }
+    .comissao-inst {
+        font-size: 0.98rem;
+        color: #2E7D32;
+        text-align: center;
+        margin-bottom: 0.2rem;
+    }
+    /* Responsivo */
+    @media (max-width: 700px) {
+        .comissao-section { padding: 1rem 0.2rem 0 0.2rem; }
+        .comissao-title { font-size: 1.3rem; }
+        .comissao-grid { gap: 1.2rem 0.7rem; }
+        .comissao-card { padding: 1rem 0.5rem 1.2rem 0.5rem; }
+        .comissao-foto { width: 70px; height: 70px; }
+    }
