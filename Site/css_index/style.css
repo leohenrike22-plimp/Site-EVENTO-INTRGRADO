@@ -1025,70 +1025,234 @@ footer {
         padding: 0.8rem 0.4rem 0.7rem 0.7rem;
     }
 }
-  /* --- Comissão e Palestrantes --- */
-    .comissao-section {
-        max-width: 1200px;
-        margin: 0 auto 2.5rem auto;
-        padding: 2rem 1rem 0 1rem;
+
+/* --- Comissão e Palestrantes --- */
+.comissao-section {
+    max-width: 1200px;
+    margin: 0 auto 2.5rem auto;
+    padding: 2rem 1rem 0 1rem;
+}
+.comissao-title {
+    text-align: center;
+    color: #1E3A8A;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+.comissao-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 2rem 1.5rem;
+    justify-items: center;
+    margin-bottom: 2.5rem;
+}
+.comissao-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(46,125,50,0.08);
+    padding: 1.2rem 1rem 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+    min-width: 150px;
+    max-width: 220px;
+}
+.comissao-card:hover {
+    box-shadow: 0 8px 32px rgba(30,58,138,0.13);
+    transform: translateY(-4px) scale(1.03);
+}
+.comissao-foto {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #2E7D32;
+    margin-bottom: 1rem;
+    background: #B0BEC5;
+}
+.comissao-nome {
+    font-size: 1.08rem;
+    font-weight: 600;
+    color: #1E3A8A;
+    margin-bottom: 0.3rem;
+    text-align: center;
+}
+.comissao-inst {
+    font-size: 0.98rem;
+    color: #2E7D32;
+    text-align: center;
+    margin-bottom: 0.2rem;
+}
+/* Responsivo */
+@media (max-width: 700px) {
+    .comissao-section { padding: 1rem 0.2rem 0 0.2rem; }
+    .comissao-title { font-size: 1.3rem; }
+    .comissao-grid { gap: 1.2rem 0.7rem; }
+    .comissao-card { padding: 1rem 0.5rem 1.2rem 0.5rem; }
+    .comissao-foto { width: 70px; height: 70px; }
+}
+
+/* =========================
+   CARROSSEL DE NOTIFICAÇÕES
+   ========================= */
+.notification-carousel {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    max-height: 500px;
+    z-index: calc(var(--z-modal) + 50);
+    font-family: var(--font-main);
+}
+
+.notification-item {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(46,125,50,0.12);
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.8rem;
+    border-left: 4px solid var(--primary);
+    position: relative;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.notification-item.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification-item.hide {
+    transform: translateX(100%);
+    opacity: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 0;
+}
+
+.notification-item:hover {
+    box-shadow: 0 8px 32px rgba(46,125,50,0.18);
+    transform: translateX(-4px) scale(1.02);
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.notification-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+}
+
+.notification-close:hover {
+    background: var(--danger);
+    color: var(--white);
+}
+
+.notification-message {
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.4;
+    margin: 0;
+}
+
+.notification-time {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 0.5rem;
+    text-align: right;
+}
+
+.notification-item.success {
+    border-left-color: var(--accent);
+}
+
+.notification-item.warning {
+    border-left-color: var(--secondary);
+}
+
+.notification-item.error {
+    border-left-color: var(--danger);
+}
+
+.notification-item.info {
+    border-left-color: #1976d2;
+}
+
+.notification-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    object-fit: contain;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.notification-item.has-image {
+    padding: 1rem 1.2rem 1.2rem 1.2rem;
+}
+
+.notification-item.has-image .notification-message {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsivo mobile */
+@media (max-width: 640px) {
+    .notification-carousel {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        width: auto;
+        max-width: none;
     }
-    .comissao-title {
-        text-align: center;
-        color: #1E3A8A;
-        font-size: 2rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        letter-spacing: 1px;
+    
+    .notification-item {
+        padding: 0.8rem 1rem;
     }
-    .comissao-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-        gap: 2rem 1.5rem;
-        justify-items: center;
-        margin-bottom: 2.5rem;
+    
+    .notification-title {
+        font-size: 0.9rem;
     }
-    .comissao-card {
-        background: #fff;
-        border-radius: 18px;
-        box-shadow: 0 4px 18px rgba(46,125,50,0.08);
-        padding: 1.2rem 1rem 1.5rem 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        transition: box-shadow 0.2s, transform 0.2s;
-        min-width: 150px;
-        max-width: 220px;
+    
+    .notification-message {
+        font-size: 0.85rem;
     }
-    .comissao-card:hover {
-        box-shadow: 0 8px 32px rgba(30,58,138,0.13);
-        transform: translateY(-4px) scale(1.03);
+    
+    .notification-item.has-image {
+        padding: 0.8rem 1rem 1rem 1rem;
     }
-    .comissao-foto {
-        width: 90px;
-        height: 90px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid #2E7D32;
-        margin-bottom: 1rem;
-        background: #B0BEC5;
+    
+    .notification-image {
+        max-width: 100%;
     }
-    .comissao-nome {
-        font-size: 1.08rem;
-        font-weight: 600;
-        color: #1E3A8A;
-        margin-bottom: 0.3rem;
-        text-align: center;
-    }
-    .comissao-inst {
-        font-size: 0.98rem;
-        color: #2E7D32;
-        text-align: center;
-        margin-bottom: 0.2rem;
-    }
-    /* Responsivo */
-    @media (max-width: 700px) {
-        .comissao-section { padding: 1rem 0.2rem 0 0.2rem; }
-        .comissao-title { font-size: 1.3rem; }
-        .comissao-grid { gap: 1.2rem 0.7rem; }
-        .comissao-card { padding: 1rem 0.5rem 1.2rem 0.5rem; }
-        .comissao-foto { width: 70px; height: 70px; }
-    }
+}
