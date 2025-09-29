@@ -227,6 +227,109 @@
                             <div class="no-speaker">Participantes a definir</div>
                         </div>
                     </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                15:15 - 15:45
+                            </div>
+                            <div class="activity-location">Auditório Central</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">MOMENTO DE DISCUSSÃO SOBRE AS TEMÁTICAS ABORDADAS NAS PALESTRAS</h3>
+                            <div class="no-speaker">Discussão aberta com os participantes</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                15:45 - 16:15
+                            </div>
+                            <div class="activity-location">Auditório Central</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">COFFEE BREAK/MOMENTO NETWORKING</h3>
+                            <div class="no-speaker">Intervalo para networking e refreshments</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                16:15 - 16:30
+                            </div>
+                            <div class="activity-location">Auditório Central</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">ENCERRAMENTO E AVISOS</h3>
+                            <div class="no-speaker">Avisos finais do dia</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="period-section">
+                <div class="period-header">
+                    <i class="fas fa-moon"></i> NOITE - AUDITÓRIO INFORMÁTICA
+                </div>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                19:30 - 20:15
+                            </div>
+                            <div class="activity-location">Auditório Informática</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">SUBPRODUTOS AGROINDUSTRIAIS: UMA ALTERNATIVA PROMISSORA E SUSTENTÁVEL NA PRODUÇÃO DE INGREDIENTES E ALIMENTOS</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="Prof. Dr. Ailton Cesar Lemes" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Prof. Dr. Ailton Cesar Lemes</h4>
+                                    <p>UFRJ - Palestrante</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                20:15 - 21:00
+                            </div>
+                            <div class="activity-location">Auditório Informática</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">PALESTRA</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="A definir" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>A DEFINIR</h4>
+                                    <p>Palestrante</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                21:00 - 21:30
+                            </div>
+                            <div class="activity-location">Auditório Informática</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">MOMENTO DE DISCUSSÃO SOBRE AS TEMÁTICAS ABORDADAS NAS PALESTRAS</h3>
+                            <div class="no-speaker">Discussão aberta com os participantes</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -314,9 +417,12 @@
 
     <script src="js_index/script.js"></script>
     <script>
+        const TAB_BUTTONS = document.querySelectorAll('.tab-button');
+        const DAY_CONTENT = document.querySelectorAll('.day-content');
+
         function showDay(dayNumber, button) {
-            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.day-content').forEach(content => content.classList.remove('active'));
+            TAB_BUTTONS.forEach(btn => btn.classList.remove('active'));
+            DAY_CONTENT.forEach(content => content.classList.remove('active'));
             
             button.classList.add('active');
             document.getElementById(`day-${dayNumber}`).classList.add('active');
