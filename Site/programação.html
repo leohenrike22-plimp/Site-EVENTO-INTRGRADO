@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação - INOFAS & ENAGROTECH 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css_index/style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <div class="logo">INOFAS & ENAGROTECH</div>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li><a href="objectives.html">Objetivos</a></li>
+                    <li><a href="registration.html">Inscrições</a></li>
+                    <li><a href="SubmissãoDeTrabalhos.html">Submissão de Trabalhos</a></li>
+                    <li><a href="programação.html" class="active">Programação</a></li>
+                    <li><a href="comissão.html">Comissão</a></li>
+                    <li><a href="contact.html">Contato</a></li>
+                </ul>
+                <button class="menu-btn" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main container">
+        <header class="page-header">
+            <h1 class="page-title">Programação do Evento</h1>
+            <p class="page-subtitle">INOFAS & ENAGROTECH 2025 - Do Campo ao Digital</p>
+        </header>
+
+        <div class="tabs-container">
+            <button class="tab-button active" onclick="showDay(1, this)">1º Dia</button>
+            <button class="tab-button" onclick="showDay(2, this)">2º Dia</button>
+            <button class="tab-button" onclick="showDay(3, this)">3º Dia</button>
+        </div>
+
+        <div class="day-content active" id="day-1">
+            <div class="period-section">
+                <div class="period-header">
+                    <i class="fas fa-sun"></i> MANHÃ - AUDITÓRIO CENTRAL
+                </div>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                07:30
+                            </div>
+                            <div class="activity-location">Auditório Central</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">CREDENCIAMENTO</h3>
+                            <div class="no-speaker">Recepção dos participantes</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                08:00
+                            </div>
+                            <div class="activity-location">Auditório Central</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">CERIMÔNIA DE ABERTURA</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="Comissão Organizadora" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Comissão Organizadora</h4>
+                                    <p>IF Goiano - Campus Morrinhos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                09:00 - 09:45
+                            </div>
+                            <div class="activity-location">Auditório Central</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">POLÍTICAS PÚBLICAS DE INCLUSÃO PRODUTIVA RURAL: AVANÇOS E DESAFIOS PARA A AGRICULTURA FAMILIAR NO BRASIL</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="Paulo Sérgio Alves" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Paulo Sérgio Alves</h4>
+                                    <p>Ministério do Desenvolvimento Social</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                09:45 - 10:30
+                            </div>
+                            <div class="activity-location">Auditório Central</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">VISÃO COMPUTACIONAL E TÉCNICAS DE APRENDIZAGEM DE MÁQUINAS APLICADAS A AGRICULTURA</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="Prof. Dr. Anderson Gomide" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Prof. Dr. Anderson Gomide</h4>
+                                    <p>UFRRJ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                10:30 - 10:45
+                            </div>
+                            <div class="activity-location">Auditório Central</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">MOMENTO DE DISCUSSÃO SOBRE AS PALESTRAS</h3>
+                            <div class="no-speaker">Discussão aberta com os participantes</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                10:45 - 11:15
+                            </div>
+                            <div class="activity-location">Auditório Central</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">COFFEE BREAK/MOMENTO NETWORKING</h3>
+                            <div class="no-speaker">Intervalo para networking e refreshments</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="period-section">
+                <div class="period-header">
+                    <i class="fas fa-sun"></i> TARDE - ATIVIDADES PARALELAS
+                </div>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                13:00 - 13:45
+                            </div>
+                            <div class="activity-location">Auditório Biblioteca</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">AUTOMAÇÃO DE PIVÔ CENTRAL</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="André Milhomem Milhardes" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>André Milhomem Milhardes</h4>
+                                    <p>Senar - GO / Palestrante</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                13:00 - 13:45
+                            </div>
+                            <div class="activity-location">Laboratório</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">MINICURSO - NOÇÕES DE REDES NEURAIS CONVOLUCIONAIS: UTILIZAÇÃO DO SOFTWARE "CNN CLASSIFICATION FRUIT"</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="Prof. Dr. Anderson Gomide" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Prof. Dr. Anderson Gomide</h4>
+                                    <p>UFRRJ - Ministrante</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                13:45 - 14:30
+                            </div>
+                            <div class="activity-location">Auditório Biblioteca</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">SUBPRODUTOS AGROINDUSTRIAIS: UMA ALTERNATIVA PROMISSORA E SUSTENTÁVEL NA PRODUÇÃO DE INGREDIENTES E ALIMENTOS</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="Prof. Dr. Ailton Cesar Lemes" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Prof. Dr. Ailton Cesar Lemes</h4>
+                                    <p>UFRJ - Palestrante</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                14:30 - 15:15
+                            </div>
+                            <div class="activity-location">Auditório Biblioteca</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">MESA-REDONDA - EXTENSÃO RURAL E IGUALDADE DE GÊNERO</h3>
+                            <div class="no-speaker">Participantes a definir</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-content" id="day-2">
+            <div class="period-section">
+                <div class="period-header">
+                    <i class="fas fa-sun"></i> MANHÃ - AUDITÓRIO CENTRAL
+                </div>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                08:00 - 08:45
+                            </div>
+                            <div class="activity-location">Auditório Central</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">ATIVIDADE DO SEGUNDO DIA</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="Palestrante" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Nome do Palestrante</h4>
+                                    <p>Instituição</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-content" id="day-3">
+            <div class="period-section">
+                <div class="period-header">
+                    <i class="fas fa-sun"></i> MANHÃ - AUDITÓRIO CENTRAL
+                </div>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                08:00 - 08:45
+                            </div>
+                            <div class="activity-location">Auditório Central</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">ATIVIDADE DO TERCEIRO DIA</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="Palestrante" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Nome do Palestrante</h4>
+                                    <p>Instituição</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-white-bar" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <span style="font-weight: bold; color: #2E7D32; margin-right: 12px;">Realização:</span>
+                <img src="images/PPGBB_logo.png" alt="Logo PPGBB" class="footer-logo" />
+                <img src="images/if_logo.png" alt="Logo IF Goiano" class="footer-logo" />
+                <img src="images/olericultura_logo.png" alt="Logo Olericultura" class="footer-logo" />
+            </div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <span style="font-weight: bold; color: #1E3A8A; margin-right: 12px;">Apoio:</span>
+                <img src="images/capes_logo.png" alt="Logo CAPES" class="footer-logo" />
+                <img src="images/fapeg_logo.png" alt="Logo FAPEG" class="footer-logo" />
+                <img src="images/faegjovem_logo.png" alt="Logo FAEG Jovem" class="footer-logo" />
+            </div>
+        </div>
+        <div class="footer-green-bar">
+            <span>
+                Realização: IF Goiano, PPGBB, Olericultura &nbsp;|&nbsp; Apoio: CAPES, FAPEG, FAEG Jovem
+            </span>
+        </div>
+    </footer>
+
+    <script src="js_index/script.js"></script>
+    <script>
+        function showDay(dayNumber, button) {
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.day-content').forEach(content => content.classList.remove('active'));
+            
+            button.classList.add('active');
+            document.getElementById(`day-${dayNumber}`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
