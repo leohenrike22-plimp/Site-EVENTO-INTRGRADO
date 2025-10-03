@@ -1,5 +1,8 @@
 /*
   Script com carrossel de notificações e menu responsivo.
+  
+  IMPORTANTE: window.open() sem interação direta do usuário pode ser bloqueado por navegadores.
+  Por isso, a abertura de nova aba ocorre apenas mediante click do usuário.
 */
 
 (function () {
@@ -7,6 +10,7 @@
 
     const LOG_PREFIX = '[EVENTO:script]';
     const NOTIFICATION_DURATION = 5000;
+    const SEMANACT_NOTIFICATION_DURATION = 6000; // Tempo estendido para notificação da Semana CT
     const MAX_NOTIFICATIONS = 3;
 
     // Helpers
@@ -21,7 +25,7 @@
         return carousel;
     }
 
-    function createNotification(title, message, type = 'info', duration = NOTIFICATION_DURATION, imageSrc = null) {
+    function createNotification(title, message, type = 'info', duration = NOTIFICATION_DURATION, imageSrc = null, clickUrl = null) {
         const carousel = $id('notification-carousel') || createNotificationCarousel();
         
         // Remove notificações antigas se exceder o limite
@@ -32,6 +36,11 @@
 
         const notification = document.createElement('div');
         notification.className = `notification-item ${type}`;
+        
+        // Adiciona classe especial se tiver URL para click
+        if (clickUrl) {
+            notification.classList.add('clickable-notification');
+        }
         
         if (imageSrc) {
             notification.classList.add('has-image');
@@ -64,7 +73,7 @@
             notification.classList.add('show');
         }, 100);
 
-        // Auto-hide após duração especificada
+        // Auto-hide após duração especificada (tempo estendido para Semana CT)
         if (duration > 0) {
             setTimeout(() => {
                 hideNotification(notification);
@@ -78,9 +87,25 @@
             hideNotification(notification);
         });
 
-        notification.addEventListener('click', () => {
-            hideNotification(notification);
-        });
+        // Se tem URL, adiciona comportamento de click para abrir nova aba
+        if (clickUrl) {
+            notification.addEventListener('click', (e) => {
+                // Previne que o click no botão fechar ative este evento
+                if (!e.target.closest('.notification-close')) {
+                    // Abre nova aba - funciona porque é ação direta do usuário
+                    window.open(clickUrl, '_blank', 'noopener,noreferrer');
+                    hideNotification(notification);
+                }
+            });
+            
+            // Adiciona cursor pointer para indicar que é clicável
+            notification.style.cursor = 'pointer';
+        } else {
+            // Comportamento original para notificações sem URL
+            notification.addEventListener('click', () => {
+                hideNotification(notification);
+            });
+        }
 
         return notification;
     }
@@ -114,6 +139,18 @@
         }
     }
 
+    // Função para criar notificação especial da Semana CT
+    function showSemanactNotification() {
+        createNotification(
+            'Semana Nacional de Ciência e Tecnologia',
+            'Clique aqui para conferir a programação completa',
+            'info',
+            SEMANACT_NOTIFICATION_DURATION, // Duração estendida para 6 segundos
+            null,
+            'https://semanact.mcti.gov.br/' // URL para abrir em nova aba
+        );
+    }
+
     // Exemplo de notificações para demonstração
     function showDemoNotifications() {
         setTimeout(() => {
@@ -133,11 +170,21 @@
                 '/Site/images/aviso.jpeg '
             );
         }, 4000);
+
+        // Adiciona a notificação especial da Semana CT após 6 segundos
+        setTimeout(() => {
+            showSemanactNotification();
+        }, 6000);
     }
 
-    // API pública para criar notificações
+    // API pública para criar notificações (mantém compatibilidade)
     window.showNotification = function(title, message, type = 'info', duration = NOTIFICATION_DURATION, imageSrc = null) {
         return createNotification(title, message, type, duration, imageSrc);
+    };
+
+    // API pública para criar notificação com URL clicável
+    window.showClickableNotification = function(title, message, url, type = 'info', duration = NOTIFICATION_DURATION, imageSrc = null) {
+        return createNotification(title, message, type, duration, imageSrc, url);
     };
 
     // Inicialização

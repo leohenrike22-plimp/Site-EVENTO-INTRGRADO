@@ -1171,6 +1171,28 @@ footer {
     transform: translateX(-4px) scale(1.02);
 }
 
+/* Estilo especial para notificações clicáveis */
+.notification-item.clickable-notification {
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.notification-item.clickable-notification:hover {
+    box-shadow: 0 10px 40px rgba(46,125,50,0.25);
+    transform: translateX(-6px) scale(1.03);
+    border-left-width: 6px;
+}
+
+.notification-item.clickable-notification::after {
+    content: '🔗';
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
 .notification-header {
     display: flex;
     justify-content: space-between;
@@ -1285,6 +1307,11 @@ footer {
     
     .notification-image {
         max-width: 100%;
+    }
+
+    .notification-item.clickable-notification::after {
+        right: 30px;
+        font-size: 0.8rem;
     }
 }
 
