@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conecta Campi - INOFAS & ENAGROTECH 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css_index/style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <div class="logo">INOFAS & ENAGROTECH</div>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li><a href="objectives.html">Objetivos</a></li>
+                    <li><a href="registration.html">Inscrições</a></li>
+                    <li><a href="SubmissãoDeTrabalhos.html">Submissão de Trabalhos</a></li>
+                    <li><a href="programação.html">Programação</a></li>
+                    <li><a href="conecta_campi.html" class="active">Conecta Campi</a></li>
+                    <li><a href="comissão.html">Comissão</a></li>
+                    <li><a href="contact.html">Contato</a></li>
+                </ul>
+                <button class="menu-btn" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main container">
+        <header class="page-header">
+            <h1 class="page-title">Conecta Campi</h1>
+            <div class="schedule-notice">
+                <i class="fas fa-exclamation-triangle"></i>
+                Programação sujeita a alteração sem aviso prévio
+            </div>
+        </header>
+
+        <div class="tabs-container">
+            <button class="tab-button active" onclick="showDay(1, this)">15/10</button>
+            <button class="tab-button" onclick="showDay(2, this)">16/10</button>
+        </div>
+
+        <div class="day-content active" id="day-1">
+            <div class="period-section">
+                <div class="period-header">
+                    <i class="fas fa-sun"></i> MANHÃ - AUDITÓRIO CONECTA CAMPI
+                </div>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                08:00 - 08:45
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">ABERTURA CONECTA CAMPI</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="Comissão Organizadora" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Comissão Organizadora</h4>
+                                    <p>IF Goiano - Conecta Campi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                08:45 - 09:30
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">INTEGRAÇÃO ENTRE CAMPI - EXPERIÊNCIAS E DESAFIOS</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="A DEFINIR" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>A DEFINIR</h4>
+                                    <p>Palestrante</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                09:30 - 10:00
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">COFFEE BREAK/MOMENTO NETWORKING</h3>
+                            <div class="no-speaker">Intervalo para networking e refreshments</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                10:00 - 10:45
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">PROJETOS COLABORATIVOS ENTRE CAMPI</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="A DEFINIR" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>A DEFINIR</h4>
+                                    <p>Coordenador de Projetos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                10:45 - 11:30
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">MESA REDONDA - INOVAÇÃO E TECNOLOGIA NOS CAMPI</h3>
+                            <div class="no-speaker">Representantes dos diversos campi</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                11:30 - 12:00
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">MOMENTO DE DISCUSSÃO</h3>
+                            <div class="no-speaker">Discussão aberta com os participantes</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                12:00 - 13:30
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">ALMOÇO/MOMENTO NETWORKING</h3>
+                            <div class="no-speaker">Intervalo para almoço e networking</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="period-section">
+                <div class="period-header">
+                    <i class="fas fa-sun"></i> TARDE - AUDITÓRIO CONECTA CAMPI
+                </div>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                13:30 - 14:15
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">COMPARTILHAMENTO DE BOAS PRÁTICAS</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="A DEFINIR" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>A DEFINIR</h4>
+                                    <p>Coordenador Pedagógico</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                14:15 - 15:00
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">DESAFIOS DA EDUCAÇÃO TÉCNICA E TECNOLÓGICA</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="A DEFINIR" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>A DEFINIR</h4>
+                                    <p>Especialista em Educação</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                15:00 - 15:30
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">COFFEE BREAK/MOMENTO NETWORKING</h3>
+                            <div class="no-speaker">Intervalo para networking e refreshments</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                15:30 - 16:15
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">PLANEJAMENTO ESTRATÉGICO CONJUNTO</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="A DEFINIR" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>A DEFINIR</h4>
+                                    <p>Gestor Institucional</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                16:15 - 17:00
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">ENCERRAMENTO DO DIA</h3>
+                            <div class="no-speaker">Síntese das discussões e avisos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="period-section">
+                <div class="period-header">
+                    <i class="fas fa-moon"></i> NOITE - AUDITÓRIO CONECTA CAMPI
+                </div>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                19:00 - 19:45
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">INTEGRAÇÃO CULTURAL ENTRE CAMPI</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="A DEFINIR" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>A DEFINIR</h4>
+                                    <p>Coordenador Cultural</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                19:45 - 20:30
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">APRESENTAÇÕES DOS CAMPI</h3>
+                            <div class="no-speaker">Mostra de projetos e iniciativas</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                20:30 - 21:00
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">CONFRATERNIZAÇÃO</h3>
+                            <div class="no-speaker">Momento de integração e networking</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-content" id="day-2">
+            <div class="period-section">
+                <div class="period-header">
+                    <i class="fas fa-sun"></i> MANHÃ - AUDITÓRIO CONECTA CAMPI
+                </div>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                08:00 - 08:45
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">RESULTADOS E IMPACTOS DOS PROJETOS INTEGRADOS</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="A DEFINIR" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>A DEFINIR</h4>
+                                    <p>Coordenador de Projetos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                08:45 - 09:30
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">SUSTENTABILIDADE NOS CAMPI</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="A DEFINIR" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>A DEFINIR</h4>
+                                    <p>Especialista em Sustentabilidade</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                09:30 - 10:00
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">COFFEE BREAK/MOMENTO NETWORKING</h3>
+                            <div class="no-speaker">Intervalo para networking e refreshments</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                10:00 - 10:45
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">FUTURO DA EDUCAÇÃO PROFISSIONAL</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="A DEFINIR" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>A DEFINIR</h4>
+                                    <p>Especialista em Educação</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                10:45 - 11:30
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">CONSTRUÇÃO DE REDES DE COLABORAÇÃO</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="A DEFINIR" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>A DEFINIR</h4>
+                                    <p>Coordenador de Redes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                11:30 - 12:00
+                            </div>
+                            <div class="activity-location">Auditório Conecta Campi</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">ENCERRAMENTO E PRÓXIMOS PASSOS</h3>
+                            <div class="no-speaker">Síntese e planejamento futuro</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="period-section">
+                <div class="period-header">
+                    <i class="fas fa-sun"></i> TARDE - ATIVIDADES LIVRES
+                </div>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                14:00 - 17:00
+                            </div>
+                            <div class="activity-location">Diversos Espaços</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">ATIVIDADES LIVRES E VISITAS TÉCNICAS</h3>
+                            <div class="no-speaker">Exploração dos campi e projetos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-white-bar" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <span style="font-weight: bold; color: #2E7D32; margin-right: 12px;">Realização:</span>
+                <img src="images/PPGBB_logo.png" alt="Logo PPGBB" class="footer-logo" />
+                <img src="images/if_logo.png" alt="Logo IF Goiano" class="footer-logo" />
+                <img src="images/olericultura_logo.png" alt="Logo Olericultura" class="footer-logo" />
+            </div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <span style="font-weight: bold; color: #1E3A8A; margin-right: 12px;">Apoio:</span>
+                <img src="images/capes_logo.png" alt="Logo CAPES" class="footer-logo" />
+                <img src="images/fapeg_logo.png" alt="Logo FAPEG" class="footer-logo" />
+                <img src="images/faegjovem_logo.png" alt="Logo FAEG Jovem" class="footer-logo" />
+            </div>
+        </div>
+        <div class="footer-green-bar">
+            <span>
+                Realização: IF Goiano, PPGBB, Olericultura &nbsp;|&nbsp; Apoio: CAPES, FAPEG, FAEG Jovem
+            </span>
+        </div>
+    </footer>
+
+    <script src="js_index/script.js"></script>
+    <script>
+        const TAB_BUTTONS = document.querySelectorAll('.tab-button');
+        const DAY_CONTENT = document.querySelectorAll('.day-content');
+
+        function showDay(dayNumber, button) {
+            TAB_BUTTONS.forEach(btn => btn.classList.remove('active'));
+            DAY_CONTENT.forEach(content => content.classList.remove('active'));
+            
+            button.classList.add('active');
+            document.getElementById(`day-${dayNumber}`).classList.add('active');
+        }
+    </script>
+</body>
+</html>

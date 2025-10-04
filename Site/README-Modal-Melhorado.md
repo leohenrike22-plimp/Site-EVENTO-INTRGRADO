@@ -1,172 +1,325 @@
-# 🎯 Modal de Inscrição Melhorado - INOFAS & ENAGROTECH 2025
+# 🌱 Site Evento Integrado - INOFAS & ENAGROTECH 2025
 
-## ✨ **Melhorias Implementadas**
+Site institucional para os eventos integrados **INOFAS** (Encontro Nacional de Inovações Tecnológicas para a Agricultura Familiar e Agroindústria Sustentáveis) e **ENAGROTECH** (Ciência e Tecnologia no Campo), promovidos pelo IF Goiano - Campus Morrinhos.
+
+## 📋 Visão Geral
+
+Este projeto apresenta uma solução web completa para divulgação, inscrição e gerenciamento de eventos acadêmicos, com foco em inovação tecnológica para agricultura familiar e sustentável.
+
+## ✨ Funcionalidades Principais
+
+### 🎯 **Páginas Institucionais**
+- **Página inicial**: Banner interativo, cards informativos e sistema de notificações
+- **Sobre**: Informações detalhadas sobre ambos os eventos (INOFAS e ENAGROTECH)
+- **Objetivos**: Metas e propósitos dos eventos organizados em grid responsivo
+- **Programação**: Sistema de abas para visualização da programação por dias (14-17/10)
+- **Comissão**: Apresentação da equipe organizadora e palestrantes
+- **Contato**: Informações de contato e localização
+- **Submissão de Trabalhos**: Sistema de accordion com normas, áreas temáticas e prazos
 
 ### 🎨 **Design e UX**
-- **Layout organizado em seções**: Formulário dividido em seções lógicas para melhor organização
-- **Indicadores visuais**: Cores e ícones para diferentes estados (erro, sucesso, seleção)
-- **Animações suaves**: Transições e animações para melhor experiência do usuário
-- **Responsividade**: Layout adaptável para diferentes tamanhos de tela
-
-### 🔧 **Funcionalidades**
-- **Validação em tempo real**: Verificação de campos obrigatórios e formatos
-- **Máscaras de entrada**: Formatação automática para CPF, telefone, cartão e validade
-- **Contador de caracteres**: Para o resumo do trabalho com indicadores visuais
-- **Visualização de resumo**: Botão para revisar dados antes da submissão
-- **Gerenciamento de campos condicionais**: Campos de trabalho aparecem apenas quando necessário
-
-### 📱 **Acessibilidade**
-- **Labels descritivos**: Cada campo tem label claro e indicador de obrigatoriedade
-- **Mensagens de erro**: Feedback visual claro para problemas de validação
-- **Navegação por teclado**: Suporte completo para navegação sem mouse
-- **ARIA labels**: Atributos para leitores de tela
-
-
-
-
-
-## 🚀 **Como Usar**
-
-[] seguir para inscreva-se para ser encaminhado para outro site
-
-```
-
-
-## 🛠️ **Tecnologias Utilizadas**
-
-### 🎨 **Frontend**
-- **HTML5**: Estrutura semântica
-- **CSS3**: Variáveis CSS, Grid, Flexbox, Animações
-- **JavaScript ES6+**: Módulos, arrow functions, async/await
+- **Layout responsivo**: Adaptável para desktop, tablet e mobile
+- **Sistema de cores**: Paleta baseada em verde (#2E7D32) e laranja (#FF9800)
+- **Tipografia moderna**: Fonte Segoe UI com hierarquia clara
+- **Animações suaves**: Transições CSS para melhor experiência do usuário
+- **Banner interativo**: Imagem de destaque com overlay e botões de ação
 
 ### 📱 **Responsividade**
-- **Mobile First**: Design baseado em dispositivos móveis
-- **Breakpoints**: 480px, 768px, 1024px
-- **Flexbox/Grid**: Layouts adaptáveis
+- **Mobile First**: Design otimizado para dispositivos móveis
+- **Breakpoints**: 640px, 900px, 1200px
+- **Menu hambúrguer**: Navegação colapsável em telas pequenas
+- **Cards adaptativos**: Layout flexível com grid system
 
-### 🎭 **Animações**
-- **CSS Transitions**: Transições suaves
-- **CSS Keyframes**: Animações personalizadas
-- **JavaScript**: Controle de estados
+### 🔔 **Sistema de Notificações**
+- **Carrossel automático**: Rotação de notificações com controle de tempo
+- **Notificações especiais**: Suporte a imagens e links externos
+- **Controle de exibição**: Máximo de 3 notificações simultâneas
+- **Animações**: Fade in/out com efeitos CSS
 
-## 🔧 **Personalização**
+### 📄 **Gestão de Conteúdo**
+- **Accordion interativo**: Seções expansíveis para submissão de trabalhos
+- **Tabelas estilizadas**: Apresentação de áreas temáticas e prazos
+- **Cards informativos**: Organização visual do conteúdo
+- **Abas dinâmicas**: Navegação por dias na programação
 
-### 🎨 **Cores**
+## 🏗️ Estrutura do Projeto
+
+```
+Site-EVENTO-INTRGRADO/
+├── Site/
+│   ├── about.html                 # Sobre os eventos
+│   ├── objectives.html            # Objetivos dos eventos
+│   ├── registration.html          # Página de inscrições
+│   ├── programação.html           # Programação detalhada
+│   ├── comissão.html             # Comissão organizadora
+│   ├── contact.html              # Informações de contato
+│   ├── SubmissãoDeTrabalhos.html # Normas e submissão
+│   ├── css_index/
+│   │   └── style.css             # Estilos principais
+│   ├── js_index/
+│   │   └── script.js             # Scripts interativos
+│   └── images/                   # Recursos visuais
+├── docker/                       # Configurações Docker
+├── index.html                    # Página inicial
+├── docker-compose.yml           # Orquestração de containers
+└── README.md                    # Documentação principal
+```
+
+## 🛠️ Tecnologias Utilizadas
+
+### **Frontend**
+- **HTML5**: Estrutura semântica com acessibilidade
+- **CSS3**: 
+  - Variáveis CSS customizadas
+  - Flexbox e Grid Layout
+  - Animações e transições
+  - Media queries responsivas
+- **JavaScript ES6+**:
+  - Manipulação do DOM
+  - Sistema de notificações
+  - Menu responsivo
+  - Controle de abas
+
+### **Recursos Externos**
+- **Font Awesome 6.4.0**: Ícones vetoriais
+- **Google Fonts**: Tipografia otimizada
+- **CDN**: Carregamento otimizado de recursos
+
+### **DevOps**
+- **Docker**: Containerização completa
+- **Apache**: Servidor web
+- **MySQL**: Banco de dados
+- **phpMyAdmin**: Interface de administração
+
+## 🚀 Como Ejecutar
+
+### **Método 1: Servidor Local**
+```bash
+# Clone o repositório
+git clone [url-do-repositorio]
+
+# Navegue até a pasta do projeto
+cd Site-EVENTO-INTRGRADO
+
+# Abra com servidor local (Python)
+python -m http.server 8000
+
+# Ou abra diretamente o index.html no navegador
+```
+
+### **Método 2: Docker (Recomendado)**
+```bash
+# Inicie os serviços
+docker-compose up -d --build
+
+# Acesse o site
+# http://localhost:8080
+
+# phpMyAdmin (opcional)
+# http://localhost:8081
+```
+
+## 🎨 Personalização
+
+### **Cores do Tema**
 ```css
 :root {
-    --primary: #2e7d32;        /* Cor principal */
-    --secondary: #ff9800;      /* Cor secundária */
-    --accent: #2196f3;         /* Cor de destaque */
-    --success: #4caf50;        /* Cor de sucesso */
-    --error: #f44336;          /* Cor de erro */
+    --primary: #2e7d32;        /* Verde principal */
+    --primary-dark: #1b5e20;   /* Verde escuro */
+    --secondary: #ff9800;      /* Laranja */
+    --accent: #43e97b;         /* Verde claro */
+    --light: #e8f5e9;          /* Verde muito claro */
 }
 ```
 
-### 📏 **Espaçamentos**
+### **Responsividade**
 ```css
-:root {
-    --spacing-xs: 0.25rem;     /* 4px */
-    --spacing-sm: 0.5rem;      /* 8px */
-    --spacing-md: 1rem;        /* 16px */
-    --spacing-lg: 1.5rem;      /* 24px */
-    --spacing-xl: 2rem;        /* 32px */
-    --spacing-2xl: 3rem;       /* 48px */
-}
+/* Mobile */
+@media (max-width: 640px) { ... }
+
+/* Tablet */
+@media (max-width: 900px) { ... }
+
+/* Desktop pequeno */
+@media (max-width: 1200px) { ... }
 ```
 
-### 🎭 **Animações**
-```css
-:root {
-    --transition-fast: 0.15s ease;
-    --transition-normal: 0.3s ease;
-    --transition-slow: 0.5s ease;
-}
+### **Configurações de Notificação**
+```javascript
+const NOTIFICATION_DURATION = 5000;        // 5 segundos
+const MAX_NOTIFICATIONS = 3;               // Máximo simultâneo
+const SEMANACT_NOTIFICATION_DURATION = 6000; // Tempo estendido
 ```
 
-## 📱 **Compatibilidade**
+## 📋 Páginas e Funcionalidades
 
-### 🌐 **Navegadores**
+### **🏠 Página Inicial (`index.html`)**
+- Banner com imagem de destaque
+- Botões de ação (Inscreva-se, Saiba Mais)
+- Cards informativos sobre os eventos
+- Sistema de notificações dinâmico
+
+### **ℹ️ Sobre (`about.html`)**
+- Descrição detalhada do INOFAS
+- Descrição detalhada do ENAGROTECH
+- Layout em cards responsivos
+
+### **🎯 Objetivos (`objectives.html`)**
+- 6 objetivos principais organizados em grid
+- Design com cards hover
+- Texto explicativo para cada objetivo
+
+### **📅 Programação (`programação.html`)**
+- Sistema de abas para 4 dias (14-17/10)
+- Divisão por períodos (manhã, tarde, noite)
+- Informações de palestrantes e locais
+- Cards de atividades com horários
+
+### **👥 Comissão (`comissão.html`)**
+- Grid de membros da comissão
+- Fotos e informações dos integrantes
+- Seção separada para palestrantes
+
+### **📝 Submissão (`SubmissãoDeTrabalhos.html`)**
+- Sistema accordion interativo
+- Normas de submissão detalhadas
+- Tabela de áreas temáticas
+- Links para modelos de documentos
+
+### **📞 Contato (`contact.html`)**
+- Informações de contato organizadas em cards
+- Localização do evento
+- Telefone e email institucional
+
+## 🔧 Recursos Técnicos
+
+### **Sistema de Navegação**
+- Menu fixo no topo
+- Indicação da página ativa
+- Menu hambúrguer responsivo
+- Links relativos otimizados
+
+### **Sistema de Notificações**
+- Carrossel automático
+- Suporte a imagens
+- Links clicáveis
+- Controle de duração
+- Animações CSS
+
+### **Acessibilidade**
+- Labels descritivos
+- ARIA attributes
+- Navegação por teclado
+- Contraste adequado
+- Semântica HTML5
+
+## 🐳 Configuração Docker
+
+### **Serviços Incluídos**
+- **Web**: Apache + PHP 8.2 (Porta 8080)
+- **MySQL**: Banco de dados (Porta 3306)
+- **phpMyAdmin**: Interface web (Porta 8081)
+
+### **Credenciais Padrão**
+```
+MySQL:
+- Usuário: site_user
+- Senha: site123
+- Root: root123
+
+phpMyAdmin:
+- http://localhost:8081
+- Usuário: root
+- Senha: root123
+```
+
+## 📱 Compatibilidade
+
+### **Navegadores Suportados**
 - ✅ Chrome 90+
 - ✅ Firefox 88+
 - ✅ Safari 14+
 - ✅ Edge 90+
 
-### 📱 **Dispositivos**
+### **Dispositivos Testados**
 - ✅ Desktop (Windows, macOS, Linux)
 - ✅ Tablet (iOS, Android)
 - ✅ Mobile (iOS, Android)
 
-## 🚀 **Próximas Melhorias**
+## 🔐 Segurança
 
-### 🔮 **Funcionalidades Futuras**
-- [ ] encaminhamento para link de inscrição no Even3
+### **Boas Práticas Implementadas**
+- Validação de entrada no frontend
+- Sanitização de dados
+- Headers de segurança configurados
+- HTTPS ready (produção)
 
+### **Para Produção**
+- [ ] Alterar senhas padrão
+- [ ] Configurar HTTPS
+- [ ] Implementar CSP headers
+- [ ] Configurar firewall adequado
 
-### 🎨 **Melhorias de Design**
-- [ ] Temas personalizáveis
-- [ ] Modo escuro
-- [ ] Mais animações e micro-interações
-- [ ] Componentes reutilizáveis
+## 📈 Performance
 
----
+### **Otimizações Aplicadas**
+- Compressão de imagens
+- Minificação de CSS/JS (produção)
+- Cache de recursos estáticos
+- CDN para bibliotecas externas
+- Lazy loading de imagens
 
-## 📞 **Suporte**
+## 🚀 Roadmap
 
-Para dúvidas ou sugestões sobre o modal de inscrição, entre em contato:
-- **Email**: inofas.enagrotech@ifgoiano.edu.br
+### **Próximas Funcionalidades**
+- [ ] Sistema de inscrição integrado
+- [ ] Painel administrativo completo
+- [ ] API para gestão de inscrições
+- [ ] Sistema de pagamento online
+- [ ] Certificados digitais automáticos
+- [ ] Dashboard de analytics
+
+### **Melhorias Técnicas**
+- [ ] PWA (Progressive Web App)
+- [ ] Service Workers para cache
+- [ ] Modo offline básico
+- [ ] Otimização de Core Web Vitals
+
+## 📞 Suporte e Contato
+
+### **Informações do Evento**
+- **Email**: inofasenagrotech.mhos@ifgoiano.edu.br
 - **Telefone**: (64) 3413-0300
+- **Local**: IF Goiano - Campus Morrinhos
+- **Endereço**: BR-153, Km 633, Zona Rural, Morrinhos - GO
+
+### **Suporte Técnico**
+Para questões técnicas sobre o site, entre em contato através dos canais oficiais do evento.
+
+## 📄 Licença
+
+Este projeto é de uso institucional do IF Goiano e pode ser adaptado conforme necessário para eventos similares, respeitando os créditos originais.
+
+## 🤝 Contribuições
+
+Contribuições são bem-vindas! Para contribuir:
+
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## 🏷️ Versão
+
+**Versão Atual**: 2.0.0
+- ✅ Sistema de notificações implementado
+- ✅ Design responsivo completo
+- ✅ Programação por abas
+- ✅ Sistema accordion para submissões
+- ✅ Configuração Docker completa
 
 ---
 
-**Desenvolvido com ❤️ para INOFAS & ENAGROTECH 2025**
-# README.md
-
-# Projeto INOFAS & ENAGROTECH 2025
-
-Este projeto consiste em um site para os eventos integrados promovidos pelo IF Goiano - Campus Morrinhos. O site contém informações sobre os eventos, objetivos, inscrições e contatos, além de uma área de administração.
-
-## Estrutura do Projeto
-
-O projeto possui a seguinte estrutura de arquivos:
-
-```
-Site-EVENTO-INTRGRADO
-├── Site
-│   ├── about.html          # Página com informações sobre os eventos
-│   ├── contact.html        # Página de contato
-│   ├── index.html          # Página inicial do site
-│   ├── objectives.html      # Página com os objetivos dos eventos
-│   ├── registration.html    # Página de inscrições
-│   ├── ADMpainel.html       # Página de administração
-│   ├── css_index
-│   │   └── style.css       # Arquivo de estilos CSS
-│   ├── js_index
-│   │   └── script.js       # Arquivo de scripts JavaScript
-│   └── images
-│       └── 4.png          # Imagem utilizada no banner da página inicial
-└── README.md               # Documentação do projeto
-```
-
-## Instruções de Uso
-
-1. **Instalação**: Para utilizar o projeto, clone o repositório e abra a pasta `Site` em um servidor local ou diretamente em um navegador.
-
-2. **Navegação**: Utilize a barra de navegação para acessar as diferentes seções do site:
-   - **Sobre**: Informações sobre os eventos.
-   - **Objetivos**: Detalhes sobre os objetivos dos eventos.
-   - **Inscrições**: Informações sobre como se inscrever.
-   - **Contato**: Informações de contato.
-
-3. **Estilização**: Todas as páginas HTML referenciam o arquivo `css_index/style.css` para garantir uma aparência consistente.
-
-4. **Interatividade**: O arquivo `js_index/script.js` contém scripts para funcionalidades interativas, como a abertura de modais.
-
-5. **Administração**: Acesse a página de administração através do link na barra de navegação.
-
-## Testes
-
-Após implementar as alterações, teste todos os links de navegação para garantir que eles redirecionem corretamente para as páginas desejadas e que a estilização seja aplicada de forma consistente.
-
-## Contribuições
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests para melhorias no projeto.
+**Desenvolvido com ❤️ para INOFAS & ENAGROTECH 2025**  
+*IF Goiano - Campus Morrinhos*
