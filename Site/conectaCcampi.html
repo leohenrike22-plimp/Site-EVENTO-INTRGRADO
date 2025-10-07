@@ -12,6 +12,30 @@
             color: white;
             padding: 80px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conecta-hero-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 120px;
+            height: 120px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .conecta-hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .conecta-hero h1 {
@@ -72,6 +96,38 @@
             padding: 60px 0;
             margin: 0 auto;
             max-width: 1200px;
+            position: relative;
+        }
+
+        .section-logo-conecta {
+            position: absolute;
+            top: -20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(64, 115, 255, 0.3);
+            z-index: 1;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .section-logo-conecta img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .section-logo-conecta:nth-child(1) {
+            left: -20px;
+        }
+
+        .conecta-section:nth-child(odd) .section-logo-conecta {
+            left: auto;
+            right: -20px;
         }
 
         .conecta-section h2 {
@@ -79,6 +135,29 @@
             color: #4073ff;
             text-align: center;
             margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-header-logo {
+            position: absolute;
+            top: -15px;
+            right: -30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(64, 115, 255, 0.2);
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .section-header-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .conecta-text {
@@ -104,6 +183,28 @@
             border-radius: 20px;
             text-align: center;
             min-width: 200px;
+            position: relative;
+        }
+
+        .date-card-logo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+        }
+
+        .date-card-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .date-card .day {
@@ -130,10 +231,33 @@
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
+            position: relative;
         }
 
         .activity-item:hover {
             transform: translateY(-5px);
+        }
+
+        .activity-logo {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+        }
+
+        .activity-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .activity-icon {
@@ -190,14 +314,44 @@
             padding: 30px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .organizer-top-logo {
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .organizer-top-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .organizer-logo {
-            width: 80px;
+            width: 120px;
             height: 80px;
-            border-radius: 50%;
-            background: #e5e7eb;
             margin: 0 auto 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .organizer-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
 
         .criteria-grid {
@@ -213,6 +367,29 @@
             border-radius: 15px;
             text-align: center;
             border-top: 4px solid #4073ff;
+            position: relative;
+        }
+
+        .criteria-logo {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            opacity: 0.7;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3px;
+        }
+
+        .criteria-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .criteria-percentage {
@@ -236,6 +413,29 @@
             border-radius: 20px;
             padding: 30px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .timeline-logo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .timeline-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .timeline-day h3 {
@@ -267,6 +467,30 @@
             margin-bottom: 15px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             overflow: hidden;
+            position: relative;
+        }
+
+        .faq-logo {
+            position: absolute;
+            top: 50%;
+            right: 70px;
+            transform: translateY(-50%);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            overflow: hidden;
+            opacity: 0.7;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3px;
+        }
+
+        .faq-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .faq-question {
@@ -288,9 +512,45 @@
             display: block;
         }
 
+        .floating-logo {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(64, 115, 255, 0.3);
+            z-index: 1000;
+            animation: float 3s ease-in-out infinite;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .floating-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
         @media (max-width: 768px) {
             .conecta-hero h1 {
                 font-size: 2rem;
+            }
+            
+            .conecta-hero-logo {
+                width: 80px;
+                height: 80px;
+                top: 15px;
+                right: 15px;
             }
             
             .conecta-buttons {
@@ -304,6 +564,26 @@
             
             .steps-list {
                 grid-template-columns: 1fr;
+            }
+
+            .section-logo-conecta {
+                width: 60px;
+                height: 60px;
+                top: -15px;
+            }
+
+            .section-header-logo {
+                width: 40px;
+                height: 40px;
+                top: -10px;
+                right: -20px;
+            }
+
+            .floating-logo {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
             }
         }
     </style>
@@ -322,7 +602,7 @@
                     <li><a href="programação.html">Programação</a></li>
                     <li><a href="comissão.html">Comissão</a></li>
                     <li><a href="palestrantes.html">Palestrantes</a></li>
-                    <li><a href="conecta-campi.html" class="active">Conecta Campi</a></li>
+                    <li><a href="conectaCcampi.html" class="active">Conecta Campi</a></li>
                     <li><a href="contact.html">Contato</a></li>
                 </ul>
                 <button class="menu-btn" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
@@ -331,6 +611,9 @@
     </header>
 
     <section class="conecta-hero">
+        <div class="conecta-hero-logo">
+            <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+        </div>
         <div class="container">
             <h1>O que é o Conecta Campi?</h1>
             <p class="subtitle">O tema é surpresa. A inovação é sua.</p>
@@ -347,7 +630,15 @@
 
     <main class="site-main container">
         <section class="conecta-section">
-            <h2>O que é o Conecta Campi?</h2>
+            <div class="section-logo-conecta">
+                <img src="images/CONECTA_CAMPI_4.png" alt="Conecta Campi Logo">
+            </div>
+            <h2>
+                O que é o Conecta Campi?
+                <div class="section-header-logo">
+                    <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                </div>
+            </h2>
             <p class="conecta-text">
                 O Conecta Campi é uma maratona de inovação exclusiva do IF Goiano – Campus Morrinhos, organizada pelo Faeg Jovem Morrinhos, com apoio de instituições parceiras. Durante dois dias de imersão, equipes multidisciplinares serão desafiadas a criar soluções inovadoras para um tema surpresa revelado no início do evento. O formato é inspirado em hackathons, com palestras, oficinas, mentorias e apresentações de pitch.
             </p>
@@ -360,10 +651,16 @@
 
             <div class="date-cards">
                 <div class="date-card">
+                    <div class="date-card-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <div class="day">15/10</div>
                     <div class="activity">Imersão e Ideação</div>
                 </div>
                 <div class="date-card">
+                    <div class="date-card-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <div class="day">16/10</div>
                     <div class="activity">Validação e Pitch</div>
                 </div>
@@ -371,25 +668,48 @@
         </section>
 
         <section class="conecta-section">
-            <h2>Atividades e Experiências</h2>
+            <div class="section-logo-conecta">
+                <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+            </div>
+            <h2>
+                Atividades e Experiências
+                <div class="section-header-logo">
+                    <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                </div>
+            </h2>
             <div class="activities-grid">
                 <div class="activity-item">
+                    <div class="activity-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <div class="activity-icon"><i class="fas fa-microphone"></i></div>
                     <div class="activity-title">Palestras inspiracionais</div>
                 </div>
                 <div class="activity-item">
+                    <div class="activity-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <div class="activity-icon"><i class="fas fa-lightbulb"></i></div>
                     <div class="activity-title">Oficinas de ideação e validação</div>
                 </div>
                 <div class="activity-item">
+                    <div class="activity-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <div class="activity-icon"><i class="fas fa-users"></i></div>
                     <div class="activity-title">Mentorias com especialistas</div>
                 </div>
                 <div class="activity-item">
+                    <div class="activity-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <div class="activity-icon"><i class="fas fa-presentation"></i></div>
                     <div class="activity-title">Pitch final com banca avaliadora</div>
                 </div>
                 <div class="activity-item">
+                    <div class="activity-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <div class="activity-icon"><i class="fas fa-trophy"></i></div>
                     <div class="activity-title">Premiações e certificados</div>
                 </div>
@@ -397,7 +717,15 @@
         </section>
 
         <section class="conecta-section">
-            <h2>Como Participar</h2>
+            <div class="section-logo-conecta">
+                <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+            </div>
+            <h2>
+                Como Participar
+                <div class="section-header-logo">
+                    <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                </div>
+            </h2>
             <div class="steps-list">
                 <div class="step-item">
                     <div class="step-number">1</div>
@@ -419,20 +747,43 @@
         </section>
 
         <section class="conecta-section">
-            <h2>Quem faz o Conecta Campi acontecer</h2>
+            <div class="section-logo-conecta">
+                <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+            </div>
+            <h2>
+                Quem faz o Conecta Campi acontecer
+                <div class="section-header-logo">
+                    <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                </div>
+            </h2>
             <div class="organizers-grid">
                 <div class="organizer-card">
-                    <div class="organizer-logo"></div>
+                    <div class="organizer-top-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
+                    <div class="organizer-logo">
+                        <img src="images/faegjovem_logo.png" alt="Faeg Jovem Logo">
+                    </div>
                     <h3>Faeg Jovem Morrinhos</h3>
                     <p>Coordenação/Organização</p>
                 </div>
                 <div class="organizer-card">
-                    <div class="organizer-logo"></div>
+                    <div class="organizer-top-logo">
+                        <img src="images/CONECTA_CAMPI_4.png" alt="Conecta Campi Logo">
+                    </div>
+                    <div class="organizer-logo">
+                        <img src="images/if_logo.png" alt="IF Goiano Logo">
+                    </div>
                     <h3>IF Goiano – Campus Morrinhos</h3>
                     <p>Realização</p>
                 </div>
                 <div class="organizer-card">
-                    <div class="organizer-logo"></div>
+                    <div class="organizer-top-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
+                    <div class="organizer-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <h3>Instituições parceiras</h3>
                     <p>Apoio</p>
                 </div>
@@ -440,29 +791,52 @@
         </section>
 
         <section class="conecta-section">
-            <h2>Regras e Critérios de Avaliação</h2>
+            <div class="section-logo-conecta">
+                <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+            </div>
+            <h2>
+                Regras e Critérios de Avaliação
+                <div class="section-header-logo">
+                    <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                </div>
+            </h2>
             <div class="criteria-grid">
                 <div class="criteria-item">
+                    <div class="criteria-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <div class="criteria-percentage">25%</div>
                     <div class="criteria-title">Inovação</div>
                     <div>Grau de originalidade</div>
                 </div>
                 <div class="criteria-item">
+                    <div class="criteria-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <div class="criteria-percentage">25%</div>
                     <div class="criteria-title">Viabilidade</div>
                     <div>Aplicabilidade prática</div>
                 </div>
                 <div class="criteria-item">
+                    <div class="criteria-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <div class="criteria-percentage">20%</div>
                     <div class="criteria-title">Impacto</div>
                     <div>Benefícios gerados</div>
                 </div>
                 <div class="criteria-item">
+                    <div class="criteria-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <div class="criteria-percentage">20%</div>
                     <div class="criteria-title">Clareza e Comunicação</div>
                     <div>Organização e domínio na apresentação</div>
                 </div>
                 <div class="criteria-item">
+                    <div class="criteria-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <div class="criteria-percentage">10%</div>
                     <div class="criteria-title">Trabalho em equipe</div>
                     <div>Engajamento e colaboração</div>
@@ -480,9 +854,20 @@
         </section>
 
         <section class="conecta-section">
-            <h2>Cronograma</h2>
+            <div class="section-logo-conecta">
+                <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+            </div>
+            <h2>
+                Cronograma
+                <div class="section-header-logo">
+                    <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                </div>
+            </h2>
             <div class="timeline">
                 <div class="timeline-day">
+                    <div class="timeline-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <h3>Dia 15/10 – Imersão e Ideação</h3>
                     <div class="timeline-items">
                         <div class="timeline-item">Credenciamento e Boas-vindas</div>
@@ -499,6 +884,9 @@
                 </div>
                 
                 <div class="timeline-day">
+                    <div class="timeline-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <h3>Dia 16/10 – Validação e Pitch</h3>
                     <div class="timeline-items">
                         <div class="timeline-item">Reabertura</div>
@@ -516,9 +904,20 @@
         </section>
 
         <section class="conecta-section">
-            <h2>Perguntas Frequentes</h2>
+            <div class="section-logo-conecta">
+                <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+            </div>
+            <h2>
+                Perguntas Frequentes
+                <div class="section-header-logo">
+                    <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                </div>
+            </h2>
             <div class="faq-section">
                 <div class="faq-item">
+                    <div class="faq-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span>Quem pode participar?</span>
                         <i class="fas fa-chevron-down"></i>
@@ -529,6 +928,9 @@
                 </div>
                 
                 <div class="faq-item">
+                    <div class="faq-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span>Quantas pessoas por equipe?</span>
                         <i class="fas fa-chevron-down"></i>
@@ -539,6 +941,9 @@
                 </div>
                 
                 <div class="faq-item">
+                    <div class="faq-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span>A inscrição é paga?</span>
                         <i class="fas fa-chevron-down"></i>
@@ -549,6 +954,9 @@
                 </div>
                 
                 <div class="faq-item">
+                    <div class="faq-logo">
+                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+                    </div>
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span>Receberei certificado?</span>
                         <i class="fas fa-chevron-down"></i>
@@ -560,6 +968,10 @@
             </div>
         </section>
     </main>
+
+    <div class="floating-logo" title="Logo Conecta Campi">
+        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
+    </div>
 
     <footer>
         <div class="footer-white-bar" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
