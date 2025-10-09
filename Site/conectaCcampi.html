@@ -559,138 +559,170 @@
         @media (max-width: 768px) {
             .conecta-hero {
                 background-image: url('images/BANNER CONECTA CAMPI mobile.png');
-                padding: 60px 0;
-                min-height: 300px;
+                padding: 40px 20px;
+                min-height: 320px;
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+            }
+            
+            .conecta-hero .container {
+                position: relative;
+                z-index: 2;
+                padding: 0;
+                text-align: center;
+                width: 100%;
+                max-width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .conecta-hero-logo {
+                display: none;
             }
             
             .conecta-hero h1 {
-                font-size: 2rem;
+                font-size: 1.6rem;
                 color: white !important;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                margin-bottom: 10px;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+                text-align: center;
             }
             
             .conecta-hero .subtitle {
                 color: white !important;
+                -webkit-font-smoothing: antialiased;
+                font-size: 0.95rem;
+                margin-bottom: 20px;
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+                text-align: center;
             }
             
             .conecta-buttons {
                 flex-direction: column;
                 align-items: center;
+                -webkit-tap-highlight-color: transparent;
+                gap: 12px;
+                margin: 15px 0;
+                width: 100%;
+                display: flex;
+                justify-content: center;
             }
             
-            .activities-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .steps-list {
-                grid-template-columns: 1fr;
-            }
-
-            .section-logo-conecta {
-                width: 60px;
-                height: 60px;
-                top: -15px;
-            }
-
-            .section-header-logo {
-                width: 40px;
-                height: 40px;
-                top: -10px;
-                right: -20px;
-            }
-
-            .floating-logo {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .conecta-hero-logo {
-                width: 80px;
-                height: 80px;
-                top: 15px;
-                right: 15px;
-            }
-
-            .conecta-text {
-                margin-bottom: 20px;
-            }
-            
-            .conecta-text + div {
-                margin-bottom: 20px;
-            }
-            
-            .conecta-text + div .conecta-btn {
-                font-size: 0.9rem;
+            .conecta-btn {
+                -webkit-appearance: none;
+                -webkit-tap-highlight-color: transparent;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                user-select: none;
+                cursor: pointer;
+                outline: none;
+                border: none;
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+                width: 100%;
+                max-width: 240px;
                 padding: 12px 20px;
+                font-size: 0.85rem;
+                border-radius: 25px;
+                text-align: center;
                 display: inline-flex;
                 align-items: center;
-                gap: 8px;
-                white-space: nowrap;
-                text-align: center;
+                justify-content: center;
+                font-weight: 600;
             }
             
-            .conecta-text p {
-                font-size: 0.9rem;
-                line-height: 1.4;
-                padding: 12px 20px;
-                margin: 0;
+            .conecta-date {
+                font-size: 1.1rem;
+                font-weight: bold;
+                margin-top: 10px;
+                color: white;
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+                text-align: center;
             }
         }
 
         @media (max-width: 480px) {
             .conecta-hero {
                 background-image: url('images/BANNER CONECTA CAMPI mobile.png');
-                min-height: 250px;
-                padding: 40px 0;
+                min-height: 280px;
+                padding: 30px 15px;
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+            }
+            
+            .conecta-hero .container {
+                max-width: 100%;
+                padding: 0;
             }
             
             .conecta-hero-logo {
-                width: 60px;
-                height: 60px;
-                top: 10px;
-                right: 10px;
-            }
-
-            .conecta-text + div .conecta-btn {
-                font-size: 0.8rem;
-                padding: 10px 16px;
-                border-radius: 25px;
-                width: 100%;
-                max-width: 280px;
-                justify-content: center;
+                display: none;
             }
             
-            .conecta-text p {
-                font-size: 0.8rem;
+            .conecta-hero h1 {
+                font-size: 1.4rem;
+            }
+            
+            .conecta-hero .subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .conecta-btn {
+                max-width: 220px;
                 padding: 10px 16px;
-                text-align: center;
+                font-size: 0.8rem;
+            }
+            
+            .conecta-date {
+                font-size: 1rem;
             }
         }
 
-        .mobile-banner-container {
-            display: none;
-            width: 100%;
-            background: var(--white);
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-
-        .mobile-banner-image {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            object-fit: cover;
-            display: block;
-        }
-
-        @media (max-width: 768px) {
-            .mobile-banner-container {
-                display: block;
+        @supports (-webkit-overflow-scrolling: touch) {
+            .conecta-hero {
+                min-height: calc(300px + env(safe-area-inset-top));
+                padding-top: calc(40px + env(safe-area-inset-top));
             }
+            
+            .conecta-hero .container {
+                padding-bottom: calc(20px + env(safe-area-inset-bottom));
+            }
+        }
+
+        /* Correções para viewport em dispositivos iOS */
+        @supports (-webkit-overflow-scrolling: touch) {
+            .conecta-hero {
+                min-height: calc(300px + env(safe-area-inset-top));
+                padding-top: calc(60px + env(safe-area-inset-top));
+            }
+            
+            .floating-logo {
+                bottom: calc(20px + env(safe-area-inset-bottom));
+                right: calc(20px + env(safe-area-inset-right));
+            }
+        }
+
+        /* Melhorias para scroll suave no iOS */
+        .conecta-section,
+        .activities-grid,
+        .steps-list,
+        .organizers-grid,
+        .criteria-grid {
+            -webkit-overflow-scrolling: touch;
         }
     </style>
 </head>
