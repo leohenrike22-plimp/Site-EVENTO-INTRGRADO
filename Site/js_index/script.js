@@ -10,7 +10,7 @@
 
     const LOG_PREFIX = '[EVENTO:script]';
     const NOTIFICATION_DURATION = 5000;
-    const SEMANACT_NOTIFICATION_DURATION = 6000; // Tempo estendido para notificação da Semana CT
+    const SEMANACT_NOTIFICATION_DURATION = 5000; // Tempo estendido para notificação da Semana CT
     const MAX_NOTIFICATIONS = 3;
 
     // Helpers
@@ -161,20 +161,12 @@
             );
         }, 2000);
 
-        setTimeout(() => {
-            createNotification(
-                'Aviso Importante',
-                'Confira todas as informações sobre o evento.',
-                'warning',
-                4000,
-                '/Site/images/aviso.jpeg '
-            );
-        }, 4000);
+    
 
         // Adiciona a notificação especial da Semana CT após 6 segundos
         setTimeout(() => {
             showSemanactNotification();
-        }, 6000);
+        }, 4000);
     }
 
     // API pública para criar notificações (mantém compatibilidade)
