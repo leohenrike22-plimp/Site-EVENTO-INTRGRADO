@@ -558,7 +558,9 @@
 
         @media (max-width: 768px) {
             .conecta-hero {
+                background-image: url('images/BANNER CONECTA CAMPI mobile.png');
                 padding: 60px 0;
+                min-height: 300px;
             }
             
             .conecta-hero h1 {
@@ -602,6 +604,80 @@
                 bottom: 20px;
                 right: 20px;
             }
+
+            .conecta-hero-logo {
+                width: 80px;
+                height: 80px;
+                top: 15px;
+                right: 15px;
+            }
+
+            .conecta-text {
+                margin-bottom: 20px;
+            }
+            
+            .conecta-text + div {
+                margin-bottom: 20px;
+            }
+            
+            .conecta-text + div .conecta-btn {
+                font-size: 0.9rem;
+                padding: 12px 20px;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                white-space: nowrap;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .conecta-hero {
+                background-image: url('images/BANNER CONECTA CAMPI mobile.png');
+                min-height: 250px;
+                padding: 40px 0;
+            }
+            
+            .conecta-hero-logo {
+                width: 60px;
+                height: 60px;
+                top: 10px;
+                right: 10px;
+            }
+
+            .conecta-text + div .conecta-btn {
+                font-size: 0.8rem;
+                padding: 10px 16px;
+                border-radius: 25px;
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+
+        .mobile-banner-container {
+            display: none;
+            width: 100%;
+            background: var(--white);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .mobile-banner-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-banner-container {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -641,7 +717,7 @@
             </div>
             
             <div class="conecta-date">15 e 16 de Outubro</div>
-            <div class="conecta-location">IF Goiano – Campus Morrinhos</div>
+            
         </div>
     </section>
 
@@ -932,9 +1008,6 @@
             </h2>
             <div class="faq-section">
                 <div class="faq-item">
-                    <div class="faq-logo">
-                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
-                    </div>
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span>Quem pode participar?</span>
                         <i class="fas fa-chevron-down"></i>
@@ -945,9 +1018,6 @@
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-logo">
-                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
-                    </div>
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span>Quantas pessoas por equipe?</span>
                         <i class="fas fa-chevron-down"></i>
@@ -958,9 +1028,6 @@
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-logo">
-                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
-                    </div>
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span>A inscrição é paga?</span>
                         <i class="fas fa-chevron-down"></i>
@@ -971,9 +1038,6 @@
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-logo">
-                        <img src="images/CONECTA_CAMPI_1.png" alt="Conecta Campi Logo">
-                    </div>
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <span>Receberei certificado?</span>
                         <i class="fas fa-chevron-down"></i>
@@ -1029,5 +1093,10 @@
             }
         }
     </script>
+
+    <!-- Adicione este container no seu HTML onde desejar -->
+    <div class="mobile-banner-container">
+        <img src="images/BANNER CONECTA CAMPI mobile.jpg" alt="Banner Mobile" class="mobile-banner-image">
+    </div>
 </body>
 </html>
