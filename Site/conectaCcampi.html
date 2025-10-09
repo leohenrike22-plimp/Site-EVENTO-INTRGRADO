@@ -8,12 +8,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .conecta-hero {
-            background: linear-gradient(135deg, #4073ff 0%, #4073ff 50%, #4073ff 100%);
+            background: linear-gradient(135deg, rgba(64,115,255,0.8) 0%, rgba(64,115,255,0.9) 50%, rgba(64,115,255,0.8) 100%);
             color: white;
             padding: 80px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
+            background-image: url('images/bannerConecta.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: overlay;
+            margin-top: var(--header-height);
+            width: 100%;
+            min-height: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .conecta-hero-logo {
@@ -24,7 +35,7 @@
             height: 120px;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(64, 115, 255, 0.3);
             background: white;
             display: flex;
             align-items: center;
@@ -42,12 +53,16 @@
             font-size: 3rem;
             font-weight: bold;
             margin-bottom: 10px;
+            color: white !important;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .conecta-hero .subtitle {
             font-size: 1.2rem;
             margin-bottom: 30px;
             font-style: italic;
+            color: white !important;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         .conecta-buttons {
@@ -71,8 +86,8 @@
         }
 
         .btn-primary-conecta {
-            background: #00ff73;
-            color: white;
+            background: #05fd37;
+            color: rgb(11, 10, 10);
         }
 
         .btn-secondary-conecta {
@@ -542,15 +557,17 @@
         }
 
         @media (max-width: 768px) {
-            .conecta-hero h1 {
-                font-size: 2rem;
+            .conecta-hero {
+                padding: 60px 0;
             }
             
-            .conecta-hero-logo {
-                width: 80px;
-                height: 80px;
-                top: 15px;
-                right: 15px;
+            .conecta-hero h1 {
+                font-size: 2rem;
+                color: white !important;
+            }
+            
+            .conecta-hero .subtitle {
+                color: white !important;
             }
             
             .conecta-buttons {
