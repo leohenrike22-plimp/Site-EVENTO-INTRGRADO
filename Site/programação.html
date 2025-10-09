@@ -20,7 +20,7 @@
                     <li><a href="SubmissãoDeTrabalhos.html">Submissão de Trabalhos</a></li>
                     <li><a href="programação.html" class="active">Programação</a></li>
                     <li><a href="comissão.html">Comissão</a></li>
-                    <li><a href="palestrantes.html" >Palestrantes</a></li>
+                    <li><a href="palestrantes.html">Palestrantes</a></li>
                     <li><a href="conectaCcampi.html">Conecta Campi</a></li>
                     <li><a href="contact.html">Contato</a></li>
                 </ul>
@@ -32,13 +32,12 @@
     <main class="site-main container">
         <header class="page-header">
             <h1 class="page-title">Programação do Evento</h1>
-            
         </header>
 
         <div class="schedule-notice">
-                <i class="fas fa-exclamation-triangle"></i>
-                Programação sujeita a alteração sem aviso prévio
-            </div>
+            <i class="fas fa-exclamation-triangle"></i>
+            Programação sujeita a alteração sem aviso prévio
+        </div>
 
         <div class="tabs-container">
             <button class="tab-button active" onclick="showDay(1, this)">14/10</button>
@@ -47,6 +46,7 @@
             <button class="tab-button" onclick="showDay(4, this)">17/10</button>
         </div>
 
+        <!-- DIA 1 - 14/10 -->
         <div class="day-content active" id="day-1">
             <div class="period-section">
                 <div class="period-header">
@@ -95,7 +95,7 @@
                                 <img src="images/palestrantes/ailton.jpeg" alt="Prof. Dr. Ailton Cesar Lemes" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Prof. Dr. Ailton Cesar Lemes</h4>
-                                    <p>UFRJ (Palestrante)</p>
+                                    <p>Escola de Química/UFRJ</p>
                                 </div>
                             </div>
                         </div>
@@ -115,7 +115,7 @@
                                 <img src="images/palestrantes/Anderson Gomide.jpeg" alt="Prof. Dr. Anderson Gomide Costa" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Prof. Dr. Anderson Gomide Costa</h4>
-                                    <p>UFRRJ, Seropédica – RJ</p>
+                                    <p>UFRRJ</p>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +131,20 @@
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">MOMENTO DE DISCUSSÃO SOBRE AS PALESTRAS</h3>
-                            <div class="no-speaker">Perguntas e discussão sobre as palestras</div>
+                            <div class="speaker-info">
+                                <img src="images/palestrantes/ailton.jpeg" alt="Prof. Dr. Ailton Cesar Lemes" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Prof. Dr. Ailton Cesar Lemes</h4>
+                                    <p>Escola de Química/UFRJ</p>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <img src="images/palestrantes/Anderson Gomide.jpeg" alt="Prof. Dr. Anderson Gomide Costa" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Prof. Dr. Anderson Gomide Costa</h4>
+                                    <p>UFRRJ</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -207,12 +220,13 @@
                                 <img src="images/palestrantes/Anderson Gomide.jpeg" alt="Prof. Dr. Anderson Gomide Costa" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Prof. Dr. Anderson Gomide Costa</h4>
-                                    <p>UFRRJ, Seropédica – RJ</p>
+                                    <p>UFRRJ</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- ATUALIZAÇÃO: Nova palestra conforme planilha -->
                     <div class="activity-card">
                         <div class="activity-header">
                             <div class="activity-time">
@@ -222,8 +236,21 @@
                             <div class="activity-location">Auditório Biblioteca</div>
                         </div>
                         <div class="activity-body">
-                            <h3 class="activity-title">A DEFINIR</h3>
-                            <div class="no-speaker">A definir</div>
+                            <h3 class="activity-title">O FUTURO DO AGRO TEM VOZ DE MULHER?</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="Josiane Arantes" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Josiane Arantes</h4>
+                                    <p>Mestranda (IF Goiano - Campus Rio Verde)</p>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="Prof. Dr. Gabriel de Paula" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Prof. Dr. Gabriel de Paula</h4>
+                                    <p>IF Goiano/Campus Morrinhos</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -243,11 +270,15 @@
                                     <h4>Thalia Cristina Vieira</h4>
                                     <p>Zootecnista</p>
                                 </div>
+                            </div>
+                            <div class="speaker-info">
                                 <img src="images/Grazyana do Nascimento Sousa Machado (Veterinária).jpg" alt="Grazyana do nascimento Sousa Machado" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Grazyana do nascimento Sousa Machado</h4>
                                     <p>Veterinária</p>
                                 </div>
+                            </div>
+                            <div class="speaker-info">
                                 <img src="images/Andreia Santos Cezario.jpeg" alt="Profa. Dra. Andréia Cezario" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Profa. Dra. Andréia Cezario</h4>
@@ -306,11 +337,27 @@
                     <i class="fas fa-moon"></i> NOITE - AUDITÓRIO INFORMÁTICA
                 </div>
                 <div class="activities-grid">
+                    <!-- ATUALIZAÇÃO: Horário alterado conforme planilha -->
                     <div class="activity-card">
                         <div class="activity-header">
                             <div class="activity-time">
                                 <i class="fas fa-clock"></i>
-                                19:30 - 20:15
+                                19:00 - 19:30
+                            </div>
+                            <div class="activity-location">Auditório Informática</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">CREDENCIAMENTO</h3>
+                            <div class="no-speaker">Check-in evento/Momento Networking</div>
+                        </div>
+                    </div>
+
+                    <!-- ATUALIZAÇÃO: Horário alterado conforme planilha -->
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                19:15 - 20:00
                             </div>
                             <div class="activity-location">Auditório Informática</div>
                         </div>
@@ -320,7 +367,56 @@
                                 <img src="images/palestrantes/ailton.jpeg" alt="Prof. Dr. Ailton Cesar Lemes" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Prof. Dr. Ailton Cesar Lemes</h4>
-                                    <p>UFRJ (Palestrante)</p>
+                                    <p>Escola de Química/UFRJ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ATUALIZAÇÃO: Nova palestra conforme planilha -->
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                20:00 - 20:45
+                            </div>
+                            <div class="activity-location">Auditório Informática</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">CYBERSEGURANÇA E PROTEÇÃO AOS DADOS EM TECNOLOGIAS APLICADAS AO AGRO</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="Sidimar" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Sidimar</h4>
+                                    <p>A confirmar instituição</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ATUALIZAÇÃO: Nova palestra conforme planilha -->
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                20:45 - 21:30
+                            </div>
+                            <div class="activity-location">Auditório Informática</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">O FUTURO DO AGRO TEM VOZ DE MULHER?</h3>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="Josiane Arantes" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Josiane Arantes</h4>
+                                    <p>Mestranda (IF Goiano - Campus Rio Verde)</p>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <img src="images/placeholder.jpg" alt="Prof. Dr. Gabriel de Paula" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Prof. Dr. Gabriel de Paula</h4>
+                                    <p>IF Goiano/Campus Morrinhos</p>
                                 </div>
                             </div>
                         </div>
@@ -330,27 +426,13 @@
                         <div class="activity-header">
                             <div class="activity-time">
                                 <i class="fas fa-clock"></i>
-                                20:15 - 21:00
-                            </div>
-                            <div class="activity-location">Auditório Informática</div>
-                        </div>
-                        <div class="activity-body">
-                            <h3 class="activity-title">A DEFINIR</h3>
-                            <div class="no-speaker">A definir</div>
-                        </div>
-                    </div>
-
-                    <div class="activity-card">
-                        <div class="activity-header">
-                            <div class="activity-time">
-                                <i class="fas fa-clock"></i>
-                                21:00 - 21:30
+                                21:15 - 21:30
                             </div>
                             <div class="activity-location">Auditório Informática</div>
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">MESA-REDONDA</h3>
-                            <div class="no-speaker">Mesa-redonda dos palestrantes</div>
+                            <div class="no-speaker">Momento de discussão sobre as palestras</div>
                         </div>
                     </div>
 
@@ -371,7 +453,7 @@
             </div>
         </div>
 
-        <!-- ATUALIZAÇÃO: Dia 2 (15/10) completamente revisado conforme dados fornecidos -->
+        <!-- DIA 2 - 15/10 -->
         <div class="day-content" id="day-2">
             <div class="period-section">
                 <div class="period-header">
@@ -392,7 +474,7 @@
                                 <img src="images/palestrantes/marilia.jpeg" alt="Profa. Dra. Marília Assis dos Santos" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Profa. Dra. Marília Assis dos Santos</h4>
-                                    <p>IFRO/Campus Jaru - RO</p>
+                                    <p>IFRO/Campus Jaru</p>
                                 </div>
                             </div>
                         </div>
@@ -412,7 +494,7 @@
                                 <img src="images/palestrantes/Nadson.jpeg" alt="Prof. Dr. Nadson Pontes" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Prof. Dr. Nadson Pontes</h4>
-                                    <p>IF Goiano/Campus Morrinhos - GO</p>
+                                    <p>IF Goiano/CEBIO/Campus Morrinhos</p>
                                 </div>
                             </div>
                         </div>
@@ -441,8 +523,14 @@
                             <div class="activity-location">Auditório Biblioteca</div>
                         </div>
                         <div class="activity-body">
-                            <h3 class="activity-title">A DEFINIR</h3>
-                            <div class="no-speaker">A definir</div>
+                            <h3 class="activity-title">INTRODUÇÃO À MACHINE LEARNING COM A CLUSTERIZAÇÃO E APRENDIZADO POR REFORÇO</h3>
+                            <div class="speaker-info">
+                                <img src="images/palestrantes/rodrigo_elias.jpeg" alt="Prof. Dr. Rodrigo Elias" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Prof. Dr. Rodrigo Elias</h4>
+                                    <p>IF Goiano/Campus Morrinhos</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -452,20 +540,29 @@
                                 <i class="fas fa-clock"></i>
                                 10:45 - 11:15
                             </div>
-                            <div class="activity-location">Geral</div>
+                            <div class="activity-location">Auditório Biblioteca</div>
                         </div>
                         <div class="activity-body">
-                            <h3 class="activity-title">MESA-REDONDA - DISCUSSÃO SOBRE AS TEMÁTICAS ABORDADAS NAS PALESTRAS</h3>
+                            <h3 class="activity-title">MESA-REDONDA - DISCUSSÃO SOBRE AS TEMÁTICAS ABORDADAS NAS PALESTRAS 1, 2 E 3</h3>
                             <div class="speaker-info">
                                 <img src="images/palestrantes/marilia.jpeg" alt="Profa. Dra. Marília Assis dos Santos" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Profa. Dra. Marília Assis dos Santos</h4>
                                     <p>IFRO/Campus Jaru</p>
                                 </div>
+                            </div>
+                            <div class="speaker-info">
                                 <img src="images/palestrantes/Nadson.jpeg" alt="Prof. Dr. Nadson de Carvalho Pontes" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Prof. Dr. Nadson de Carvalho Pontes</h4>
                                     <p>IF Goiano/CEBIO/Campus Morrinhos</p>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <img src="images/palestrantes/rodrigo_elias.jpeg" alt="Prof. Dr. Rodrigo Elias" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Prof. Dr. Rodrigo Elias</h4>
+                                    <p>IF Goiano/Campus Morrinhos</p>
                                 </div>
                             </div>
                         </div>
@@ -501,12 +598,12 @@
                             <div class="activity-location">Auditório Biblioteca</div>
                         </div>
                         <div class="activity-body">
-                            <h3 class="activity-title">ALTERNATIVAS DE CULTIVO PARA OTIMIZAÇÃO DO ESPAÇO AGRÍCOLA NA ÁFRICA</h3>
+                            <h3 class="activity-title">ALTERNATIVAS DE CULTIVO PARA OTIMIZAÇÃO DO ESPAÇO AGRÍCOLA NA ÁFRICA: ESTRATÉGIAS SUSTENTÁVEIS ALÉM DO ALGODÃO E SEU IMPACTO NA SEGURANÇA ALIMENTAR E NOS ODS</h3>
                             <div class="speaker-info">
                                 <img src="images/palestrantes/alfredina.jpg" alt="Profa. Dra. Alfredina dos Santos Araújo" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Profa. Dra. Alfredina dos Santos Araújo</h4>
-                                    <p>UFCG/PPGSA/Campus Pombal - PB</p>
+                                    <p>UFCG/PPGSA/Campus Pombal</p>
                                 </div>
                             </div>
                         </div>
@@ -538,20 +635,22 @@
                                 <i class="fas fa-clock"></i>
                                 14:30 - 15:00
                             </div>
-                            <div class="activity-location">Geral</div>
+                            <div class="activity-location">Auditório Biblioteca</div>
                         </div>
                         <div class="activity-body">
-                            <h3 class="activity-title">MESA-REDONDA - DISCUSSÃO SOBRE AS TEMÁTICAS ABORDADAS NAS PALESTRAS</h3>
+                            <h3 class="activity-title">MESA-REDONDA - DISCUSSÃO SOBRE AS TEMÁTICAS ABORDADAS NAS PALESTRAS 4 E 5</h3>
                             <div class="speaker-info">
                                 <img src="images/palestrantes/alfredina.jpg" alt="Profa. Dra. Alfredina dos Santos Araújo" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Profa. Dra. Alfredina dos Santos Araújo</h4>
                                     <p>UFCG/PPGSA/Campus Pombal</p>
                                 </div>
+                            </div>
+                            <div class="speaker-info">
                                 <img src="images/palestrantes/Gilcean.png" alt="Dr. Gilcean" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Dr. Gilcean</h4>
-                                    <p>Instituto Federal da Paraíba - Sousa/PB</p>
+                                    <p>IFPB/Campus Sousa</p>
                                 </div>
                             </div>
                         </div>
@@ -575,7 +674,7 @@
                         <div class="activity-header">
                             <div class="activity-time">
                                 <i class="fas fa-clock"></i>
-                                15:30 - 16:00
+                                15:30
                             </div>
                             <div class="activity-location">Geral</div>
                         </div>
@@ -589,7 +688,7 @@
 
             <div class="period-section">
                 <div class="period-header">
-                    <i class="fas fa-moon"></i> NOITE - AUDITÓRIO BIBLIOTECA
+                    <i class="fas fa-moon"></i> NOITE - AUDITÓRIO INFORMÁTICA
                 </div>
                 <div class="activities-grid">
                     <div class="activity-card">
@@ -598,7 +697,7 @@
                                 <i class="fas fa-clock"></i>
                                 19:00 - 19:45
                             </div>
-                            <div class="activity-location">Auditório Biblioteca</div>
+                            <div class="activity-location">Auditório Informática</div>
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">ESCOLA DO CHOCOLATE: SUSTENTABILIDADE NA CULTURA CACAUEIRA EM RONDÔNIA - DA COLHEITA AO PROCESSAMENTO DO CACAU</h3>
@@ -606,7 +705,7 @@
                                 <img src="images/palestrantes/marilia.jpeg" alt="Profa. Dra. Marília Assis dos Santos" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Profa. Dra. Marília Assis dos Santos</h4>
-                                    <p>IFRO/Campus Jaru - RO</p>
+                                    <p>IFRO/Campus Jaru</p>
                                 </div>
                             </div>
                         </div>
@@ -618,7 +717,7 @@
                                 <i class="fas fa-clock"></i>
                                 19:45 - 20:30
                             </div>
-                            <div class="activity-location">Auditório Biblioteca</div>
+                            <div class="activity-location">Auditório Informática</div>
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">EXPERIÊNCIA DA AGROECOLOGIA NA PRODUÇÃO DE ALIMENTOS</h3>
@@ -638,7 +737,7 @@
                                 <i class="fas fa-clock"></i>
                                 20:30 - 21:15
                             </div>
-                            <div class="activity-location">Auditório Biblioteca</div>
+                            <div class="activity-location">Auditório Informática</div>
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">RECICLAGEM ANIMAL: PARA ONDE VÃO OS RESÍDUOS QUE NÃO CONSUMIMOS?</h3>
@@ -658,10 +757,10 @@
                                 <i class="fas fa-clock"></i>
                                 21:15 - 21:45
                             </div>
-                            <div class="activity-location">Geral</div>
+                            <div class="activity-location">Auditório Informática</div>
                         </div>
                         <div class="activity-body">
-                            <h3 class="activity-title">MESA-REDONDA - DISCUSSÃO SOBRE AS TEMÁTICAS ABORDADAS NAS PALESTRAS</h3>
+                            <h3 class="activity-title">MESA-REDONDA - DISCUSSÃO SOBRE AS TEMÁTICAS ABORDADAS NAS PALESTRAS 1 E 2</h3>
                             <div class="no-speaker">Momento de discussão sobre as temáticas abordadas nas palestras 1 e 2</div>
                         </div>
                     </div>
@@ -672,21 +771,36 @@
                                 <i class="fas fa-clock"></i>
                                 21:45 - 22:15
                             </div>
-                            <div class="activity-location">Geral</div>
+                            <div class="activity-location">Auditório Informática</div>
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">COFFEE BREAK/MOMENTO NETWORKING</h3>
                             <div class="no-speaker">Intervalo para networking e refreshments</div>
                         </div>
                     </div>
+
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                22:15
+                            </div>
+                            <div class="activity-location">Auditório Informática</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">MOMENTO CULTURAL/INTEGRAÇÃO NÚCLEO COMUM</h3>
+                            <div class="no-speaker">Atividade cultural de integração</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-<!-- dia quatro 16/10-->
+
+        <!-- DIA 3 - 16/10 -->
         <div class="day-content" id="day-3">
             <div class="period-section">
                 <div class="period-header">
-                    <i class="fas fa-sun"></i> MANHÃ - AUDITÓRIO CENTRAL
+                    <i class="fas fa-sun"></i> MANHÃ - AUDITÓRIO BIBLIOTECA
                 </div>
                 <div class="activities-grid">
                     <div class="activity-card">
@@ -695,7 +809,7 @@
                                 <i class="fas fa-clock"></i>
                                 08:00 - 08:45
                             </div>
-                            <div class="activity-location">Auditório Central</div>
+                            <div class="activity-location">Auditório Biblioteca</div>
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">MELHORAMENTO GENÉTICO DE BOVINOS PARA QUALIDADE DE CARNE</h3>
@@ -713,17 +827,17 @@
                         <div class="activity-header">
                             <div class="activity-time">
                                 <i class="fas fa-clock"></i>
-                                08:45 - 09:45
+                                08:45 - 09:30
                             </div>
-                            <div class="activity-location">Auditório Central</div>
+                            <div class="activity-location">Auditório Biblioteca</div>
                         </div>
                         <div class="activity-body">
-                            <h3 class="activity-title">POLÍTICAS PÚBLICAS DE INCLUSÃO PRODUTIVA RURAL: AVANÇOS E DESAFIOS PARA A AGRICULTURA FAMILIAR NO BRASIL</h3>
+                            <h3 class="activity-title">AUTOMATIZAÇÃO DE PROCESSOS USANDO N8N</h3>
                             <div class="speaker-info">
-                                <img src="images/palestrantes/" alt="Me. Paulo Sérgio Alves" class="speaker-photo">
+                                <img src="images/palestrantes/Guilherme Correia.png" alt="Guilherme Correia Dutra" class="speaker-photo">
                                 <div class="speaker-details">
-                                    <h4>A DEFINIR</h4>
-                                    <p>A definir palestrante</p>
+                                    <h4>Guilherme Correia Dutra</h4>
+                                    <p>Pesquisador - CEIA e Mestrando/UFG</p>
                                 </div>
                             </div>
                         </div>
@@ -733,7 +847,7 @@
                         <div class="activity-header">
                             <div class="activity-time">
                                 <i class="fas fa-clock"></i>
-                                09:45 - 10:15
+                                09:30 - 10:00
                             </div>
                             <div class="activity-location">Geral</div>
                         </div>
@@ -747,9 +861,9 @@
                         <div class="activity-header">
                             <div class="activity-time">
                                 <i class="fas fa-clock"></i>
-                                10:15 - 11:00
+                                10:00 - 10:45
                             </div>
-                            <div class="activity-location">Auditório Central</div>
+                            <div class="activity-location">Auditório Biblioteca</div>
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">QUALIDADE E SEGURANÇA DOS PRODUTOS ALIMENTÍCIOS PROCESSADOS NA CIDADE DE GOIÁS POR AGRICULTORES FAMILIARES</h3>
@@ -757,7 +871,7 @@
                                 <img src="images/palestrantes/adriana regia.jpeg" alt="Profa. Dra. Adriana Régia Marques de Souza" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Profa. Dra. Adriana Régia Marques de Souza</h4>
-                                    <p>UFG/Campus Samambaia - GO</p>
+                                    <p>UFG/Campus Samambaia</p>
                                 </div>
                             </div>
                         </div>
@@ -767,17 +881,31 @@
                         <div class="activity-header">
                             <div class="activity-time">
                                 <i class="fas fa-clock"></i>
-                                11:00 - 11:30
+                                10:45 - 11:15
                             </div>
-                            <div class="activity-location">Geral</div>
+                            <div class="activity-location">Auditório Biblioteca</div>
                         </div>
                         <div class="activity-body">
-                            <h3 class="activity-title">MESA-REDONDA - DISCUSSÃO SOBRE AS TEMÁTICAS ABORDADAS NAS PALESTRAS</h3>
+                            <h3 class="activity-title">MESA-REDONDA - DISCUSSÃO SOBRE AS TEMÁTICAS ABORDADAS NAS PALESTRAS 1, 2 E 3</h3>
                             <div class="speaker-info">
                                 <img src="images/palestrantes/adriana regia.jpeg" alt="Profa. Dra. Adriana Régia Marques de Souza" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Profa. Dra. Adriana Régia Marques de Souza</h4>
-                                    <p>UFG/Campus Samambaia - GO</p>
+                                    <p>UFG/Campus Samambaia</p>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <img src="images/palestrantes/Maury Dorta.png" alt="Me. Maury Dorta de Souza Junior" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Me. Maury Dorta de Souza Junior</h4>
+                                    <p>Embrapa Gado de Corte/Programa GenePlus</p>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <img src="images/palestrantes/Guilherme Correia.png" alt="Guilherme Correia Dutra" class="speaker-photo">
+                                <div class="speaker-details">
+                                    <h4>Guilherme Correia Dutra</h4>
+                                    <p>Pesquisador - CEIA e Mestrando/UFG</p>
                                 </div>
                             </div>
                         </div>
@@ -787,7 +915,7 @@
                         <div class="activity-header">
                             <div class="activity-time">
                                 <i class="fas fa-clock"></i>
-                                11:30 - 13:00
+                                11:15 - 13:00
                             </div>
                             <div class="activity-location">Geral</div>
                         </div>
@@ -814,14 +942,14 @@
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">
-                                <span class="minicurso-badge">Minicurso</span>
+                                <span class="minicurso-badge">Minicurso 1</span>
                                 ENTOMOFAGIA: UMA SOLUÇÃO SUSTENTÁVEL PARA A PRODUÇÃO DE PROTEÍNAS
                             </h3>
                             <div class="speaker-info">
                                 <img src="images/palestrantes/marcio.jpeg" alt="Prof. Márcio Ramatiz" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Prof. Márcio Ramatiz</h4>
-                                    <p>IF Goiano Campus Ceres - GO</p>
+                                    <p>IF Goiano/Campus Ceres</p>
                                 </div>
                             </div>
                         </div>
@@ -837,14 +965,14 @@
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">
-                                <span class="minicurso-badge">Minicurso</span>
+                                <span class="minicurso-badge">Minicurso 3</span>
                                 ANÁLISE SENSORIAL DE CHOCOLATE: INOVAÇÃO E SUSTENTABILIDADE NA AGROINDÚSTRIA CACAUEIRA
                             </h3>
                             <div class="speaker-info">
                                 <img src="images/palestrantes/marilia.jpeg" alt="Profa. Dra. Marília Assis dos Santos" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Profa. Dra. Marília Assis dos Santos</h4>
-                                    <p>IFRO/Campus Jaru - RO</p>
+                                    <p>IFRO/Campus Jaru</p>
                                 </div>
                             </div>
                         </div>
@@ -860,11 +988,11 @@
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">
-                                <span class="minicurso-badge">Minicurso</span>
+                                <span class="minicurso-badge">Minicurso 4</span>
                                 OFICINA DE CAFÉS ESPECIAIS
                             </h3>
                             <div class="speaker-info">
-                                <img src="images/palestrantes/rodrigo.jpeg" alt="Prof. Dr. Rodrigo Vieira" class="speaker-photo">
+                                <img src="images/palestrantes/rodrigo_vieira.jpeg" alt="Prof. Dr. Rodrigo Vieira" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Prof. Dr. Rodrigo Vieira</h4>
                                     <p>IF Goiano/Campus Morrinhos</p>
@@ -879,18 +1007,18 @@
                                 <i class="fas fa-clock"></i>
                                 13:00 - 15:30
                             </div>
-                            <div class="activity-location">Laboratório de Nematóides (20 vagas)</div>
+                            <div class="activity-location">Laboratório de Nematologia Agrícola (20 vagas)</div>
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">
-                                <span class="minicurso-badge">Minicurso</span>
+                                <span class="minicurso-badge">Minicurso 5</span>
                                 EXTRAÇÃO E IDENTIFICAÇÃO DE NEMATÓIDES
                             </h3>
                             <div class="speaker-info">
                                 <img src="images/palestrantes/gabriela.jpeg" alt="Gabriela Araújo Martins" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Gabriela Araújo Martins</h4>
-                                    <p>IF Goiano/Campus Morrinhos</p>
+                                    <p>Mestranda - IF Goiano/Campus Morrinhos</p>
                                 </div>
                             </div>
                         </div>
@@ -902,23 +1030,25 @@
                                 <i class="fas fa-clock"></i>
                                 13:00 - 15:30
                             </div>
-                            <div class="activity-location">Lab. Mecanização Agrícola (20 vagas)</div>
+                            <div class="activity-location">Laboratório de Mecanização Agrícola (20 vagas)</div>
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">
-                                <span class="minicurso-badge">Minicurso</span>
+                                <span class="minicurso-badge">Minicurso 6</span>
                                 REGULAGEM E CALIBRAÇÃO DE PULVERIZADORES
                             </h3>
                             <div class="speaker-info">
                                 <img src="images/Tulio de Almeida Machado.jpeg" alt="Prof. Dr. Túlio de Almeida Machado" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Prof. Dr. Túlio de Almeida Machado</h4>
-                                    <p>IF Goiano</p>
+                                    <p>IF Goiano/Campus Morrinhos</p>
                                 </div>
+                            </div>
+                            <div class="speaker-info">
                                 <img src="images/palestrantes/Marcelo Divino.jpeg" alt="Marcelo Divino de Moraes" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Marcelo Divino de Moraes</h4>
-                                    <p>IF Goiano</p>
+                                    <p>Mestrando - IF Goiano - Campus Morrinhos</p>
                                 </div>
                             </div>
                         </div>
@@ -934,7 +1064,7 @@
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">
-                                <span class="minicurso-badge">Minicurso</span>
+                                <span class="minicurso-badge">Minicurso 7</span>
                                 BIOCLIMATOLOGIA APLICADA À PRODUÇÃO DE BOVINOS
                             </h3>
                             <div class="speaker-info">
@@ -957,30 +1087,28 @@
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">
-                                <span class="minicurso-badge">Minicurso</span>
+                                <span class="minicurso-badge">Minicurso 9</span>
                                 OFICINA – COSMÉTICOS: BELEZA E CIÊNCIA
                             </h3>
                             <div class="speaker-info">
                                 <img src="images/palestrantes/Sandra.jpeg" alt="Dra Sandra Cristina Marquez" class="speaker-photo">
                                 <div class="speaker-details">
-                                    <h4>Dra Sandra Cristina Marquez e equipe</h4>
-                                    <p>IF Goiano Campus Morrinhos</p>
+                                    <h4>Dra Sandra Cristina Marquez</h4>
+                                    <p>IF Goiano/Campus Morrinhos</p>
                                 </div>
                             </div>
-
                             <div class="speaker-info">
-                                <img src="images/palestrantes/Isadora Mendonça.jpeg" alt="Dra Sandra Cristina Marquez" class="speaker-photo">
+                                <img src="images/palestrantes/Isadora Mendonça.jpeg" alt="Isadora Mendonça Neves" class="speaker-photo">
                                 <div class="speaker-details">
-                                    <h4> Isadora Mendonça Neves</h4>
-                                    <p>Discente Química</p>
+                                    <h4>Isadora Mendonça Neves</h4>
+                                    <p>Discente de Química - IF Goiano/Campus Morrinhos</p>
                                 </div>
                             </div>
-
                             <div class="speaker-info">
-                                <img src="images/palestrantes/Stella Mara Araújo.jpeg" alt="Dra Sandra Cristina Marquez" class="speaker-photo">
+                                <img src="images/palestrantes/Stella Mara Araújo.jpeg" alt="Stella Mara Araújo" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Stella Mara Araújo</h4>
-                                    <p>Discente Química</p>
+                                    <p>Discente Química - IF Goiano/Campus Morrinhos</p>
                                 </div>
                             </div>
                         </div>
@@ -996,7 +1124,7 @@
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">
-                                <span class="minicurso-badge">Minicurso</span>
+                                <span class="minicurso-badge">Minicurso 10</span>
                                 SELEÇÃO DE REPRODUTORES BOVINOS
                             </h3>
                             <div class="speaker-info">
@@ -1019,19 +1147,21 @@
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">
-                                <span class="minicurso-badge">Minicurso</span>
+                                <span class="minicurso-badge">Minicurso 11</span>
                                 MICROBIOLOGIA APLICADA À INDÚSTRIA DE ALIMENTOS
                             </h3>
                             <div class="speaker-info">
                                 <img src="images/palestrantes/alfredina.jpg" alt="Profa. Dra. Alfredina dos Santos Araújo" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Profa. Dra. Alfredina dos Santos Araújo</h4>
-                                    <p>>UFCG/PPGSA/Campus Pombal</p>
+                                    <p>UFCG/PPGSA/Campus Pombal</p>
                                 </div>
-                                <img src="images/Wiaslan Figueiredo Martins (2).jpeg" alt="Prof. Dr. Wiaslan Figueiredo Martins" class="speaker-photo">
+                            </div>
+                            <div class="speaker-info">
+                                <img src="images/Wiaslan Figueiredo Martins (2).jpeg" alt="Prof. Dr. Wiaslan Figueirado Martins" class="speaker-photo">
                                 <div class="speaker-details">
-                                    <h4>Prof. Dr. Wiaslan Figueiredo Martins</h4>
-                                    <p>IF Goiano</p>
+                                    <h4>Prof. Dr. Wiaslan Figueirado Martins</h4>
+                                    <p>IF Goiano/PPGBB/Campus Morrinhos</p>
                                 </div>
                             </div>
                         </div>
@@ -1043,11 +1173,11 @@
                                 <i class="fas fa-clock"></i>
                                 13:00 - 15:30
                             </div>
-                            <div class="activity-location">Sala do Lab. de Alimentos e Campo</div>
+                            <div class="activity-location">Sala do Laboratório de Alimentos e Campo</div>
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">
-                                <span class="minicurso-badge">Minicurso</span>
+                                <span class="minicurso-badge">Minicurso 12</span>
                                 PALMA FORRAGEIRA: PLANTIO, MANEJO E UTILIZAÇÃO
                             </h3>
                             <div class="speaker-info">
@@ -1070,19 +1200,21 @@
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">
-                                <span class="minicurso-badge">Minicurso</span>
+                                <span class="minicurso-badge">Minicurso 13</span>
                                 ELABORAÇÃO DE PROJETOS PARA COMITÊ DE ÉTICA EM PESQUISA: DA IDEIA À SUBMISSÃO
                             </h3>
                             <div class="speaker-info">
                                 <img src="images/palestrantes/Suely Ribeiro.png" alt="Profa. Dra. Suely Ribeiro Cunha" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Profa. Dra. Suely Ribeiro Cunha</h4>
-                                    <p>IF Goiano</p>
+                                    <p>IF Goiano/Campus Morrinhos</p>
                                 </div>
-                                <img src="images/palestrantes/Sangelita.png" alt="Profa. Dra. Sangelita F. Mariando" class="speaker-photo">
+                            </div>
+                            <div class="speaker-info">
+                                <img src="images/palestrantes/Sangelita.png" alt="Profa. Dra. Sangelita F. Mariano" class="speaker-photo">
                                 <div class="speaker-details">
-                                    <h4>Profa. Dra. Sangelita F. Mariando</h4>
-                                    <p>IF Goiano</p>
+                                    <h4>Profa. Dra. Sangelita F. Mariano</h4>
+                                    <p>IF Goiano/Campus Morrinhos</p>
                                 </div>
                             </div>
                         </div>
@@ -1094,18 +1226,18 @@
                                 <i class="fas fa-clock"></i>
                                 13:00 - 15:30
                             </div>
-                            <div class="activity-location">Auditório Central (30 vagas)</div>
+                            <div class="activity-location">Auditório Central (30 vagas): Exclusivo Cursos Técnicos</div>
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">
-                                <span class="minicurso-badge">Minicurso Cultural</span>
+                                <span class="minicurso-badge">Minicurso Cultural 14</span>
                                 VIVÊNCIA DE MACULELÊ NA ESCOLA
                             </h3>
                             <div class="speaker-info">
                                 <img src="images/palestrantes/thommy.jpeg" alt="Thommy Gimaque Nascimento" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Thommy Gimaque Nascimento</h4>
-                                    <p>Instrutor Cultural</p>
+                                    <p>Professor de capoeira - Manaus - AM</p>
                                 </div>
                             </div>
                         </div>
@@ -1129,7 +1261,7 @@
                         <div class="activity-header">
                             <div class="activity-time">
                                 <i class="fas fa-clock"></i>
-                                16:30 - 17:00
+                                16:30
                             </div>
                             <div class="activity-location">Geral</div>
                         </div>
@@ -1156,23 +1288,41 @@
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">
-                                <span class="minicurso-badge">Minicurso</span>
+                                <span class="minicurso-badge">Minicurso 1</span>
                                 ANÁLISE SENSORIAL DE CHOCOLATE: INOVAÇÃO E SUSTENTABILIDADE NA AGROINDÚSTRIA CACAUEIRA
                             </h3>
                             <div class="speaker-info">
                                 <img src="images/palestrantes/marilia.jpeg" alt="Profa. Dra. Marília Assis dos Santos" class="speaker-photo">
                                 <div class="speaker-details">
                                     <h4>Profa. Dra. Marília Assis dos Santos</h4>
-                                    <p>IFRO/Campus Jaru - RO</p>
+                                    <p>IFRO/Campus Jaru</p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card minicurso">
+                        <div class="activity-header">
+                            <div class="activity-time">
+                                <i class="fas fa-clock"></i>
+                                19:30 - 22:00
+                            </div>
+                            <div class="activity-location">TSI</div>
+                        </div>
+                        <div class="activity-body">
+                            <h3 class="activity-title">
+                                <span class="minicurso-badge">Minicurso 2</span>
+                                TSI
+                            </h3>
+                            <div class="no-speaker">A definir palestrante</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-          <div class="day-content" id="day-4">
+          <!-- DIA 4 - 17/10 -->
+        <div class="day-content" id="day-4">
             <div class="period-section">
                 <div class="period-header">
                     <i class="fas fa-sun"></i> MANHÃ - AUDITÓRIO BIBLIOTECA
@@ -1256,9 +1406,9 @@
                         <div class="activity-header">
                             <div class="activity-time">
                                 <i class="fas fa-clock"></i>
-                                10:45 - 11:15
+                                10:45 - 11:00
                             </div>
-                            <div class="activity-location">Geral</div>
+                            <div class="activity-location">Auditório Biblioteca</div>
                         </div>
                         <div class="activity-body">
                             <h3 class="activity-title">MESA-REDONDA</h3>
@@ -1270,13 +1420,13 @@
                         <div class="activity-header">
                             <div class="activity-time">
                                 <i class="fas fa-clock"></i>
-                                11:15
+                                11:00
                             </div>
-                            <div class="activity-location">Geral</div>
+                            <div class="activity-location">Ver com João</div>
                         </div>
                         <div class="activity-body">
-                            <h3 class="activity-title">ALMOÇO</h3>
-                            <div class="no-speaker">Intervalo para almoço</div>
+                            <h3 class="activity-title">ENCERRAMENTO</h3>
+                            <div class="no-speaker">Premiação dos trabalhos e do Conecta Campi</div>
                         </div>
                     </div>
                 </div>
