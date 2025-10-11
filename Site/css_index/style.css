@@ -1457,7 +1457,7 @@ footer {
 }
 
 .activity-header {
-    background: var(--primary);
+    background: var(--secondary);
     color: var(--white);
     padding: 1rem 1.5rem;
     display: flex;
