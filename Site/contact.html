@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - INOFAS & ENAGROTECH 2025</title>
+    <link rel="stylesheet" href="css_index/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>INOFAS & ENAGROTECH</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li><a href="objectives.html">Objetivos</a></li>
+                    <li><a href="registration.html">Inscrições</a></li>
+                    <li><a href="SubmissãoDeTrabalhos.html">Submissão de Trabalhos</a></li>
+                    <li><a href="programação.html">Programação</a></li>
+                    <li><a href="comissão.html">Comissão</a></li>
+                    <li><a href="palestrantes.html" >Palestrantes</a></li>
+                    <li><a href="conectaCcampi.html">Conecta Campi</a></li>
+                    <li><a href="contact.html" class="active">Contato</a></li>
+                </ul>
+                <button class="menu-btn" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="site-main container" style="margin-top:2rem;">
+            <div class="cards-grid" aria-labelledby="contact-title">
+                <h2 id="contact-title" class="sr-only">Contato</h2>
+                <article class="card">
+                    <h3>Email</h3>
+                    <p>Inofasenagrotech.mhos@ifgoiano.edu.br</p>
+                </article>
+                <article class="card">
+                    <h3>Telefone</h3>
+                    <p>(64) 3413-0300</p>
+                </article>
+                <article class="card">
+                    <h3>Localização</h3>
+                    <p>IF Goiano - Campus Morrinhos</p>
+                    <p>BR-153, Km 633, Zona Rural</p>
+                    <p>Morrinhos - GO, 75650-000</p>
+                </article>
+            </div>
+        </section>
+    </main>
+    
+     <footer>
+        <div class="footer-white-bar" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+            <!-- Realização -->
+             <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-weight: bold; color: #2E7D32; margin-right: 12px;">Realização:</span>
+                <img src="/Site/images/if_logo.png" alt="Logo IF Goiano" class="footer-logo" />
+                <img src="/Site/images/olericultura_logo.png" alt="Logo Olericultura" class="footer-logo" />
+                <img src="/Site/images/PPGBB_logo.png" alt="Logo PPGBB" class="footer-logo" />
+
+            </div>
+            <!-- Apoio -->
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-weight: bold; color: #2E7D32; margin-right: 12px;">Apoio:</span>
+                <img src="/Site/images/capes_logo.png" alt="Logo CAPES" class="footer-logo" />
+                <img src="/Site/images/fapeg_logo.png" alt="Logo FAPEG" class="footer-logo" />
+                <img src="/Site/images/faegjovem_logo.png" alt="Logo FAEG Jovem" class="footer-logo" height="100px"/>
+            </div>
+        </div>
+        <div class="footer-green-bar">
+            <span>
+                Realização: IF Goiano, PPGBB, Olericultura &nbsp;|&nbsp; Apoio: CAPES, FAPEG, FAEG Jovem
+            </span>
+        </div>
+    </footer>
+        <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Localização</h3>
+                    <p>IF Goiano - Campus Morrinhos</p>
+                    <p>Rodovia GO-320, Km 29, Zona Rural</p>
+                    <p>Morrinhos - GO, 75650-000</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>Email: inofas.enagrotech@ifgoiano.edu.br</p>
+                    <p>Telefone: (64) 3413-0300</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 INOFAS & ENAGROTECH - IF Goiano Campus Morrinhos. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+    document.querySelector('.menu-btn').addEventListener('click', function () {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.remove('active');
+        });
+    });
+    </script>
+</body>
+</html>
